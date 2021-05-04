@@ -9,11 +9,14 @@ import java.util.List;
 
 
 public class BattleArea extends DangerArea{
+
+    //FIELDS
     public Enemy enemy;
     private String previousArea;
     private BattleSequence battleSequence;
     private BattleAreaTypes battleAreaType;
 
+    //CONSTRUCTOR
     public BattleArea(String name, AreaList areas, List<Command> command, AreaInfo areaInfo, String previousArea, BattleAreaTypes battleAreaType) {
         super(name, areas, command, areaInfo);
         battleSequence = new BattleSequence(battleAreaType);
@@ -24,17 +27,19 @@ public class BattleArea extends DangerArea{
     /**
      * Band aid- Reviving enemy needs to be pulled out... also, may be wise to create an enemy generator.
      */
+
+    //METHODS
     public void battle(){
         enemy = EnemyGenerator.generate(battleAreaType);
         battleSequence.battle();
     }
 
-    public String getPreviousArea(){
-        return this.previousArea;
+    public void showEnemy(){
+        System.out.println( "Current enemy is :" + this.enemy.getName());
     }
 
-    public void showEnemy(){
-        System.out.println( "Current enemy is :" +this.enemy.getName());
-
+    //GETTER
+    public String getPreviousArea(){
+        return this.previousArea;
     }
 }
