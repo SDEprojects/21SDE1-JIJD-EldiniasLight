@@ -62,6 +62,26 @@
         "intel": 5,
         "speed": 1,
         "dialog": "Welcome to my Inn"
+      },
+      "Hank": {
+        "name": "Hank",
+        "health": 10,
+        "strength": 10,
+        "defense": 10,
+        "bezos": 10,
+        "intel": 10,
+        "speed": 34,
+        "dialog": "Welcome to the Armory"
+      },
+      "Hans": {
+        "name": "Hans",
+        "health": 10,
+        "strength": 10,
+        "defense": 10,
+        "bezos": 10,
+        "intel": 10,
+        "speed": 34,
+        "dialog": "Welcome to the Magic Shop"
       }
     }
   },
