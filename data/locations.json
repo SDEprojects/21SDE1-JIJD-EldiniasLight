@@ -1,0 +1,86 @@
+"locations": {
+  "Lucino Town" : {
+    "description": " The largest city in Eldina and one of the last strong holds preventing Tyroneious form gaining complete control",
+     "Neighbors": ["lucino shops","lucino town hall"]
+  },
+  "Lucino Shops" : {
+    "description": "You are in a market place with a variety of shops. You can see the Armory, Inn, and Magic shop. ",
+    "Neighbors": ["armory", "magic", "inn", "front gate", "lucino town"]
+  },
+  "Armory" : {
+  "description": " no description so far",
+  "Neighbors": ["lucino shops"]
+  },
+  "Lucino Town Hall" : {
+    "description": " no description so far",
+    "Neighbors": ["lucino Town, Warchief"]
+  },
+  "Warchief" : {
+    "description": " no description so far",
+    "Neighbors": [" Lucino Town Hall"]
+  },
+  "Magic" : {
+  "description": " no description so far",
+  "Neighbors": ["Lucino Shops"]
+  },
+  "Front Gate" : {
+    "description": "The main enterance to Lucino Town. It looks strong and sturdy, but you can see the marks left by a recent attack",
+    "Neighbors": ["lucino shops", "open world"]
+  },
+  "Open World" : {
+  "description": "A vast open area. You see a sign that point to the evil forest, badlands, fire mountain and Castle Eldina",
+  "Neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"]
+  },
+  "Evil Forest" : {
+    "description": "A forest full of brown trees. There is a odd smell in the air. There are two trial, one leading deeper into the forest, and the second to the Giant's lair",
+    "Neighbors": ["open world", "inner evil forest", "evil forest lair"]
+  },
+  "Inner Evil Forest" : {
+    "description": " The path takes you deeper into the forest and it starts to get darker. There is is another path that takes you to what looks like a lair of some type. You cab hear a sinister sound you turn and prepare for battle",
+    "Neighbors": ["evil forest", "evil forest lair"]
+  },
+  "Evil Forest Lair" : {
+    "description": "The forest seems to have open up and the tree seem to no longer block the little light in the sky. You can see the two trails that lead here. You can see the remains of the Giant's victims scattered on the ground. Suddenly you hear a loud thud followed by another. They seem to get closer"",
+    "Neighbors": ["evil forest", "inner evil forest "]
+  },
+  "Badlands" : {
+    "description": "You find yourself if a desolate land. you can tell that it was once full of life, but that life has been drained by the dark powers of Tyroneous. There is sign pointing to Fang hill and Elki Town",
+    "Neighbors": ["open world", "elki town", "fang hill"]
+  },
+  "Elki Town" : {
+    "description": "A small town that sits within the Badlands. The people seem to be on edge",
+    "Neighbors": ["badlands", "fang hill"]
+  },
+  "Fang Hill" : {
+    "description": "A hill covered area known to be home of wolves. you should be careful as they can attack from nowhere",
+    "Neighbors": ["badlands", "elki town"]
+  },
+  "Fire Mountain" : {
+  "description": "You have come to the area of Fire Mountain the highest area of all the land. You can see the red glow from the lava within and the large smoke cloud it makes. It is know to the be the home of deadly Dragon You can see the pat that takes you to the base of the mountain",
+  "Neighbors": ["badlands", "elki town"]
+  },
+  "Base" : {
+    "description": "You have made it to the the base of the mountain. Above you can see a cave that is home to the Dragon There seems to be a something moving towards you that doesn't want you to reach the cave",
+    "Neighbors": ["fire mountain", "cave"]
+  },
+  "Cave" : {
+    "description": "You have climbed the mountain face and reached a Cave. You enter and the smell of sulfur hangs in the air. It seems to get warmer as you mover further in steeping over the charred skeletons. Suddenly there is a bright light and you hear a roar.",
+    "Neighbors": ["fire mountain", "base"]
+  },
+  "Castle Eldina" : {
+    "description": "The great Castle Eldian, once the home to King Lumas. You can see what the dark influence of Tyroneius had done",
+    "Neighbors": ["open world", "training grounds", "dungeon", "throne room"]
+  },
+  "Training Grounds" : {
+      "description": "This is the area one ran buy the War chief to train the soldiers of Eldiean. Now you can find some black market merchants that can sell you some useful items.",
+    "Neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"]
+  },
+  "Dungeon" : {
+    "description": "You find yourself in the castle dungeon. those once held as prisoners have been changed into monsters",
+    "Neighbors": ["training grounds", "castle eldina","throne room"]
+  },
+  "Throne Room" : {
+    "description": "You have entered the throne room. You can see Tyroneious sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
+    "Neighbors": ["castle eldina", "dungeon","training grounds"]
+  }
+}
