@@ -8,6 +8,8 @@ import java.util.List;
 public class SafeArea extends Area{
 
     //CONSTRUCTOR
+
+    //Used in Interface WorldAreas
     public SafeArea(String name, AreaList areas, List<Command> command, AreaInfo areaInfo, List<? super Character> characterList) {
         super(name, areas, command, areaInfo, characterList);
     }

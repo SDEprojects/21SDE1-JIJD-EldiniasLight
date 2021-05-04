@@ -16,6 +16,8 @@ public class QuestArea extends SafeArea{
     public QuestNPC driver;
 
     //Constructor
+
+    //Used in Interface WorldAreas
     public QuestArea(String name, AreaList areas, List<Command> command, List<Item> itemList, QuestNPC driver,AreaInfo areaInfo) {
         super(name, areas, command,areaInfo, NPCDict.emptyCharacterList);
         this.driver = driver;
@@ -26,7 +28,7 @@ public class QuestArea extends SafeArea{
         items.forEach((k,v) -> System.out.println(k) );
     }
 
-    //*** Could not understand the logic behind this function. Repeat function from ShopArea
+    //*** Could not understand the logic behind this function. Repeat function from class ShopArea
 //    public void buy(){
 //        driver.talk();
 //    }

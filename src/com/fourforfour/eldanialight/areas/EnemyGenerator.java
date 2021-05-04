@@ -13,7 +13,9 @@ public class EnemyGenerator {
     private String dialog;
 
     //METHODS
-    //create enemies
+
+    //Used in class BattleArea and BattleSequence
+    //create enemy
     public static Enemy generate(BattleAreaTypes area){
         return  newEnemy(area);
     }

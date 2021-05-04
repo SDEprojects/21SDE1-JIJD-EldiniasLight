@@ -22,6 +22,7 @@ public class BattleSequence {
     // make attack method and check to see if the character that got attacked is still alive
 
     //CONSTRUCTOR
+    //Called in class BattleArea
     public BattleSequence(BattleAreaTypes battleAreaTypes){
         this.battleAreaTypes = battleAreaTypes;
         this.enemy= EnemyGenerator.generate(battleAreaTypes);
@@ -29,13 +30,14 @@ public class BattleSequence {
 
     //METHODS
 
+
     public void battle(){
         if(enemy.getHealth() < 1) enemy = EnemyGenerator.generate(battleAreaTypes);
         battleChoice();
         System.out.println("");
     }
 
-    //options to battle
+    //options to battle: run() and fight(). Also used a helper functions in above functions
     public void battleChoice(){
         System.out.println(" You have entered a battle with " + this.enemy.getName() );//+ current enemy whenever we assign that value
         System.out.println("Do you want to fight or run?");
@@ -51,7 +53,7 @@ public class BattleSequence {
         }
     }
 
-    //set the character health to max and perform action according to the player's input
+    //set the character health to max and perform action according to the player's input: attack, use item, run(), fight()
     public void fight(){
         String fightChoice;
         Game.character.setMaxHealth(Game.character.getHealth());
@@ -77,7 +79,7 @@ public class BattleSequence {
         }
 }
 
-    //win situation during a battle
+    //player wins a battle if enemy health < 1 and loses when player's health is < 1
     public void attack(){
         Game.character.attack(this.enemy);
         if(this.enemy.getHealth()<1){
@@ -89,7 +91,7 @@ public class BattleSequence {
         }
     }
 
-    //check if the the player was able escape from the enemy
+    //check if the the player was able escape from the enemy. If not, continue fight().
     public void run(){
         if(Game.character.run(this.enemy)){
             System.out.println("you have successfully ran away from " + this.enemy.getName());
@@ -109,7 +111,7 @@ public class BattleSequence {
         System.out.println("If you attack the enemy will attack back.");
     }
 
-    //Battle win situation amd add awardItem
+    //Battle win situation and add awardItem
     public void win(){
         Game.character.setXp((Game.character.getXp())+this.enemy.getXp());
         Game.character.setBezos((Game.character.getBezos())+ this.enemy.getBezos());
@@ -122,7 +124,7 @@ public class BattleSequence {
         System.out.println("You will be returning to " + area.getPreviousArea());
         Game.currentArea = Game.world.get(area.getPreviousArea());
         Game.character.addXp();
-                stillFighting = false;
+        stillFighting = false;
     }
 
     //battle lose situation and set currentArea to Lucino Town
