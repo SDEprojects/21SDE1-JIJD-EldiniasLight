@@ -27,7 +27,8 @@ public class AreaList {
         }
     }
 
-    //CHECK IF THE area BELONGS TO ONE OF THE AREAS: BattleArea, ShopArea, DangerArea, and QuestArea & print with different color
+    //Used in class Area
+    //CHECK IF THE area BELONGS TO ONE OF THE AREAS: BattleArea, ShopArea, DangerArea, and QuestArea & print with different font color
     public void view(){
         for(String area: areaList){
             System.out.print("->");

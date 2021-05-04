@@ -29,11 +29,15 @@ public class BattleArea extends DangerArea{
      */
 
     //METHODS
+
+    //Used in class AreaKommands
+    //
     public void battle(){
         enemy = EnemyGenerator.generate(battleAreaType);
         battleSequence.battle();
     }
 
+    //***Not being used anywhere
     public void showEnemy(){
         System.out.println( "Current enemy is :" + this.enemy.getName());
     }

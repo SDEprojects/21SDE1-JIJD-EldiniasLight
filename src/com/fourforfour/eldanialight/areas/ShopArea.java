@@ -16,6 +16,7 @@ public class ShopArea extends SafeArea{
     public ShopNPC vendor;
 
     //CONSTRUCTORS
+    //Called in Interface WorldAreas
     public ShopArea(String name, AreaList areas, List<Command> command, List<Item> itemList, ShopNPC vendor,AreaInfo areaInfo) {
         super(name, areas, command, areaInfo, NPCDict.emptyCharacterList);
         this.vendor = vendor;
@@ -25,6 +26,7 @@ public class ShopArea extends SafeArea{
     }
 
     //METHODS
+
     public void view(){
         items.forEach((k,v) -> System.out.println(k) );
     }
