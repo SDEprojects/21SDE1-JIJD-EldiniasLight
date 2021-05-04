@@ -18,6 +18,7 @@ import com.fourforfour.eldanialight.items.UtilityItem;
  */
 public interface WorldAreas {
 
+    // JSON for all these
     Area lucino_town = new SafeArea("lucino town",
             new AreaList("lucino shops", "carnival", "lucino town hall"),
             AreaKommands.worldCommand,AreaInfo.LUCINO_TOWN, NPCDict.emptyCharacterList);

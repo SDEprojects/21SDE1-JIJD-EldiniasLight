@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+
 public class ShopArea extends SafeArea{
+
+    //FIELDS
     HashMap<String, Item> items = new HashMap<>();
     public ShopNPC vendor;
 
+    //CONSTRUCTORS
     public ShopArea(String name, AreaList areas, List<Command> command, List<Item> itemList, ShopNPC vendor,AreaInfo areaInfo) {
         super(name, areas, command, areaInfo, NPCDict.emptyCharacterList);
         this.vendor = vendor;
@@ -20,14 +24,12 @@ public class ShopArea extends SafeArea{
         }
     }
 
+    //METHODS
     public void view(){
         items.forEach((k,v) -> System.out.println(k) );
     }
 
-    public HashMap<String, Item> getItems() {
-        return items;
-    }
-
+    //*** Does not look like this function is being called anywhere. Repeat from ShopNPC
     public void buy(){
         vendor.talk();
         vendor.barter(items);
@@ -39,5 +41,10 @@ public class ShopArea extends SafeArea{
         }else{
             buy();
         }
+    }
+
+    //GETTERS
+    public HashMap<String, Item> getItems() {
+        return items;
     }
 }

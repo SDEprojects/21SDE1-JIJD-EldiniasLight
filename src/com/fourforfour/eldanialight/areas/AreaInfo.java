@@ -5,7 +5,7 @@ import com.fourforfour.eldanialight.characters.Enemy;
 
 public enum AreaInfo {
 
-    //areas of Lucino town
+    //AREAS OF LUCINO TOWN
     LUCINO_TOWN(" The largest city in Eldina and one of the last strong holds preventing Tyroneious form" +
             "gaining complete control"),
     LUCINO_SHOPS("You are in a market place with a variety of shops. You can see the Armory, Inn, and Magic shop. "),
@@ -50,15 +50,17 @@ public enum AreaInfo {
     THRONE_ROOM("You have entered the throne room. You can see Tyroneious sitting with a sinister grin upon his face. " +
             "You can feel his evil intent as you prepare yourself for battle!");
 
+    //FIELD
     String info;
 
+    //CONSTRUCTOR
      AreaInfo(String info){
     this.info = info;
     }
+
+    //METHOD
     public String getDescription(){
         return info;
     }
-
-
 
 }//EOC
