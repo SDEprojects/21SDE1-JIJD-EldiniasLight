@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EldiniasLight:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EldiniasLight_jar</output-path>
+    <root id="archive" name="EldiniasLight.jar">
+      <element id="module-output" name="EldiniasLight" />
+    </root>
+  </artifact>
+</component>
