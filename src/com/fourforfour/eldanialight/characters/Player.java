@@ -41,6 +41,7 @@ public class Player extends Character implements BattleActions {
 
         // creates PlayerName
         System.out.println("What shall we call you?:");
+        // SHOW ANY CLASS OPTIONS
         player.setName(scanner.nextLine());
 
 
