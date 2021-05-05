@@ -15,7 +15,6 @@ public enum AreaInfo {
 
     OPEN_WORLD("A vast open area. You see a sign that point to the evil forest, badlands, fire mountain" +
             "and Castle Eldina"),
-
     //evil forest and areas within
     EVIL_FOREST("A forest full of brown trees. There is a odd smell in the air. There are two trial, one leading" +
             "deeper into the forest, and the second to the Giant's lair"),

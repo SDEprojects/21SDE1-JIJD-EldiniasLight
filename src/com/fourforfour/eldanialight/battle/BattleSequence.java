@@ -93,6 +93,11 @@ public class BattleSequence {
     public void run(){
         if(Game.character.run(this.enemy)){
             System.out.println("you have successfully ran away from " + this.enemy.getName());
+            BattleArea area = (BattleArea) Game.currentArea;
+            System.out.println("You will be returning to " + area.getPreviousArea());
+            Game.currentArea = Game.world.get(area.getPreviousArea());
+            stillFighting = false;
+
         } else{
             System.out.println("You were not fast enough to run away. you must stay and fight, good luck ");
             fight();
@@ -118,7 +123,7 @@ public class BattleSequence {
         System.out.println("You received a "+this.enemy.rewardItem);
         Game.character.questItems.add(this.enemy.rewardItem);
 
-       BattleArea area = (BattleArea) Game.currentArea;
+        BattleArea area = (BattleArea) Game.currentArea;
         System.out.println("You will be returning to " + area.getPreviousArea());
         Game.currentArea = Game.world.get(area.getPreviousArea());
         Game.character.addXp();
