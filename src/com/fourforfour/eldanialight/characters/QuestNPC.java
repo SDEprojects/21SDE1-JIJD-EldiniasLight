@@ -6,22 +6,26 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class QuestNPC extends Character implements InteractActions {
+    //Change the color of the text
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_GREEN = "\u001B[32m";
+
+    //fields for different quests and accepting them
     private String dialog;
     private Quest quest;
     private boolean questAccepted = false;
     private String name;
-    public QuestNPC(String name, double health, int strength, int defense, int bezos, int intel, int speed,String dialog, Quest quest) {
+
+    //constructor for NPC
+    public QuestNPC(String name, double health, int strength, int defense, int bezos, int intel, int speed, String dialog, Quest quest) {
         super(name, health, strength, defense, bezos, intel, speed);
         this.quest = quest;
         this.dialog = dialog;
     }
 
-    private void giveQuest(){
+    private void giveQuest() {
         Game.character.addQuest(quest);
     }
-
 
 
 //    public static Character warChief(){
@@ -51,43 +55,48 @@ public class QuestNPC extends Character implements InteractActions {
 //
 //        }
 //    }
-    private void offerQuest(){
-        if(quest.completion()){
-            System.out.println(TEXT_GREEN+"Thank you great Warrior you have returned the light to Eldina and and its people."+TEXT_RESET);
+
+    //Method used to get offered a quest and determine if you want to take it or not
+    private void offerQuest() {
+        if (quest.completion()) {
+            System.out.println(TEXT_GREEN + "Thank you great Warrior you have returned the light to Eldina and and its people." + TEXT_RESET);
             System.exit(0);
             return;
         }
-        if(questAccepted){
+        if (questAccepted) {
             System.out.println("What are you doing wasting time, Eldinia is counting on you!");
             return;
         }
-        System.out.println(TEXT_GREEN+"Are you up to the challenge? will you accept " + quest.getName() + "? "+TEXT_RESET);
+        System.out.println(TEXT_GREEN + "Are you up to the challenge? will you accept " + quest.getName() + "? " + TEXT_RESET);
         String input = scanner.nextLine().toLowerCase(Locale.ROOT).trim();
-        switch (input){
+        switch (input) {
             case "yes":
                 questAccepted = true;
                 giveQuest();
                 break;
             case "no":
-                System.out.println(TEXT_GREEN+"That is why you are here you know?"+TEXT_RESET);
+                System.out.println(TEXT_GREEN + "That is why you are here you know?" + TEXT_RESET);
                 break;
             default:
-                System.out.println(TEXT_GREEN+"Invalid entry, please answer me " + Game.character.getName()+TEXT_RESET);
+                System.out.println(TEXT_GREEN + "Invalid entry, please answer me " + Game.character.getName() + TEXT_RESET);
                 offerQuest();
         }
     }
 
+    //Method to talk about the quest off
     @Override
     public void talk() {
         System.out.println(dialog);
         offerQuest();
     }
 
+    //Method to buy items
     @Override
     public void buy() {
 
     }
 
+    //Method to sell items
     @Override
     public void sell() {
 

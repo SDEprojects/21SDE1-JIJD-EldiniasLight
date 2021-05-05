@@ -75,8 +75,7 @@ public class SimpleAudioPlayer
 //        }
     }
 
-    // Work as the user enters his choice
-
+    // Work as the user enters their choice
     private void gotoChoice(int c)
             throws IOException, LineUnavailableException, UnsupportedAudioFileException
     {
