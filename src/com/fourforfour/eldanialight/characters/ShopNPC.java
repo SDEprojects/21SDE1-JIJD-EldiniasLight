@@ -10,23 +10,27 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class ShopNPC extends Character implements InteractActions {
+    //field for dialog and user input
     private String dialog;
     Scanner scanner = new Scanner(System.in);
 
-
+    //constructor for the ShopNPC
     public ShopNPC(String name, int health, int strength, int defense, int bezos, int intel, int speed, String dialog) {
         super(name, health, strength, defense, bezos, intel, speed);
         this.dialog = dialog;
     }
 
+    //following method are from the InteractActions interface
     public void talk() {
         System.out.println(" Hello traveler what can I do for you?");
     }
 
+    //following method are from the InteractActions interface
     public void buy() {
-        //implement
     }
 
+    //following methods are from the InteractActions interface
+    //method to buy items for your character
     public void sell() {
         if (Game.character.items.size() == 0) {
             System.out.println("You have nothing to sell!");
@@ -47,6 +51,7 @@ public class ShopNPC extends Character implements InteractActions {
         }
     }
 
+    //Method to buy items for your character
     public void barter(HashMap<String, Item> items) {
         this.talk();
         System.out.println("BUY or SElL or LEAVE");
@@ -57,15 +62,15 @@ public class ShopNPC extends Character implements InteractActions {
             System.out.println("Please Select an Item form above");
             String selectedItem = scanner.nextLine();
             if (items.containsKey(selectedItem)) {
-                if(Game.character.getBezos() >= items.get(selectedItem).getItemWorth()){
+                if (Game.character.getBezos() >= items.get(selectedItem).getItemWorth()) {
                     System.out.println("Excellent Choice traveler: +1 " + selectedItem);
                     Game.character.setBezos(Game.character.getBezos() - items.get(selectedItem).getItemWorth());
                     Game.character.addItem(items.get(selectedItem));
-                }else{
+                } else {
                     System.out.println("You do not have enough to buy that item!");
                 }
 
-            }else{
+            } else {
                 System.out.println("Sorry traveler, we don't have that here: " + selectedItem);
             }
             barter(items);

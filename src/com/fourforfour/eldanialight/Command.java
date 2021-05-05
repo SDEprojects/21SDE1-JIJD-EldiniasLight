@@ -1,6 +1,7 @@
 package com.fourforfour.eldanialight;
 
 public enum Command {
+    //ENUM for Commands the user can choose from, most are used in the AreaKommand class
     VIEW,
     GO,
     RUN,

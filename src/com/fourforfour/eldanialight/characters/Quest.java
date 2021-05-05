@@ -3,6 +3,7 @@ package com.fourforfour.eldanialight.characters;
 import com.fourforfour.eldanialight.items.Item;
 
 abstract class Quest {
+    //fields to initialize the quest information, line 8,9,10 not used
     private String name;
     private Item reward;
     private int xpReward;

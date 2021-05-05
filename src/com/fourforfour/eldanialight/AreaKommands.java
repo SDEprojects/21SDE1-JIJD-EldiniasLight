@@ -13,14 +13,16 @@ import java.util.List;
  * AreaKommands is a singletonclass that will hold premade command instances for the application
  */
 
+//ArrayList of Kommands the player can choose from
 public class AreaKommands {
     public static List<Command> shopCommand = new ArrayList<>();
-    public static List<Command>  worldCommand = new ArrayList<>();
-    public static List<Command>  battleCommand = new ArrayList<>();
-    public static List<Command>  townHallCommand = new ArrayList<>();
-    public static List<Command>  talkCommand = new ArrayList<>();
+    public static List<Command> worldCommand = new ArrayList<>();
+    public static List<Command> battleCommand = new ArrayList<>();
+    public static List<Command> townHallCommand = new ArrayList<>();
+    public static List<Command> talkCommand = new ArrayList<>();
 
-    AreaKommands(){
+    //This for for Kommands the player can choose from in a specific area
+    AreaKommands() {
         shopCommand.add(Command.SHOP);
         shopCommand.add(Command.LEAVE);
         shopCommand.add(Command.VIEW_ITEMS);
@@ -47,10 +49,11 @@ public class AreaKommands {
         battleCommand.add(Command.VIEW_STATS);
     }
 
-    public static void commands(Command c)  {
-        switch (c){
+    //switch case for the different commands chosen
+    public static void commands(Command c) {
+        switch (c) {
             case SHOP:
-                if(Game.currentArea instanceof ShopArea){
+                if (Game.currentArea instanceof ShopArea) {
                     ShopArea current = (ShopArea) Game.currentArea;
                     current.vendor.barter(current.getItems());
                 }
@@ -62,7 +65,7 @@ public class AreaKommands {
                 System.out.println("Going");
                 break;
             case RUN:
-                if(Game.currentArea instanceof BattleArea){
+                if (Game.currentArea instanceof BattleArea) {
                     BattleArea current = (BattleArea) Game.currentArea;
                     Game.currentArea = Game.world.get(current.getPreviousArea());
                 }
@@ -83,7 +86,7 @@ public class AreaKommands {
                 System.out.println("Accepting");
                 break;
             case ATTACK:
-                if(Game.currentArea instanceof BattleArea){
+                if (Game.currentArea instanceof BattleArea) {
                     BattleArea area = (BattleArea) Game.currentArea;
                     area.battle();
                 }
