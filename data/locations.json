@@ -48,7 +48,7 @@
     },
     "Front Gate" : {
       "type": "safe",
-      "description": "The main entrance to Lucino Town. It looks strong and sturdy, but you can see the marks left by a recent attack",
+      "description": "The main enterance to Lucino Town. It looks strong and sturdy, but you can see the marks left by a recent attack",
       "neighbors": ["Lucino Shops", "open world"],
       "commands": "worldCommand"
     },
