@@ -4,19 +4,22 @@
       "strength": 35,
       "speed": 20,
       "intelligence": 5,
-      "defense": 30
+      "defense": 30,
+      "image": "Knight player.gif"
     },
     "Mage": {
       "strength": 10,
       "speed": 20,
       "intelligence": 30,
-      "defense": 20
+      "defense": 20,
+      "image": "Mage character.gif"
     },
     "Archer": {
       "strength": 15,
       "speed": 25,
       "intelligence": 15,
-      "defense": 35
+      "defense": 35,
+      "image": "Archer player.gif"
     }
   },
   "NPCs": {
@@ -95,7 +98,8 @@
       "intel": 0,
       "bezos": 10,
       "xp": 30,
-      "reward": "drop something"
+      "reward": "drop something",
+      "image": "goblin enemy.gif"
     },
     "Wolf": {
       "name": "Wolf",
@@ -106,7 +110,8 @@
       "intel": 20,
       "bezos": 10,
       "xp": 30,
-      "reward": "wolf claw"
+      "reward": "wolf claw",
+      "image": "wolf enemy.gif"
     },
     "Troll": {
       "name": "Troll",
@@ -117,7 +122,8 @@
       "intel": 0,
       "bezos": 35,
       "xp": 40,
-      "reward": "drop something"
+      "reward": "drop something",
+      "image": "troll enemy.gif"
     },
     "Undead": {
       "name": "Undead",
@@ -128,7 +134,8 @@
       "intel": 0,
       "bezos": 10,
       "xp": 20,
-      "reward": "drop something"
+      "reward": "drop something",
+      "image": "goblin enemy.gif"
     },
     "Andre the Giant": {
       "name": "Andre the Giant",
@@ -138,7 +145,8 @@
       "speed": 35,
       "intel": 0,
       "bezos": 100,
-      "xp": 150
+      "xp": 150,
+      "image": "troll enemy.gif"
     },
     "Haku": {
       "name": "Haku",
@@ -148,7 +156,8 @@
       "speed": 150,
       "intel": 60,
       "bezos": 100,
-      "xp": 150
+      "xp": 150,
+      "image": "dragon enemy.gif"
     },
     "Tyronious the Black": {
       "name": "Tyronious the Black",
@@ -158,7 +167,8 @@
       "speed": 150,
       "intel": 150,
       "bezos": 10000,
-      "xp": 1000
+      "xp": 1000,
+      "image": "tyronious enemy.gif"
     }
   }
 }
