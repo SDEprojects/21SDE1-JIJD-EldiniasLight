@@ -8,10 +8,13 @@
       "image": "Knight player.gif"
     },
     "Mage": {
+      "health": 50,
+      "xp": 0,
       "strength": 10,
       "speed": 20,
-      "intelligence": 30,
+      "intel": 30,
       "defense": 20,
+      "bezos": 50
       "image": "Mage character.gif"
     },
     "Archer": {

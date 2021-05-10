@@ -119,9 +119,10 @@ public class Player extends Character implements BattleActions {
     public void use() {
 
     }
+  
     //Method to view your stats
     public void viewStats() {
-
+        System.out.println("Name:" + this.getName());
         System.out.println("Health:" + this.getHealth());
         System.out.println("Defense:" + this.getDefense());
         System.out.println("Strength:" + this.getStrength());
