@@ -38,7 +38,7 @@ class DataParser {
     DataParser() {
         try {
             // grabs the game dataParser file
-            InputStream jsonFile = getClass().getResourceAsStream("/gameData.json");
+            InputStream jsonFile = getClass().getResourceAsStream("/data.json");
             // create a mapper to read through the game data
             mapper = new ObjectMapper();
             // create the JSON starting point
@@ -70,70 +70,70 @@ class DataParser {
 
     // METHODS
     public List<String> getPlayerClasses() {
-        return getKeysAsList(gameData.path(CHARACTERS_NODE), CLASS_NODE);
+        return getKeysAsList(gameData, CLASS_NODE);
     }
     public boolean isPlayerClass(String playerClass) {
         return getPlayerClasses().contains(playerClass);
     }
 
     public List<String> getNPCs() {
-        return getNestedKeysAsList(gameData.path(CHARACTERS_NODE), NPC_NODE);
+        return getNestedKeysAsList(gameData, NPC_NODE);
     }
     public boolean isNPC(String npc) {
         return getNPCs().contains(npc);
     }
 
     public List<String> getEnemies() {
-        return getKeysAsList(gameData.path(CHARACTERS_NODE), ENEMIES_NODE);
+        return getKeysAsList(gameData, ENEMIES_NODE);
     }
     public boolean isEnemy(String enemy) {
         return getEnemies().contains(enemy);
     }
 
     public List<String> getItemStats() {
-        return getArrayAsList(gameData.path(ITEMS_NODE).path(ATTRIBUTES_NODE), STATS_NODE);
+        return getArrayAsList(gameData.path(ATTRIBUTES_NODE), STATS_NODE);
     }
     public boolean isItemStat(String itemStat) {
         return getItemStats().contains(itemStat);
     }
 
     public List<String> getItemTypes() {
-        return getArrayAsList(gameData.path(ITEMS_NODE).path(ATTRIBUTES_NODE), TYPE_NODE);
+        return getArrayAsList(gameData.path(ATTRIBUTES_NODE), TYPE_NODE);
     }
     public boolean isItemType(String itemTypes) {
         return getItemTypes().contains(itemTypes);
     }
 
     public List<String> getWeapons() {
-        return getKeysAsList(gameData.path(ITEMS_NODE).path(WEAR_ITEM_NODE), WEAPONS_NODE);
+        return getKeysAsList(gameData.path(WEAR_ITEM_NODE), WEAPONS_NODE);
     }
     public boolean isWeapon(String weapon) {
         return getWeapons().contains(weapon);
     }
 
     public List<String> getArmor() {
-        return getKeysAsList(gameData.path(ITEMS_NODE).path(WEAR_ITEM_NODE), ARMOR_NODE);
+        return getKeysAsList(gameData.path(WEAR_ITEM_NODE), ARMOR_NODE);
     }
     public boolean isArmor(String armor) {
         return getArmor().contains(armor);
     }
 
     public List<String> getConsumables() {
-        return getKeysAsList(gameData.path(ITEMS_NODE), CONSUMABLES_NODE);
+        return getKeysAsList(gameData, CONSUMABLES_NODE);
     }
     public boolean isConsumable(String consumable) {
         return getConsumables().contains(consumable);
     }
 
     public List<String> getUtilityItems() {
-        return getArrayAsList(gameData.path(ITEMS_NODE), UTILITY_NODE);
+        return getArrayAsList(gameData, UTILITY_NODE);
     }
     public boolean isUtilityItem(String utilityItem) {
         return getUtilityItems().contains(utilityItem);
     }
 
     public List<String> getRewardItems() {
-        return getArrayAsList(gameData.path(ITEMS_NODE), REWARDS_NODE);
+        return getArrayAsList(gameData, REWARDS_NODE);
     }
     public boolean isRewardItem(String rewardItem) {
         return getRewardItems().contains(rewardItem);
@@ -147,11 +147,11 @@ class DataParser {
     }
 
     public List<String> getArmoryList() {
-        return getArrayAsList(gameData.path(ITEMS_NODE).path(SHOP_INVENTORY_NODE), ARMORY_LIST_NODE);
+        return getArrayAsList(gameData.path(SHOP_INVENTORY_NODE), ARMORY_LIST_NODE);
     }
 
     public List<String> getMagicList() {
-        return getArrayAsList(gameData.path(ITEMS_NODE).path(SHOP_INVENTORY_NODE), MAGIC_LIST_NODE);
+        return getArrayAsList(gameData.path(SHOP_INVENTORY_NODE), MAGIC_LIST_NODE);
     }
 
     // allows you to create an instance of a character straight from your JSON game data
@@ -162,7 +162,7 @@ class DataParser {
 
         Player result = null;
         try {
-            JsonNode characterInformation = gameData.path(CHARACTERS_NODE).path(CLASS_NODE).path(classChoice);
+            JsonNode characterInformation = gameData.path(CLASS_NODE).path(classChoice);
             // allows you to pass in a JsonNode and it returns a Java Object of your choosing (as long as it has the proper fields)
             result = mapper.treeToValue(characterInformation, Player.class);
         } catch (IOException e) {
