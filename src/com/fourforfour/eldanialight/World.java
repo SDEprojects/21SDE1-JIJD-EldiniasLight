@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class World implements WorldAreas {
+
+    //HashMap of the world and the method "World" adds all the elements to the Map
     HashMap<String, ? super Area> world = new HashMap<>();
 
     public World() {

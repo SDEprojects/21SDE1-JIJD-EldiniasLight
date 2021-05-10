@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class Area {
 
+    //FIELDS
     private String name;
     private HashMap<String, Character> characters = new HashMap<>();
     private AreaList areas;
@@ -21,28 +22,19 @@ public class Area {
     private Scanner scanner = new Scanner(System.in);
     private AreaInfo areaInfo;
 
-    public AreaList getAreas(){
-        return this.areas;
-    }
 
-    public void getAreaInfo() {
-        System.out.println(areaInfo.getDescription());
-    }
-
-    public String getName() {
-        return name;
-    }
-
-
+    //CONSTRUCTORS
     public Area(String name, AreaList areas, List<Command> command, AreaInfo areaInfo, List<? super Character> npcList){
         this.name = name;
         this.areas = areas;
         this.command = command;
         this.areaInfo = areaInfo;
         this.npcList = npcList;
-
     }
 
+    //METHODS
+
+    //print commands with "_" replaced by " ".
     public void printCommands(){
         for(Command cmd : command){
             String c = cmd.toString();
@@ -51,6 +43,7 @@ public class Area {
         }
     }
 
+    //used in class Game
     public void commands(String input){
         try{
             AreaKommands.commands(Command.valueOf(input));
@@ -62,6 +55,8 @@ public class Area {
         }
     }
 
+    //CHECK THE CHARACTERS LIST
+    //Used in Class AreaKommands
     public void viewCharacters(){
         if(npcList.isEmpty()){
             System.out.println("No characters in this area");
@@ -72,12 +67,13 @@ public class Area {
         }
     }
 
+    //use scanner to read input and interact with character. Helper function to viewCharacters(). See above function.
     private void talkToCharacter(){
         String input = scanner.nextLine();
         talksNPC(input);
-
     }
 
+    //helper function to talkToCharacter(). See above function.
     private void talksNPC(String name){
         for(Object character: npcList){
             if((((Character)character).getName()).equalsIgnoreCase(name)){
@@ -86,6 +82,8 @@ public class Area {
         }
     }
 
+    //Helper function to viewCharacters(). See above.
+    //print characters from npcList
     public void printCharacters(){
         for(Object character: npcList){
             QuestNPC current = (QuestNPC) character;
@@ -93,6 +91,8 @@ public class Area {
         }
     }
 
+    //Used in class Commands
+    //show the areas available to the player, get input from the player and check if it is a valid entry
     public void venture(){
         System.out.println("Where would you like to go?");
         areas.view();
@@ -106,9 +106,22 @@ public class Area {
         }
     }
 
+    //*** NOT being used anywhere
     public void view(){
         System.out.println(Game.currentArea.areaInfo);
+    }
 
+    //GETTERS
+    public AreaList getAreas(){
+        return this.areas;
+    }
+
+    public void getAreaInfo() {
+        System.out.println(areaInfo.getDescription());
+    }
+
+    public String getName() {
+        return name;
     }
 
 }//EOC

@@ -7,6 +7,9 @@ import com.fourforfour.eldanialight.characters.NPCDict;
 import java.util.List;
 
 public class DangerArea extends Area{
+
+    //CONSTRUCTOR
+    //Used in Interface WorldAreas
     public DangerArea(String name, AreaList areas, List<Command> command,AreaInfo areaInfo) {
         super(name, areas, command,areaInfo, NPCDict.emptyCharacterList);
     }

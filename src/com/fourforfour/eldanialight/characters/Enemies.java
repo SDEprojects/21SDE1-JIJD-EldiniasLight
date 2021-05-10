@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public interface Enemies {
 
+    //This is extending Character, implementing Battle Actions and instantiating new Enemies/Bosses
     Enemy goblin = new Enemy("Goblin",50,30,25,40,0,10,30,"drop something");
     Enemy wolf = new Enemy("Wolf",30,60,30,40,20,10,30,"wolf claw");
     Enemy troll = new Enemy("Troll", 60,45,60,15,0,35,40, "drop something cool");

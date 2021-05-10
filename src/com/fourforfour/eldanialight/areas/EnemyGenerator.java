@@ -7,15 +7,20 @@ import com.fourforfour.eldanialight.items.ItemList;
 import java.util.List;
 
 public class EnemyGenerator {
+
+    //FIELDS
     private static BattleAreaTypes battleAreaType;
     private String dialog;
 
+    //METHODS
 
+    //Used in class BattleArea and BattleSequence
+    //create enemy
     public static Enemy generate(BattleAreaTypes area){
         return  newEnemy(area);
     }
 
-
+    //creating enemy specific to a location - helper function to generate()
     private static Enemy newEnemy(BattleAreaTypes area){
         Enemy result;
         switch (area){

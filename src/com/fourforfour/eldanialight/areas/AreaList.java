@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AreaList {
+
+    //FIELDS
     List<String> areaList = new ArrayList<>();
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_BLACK = "\u001B[30m";
@@ -17,16 +19,16 @@ public class AreaList {
     public static final String TEXT_CYAN = "\u001B[36m";
     public static final String TEXT_WHITE = "\u001B[37m";
 
+    //METHODS
+    //Adding areas to AreaList
     public AreaList(String ...strings){
         for(String s: strings){
             areaList.add(s);
         }
     }
 
-    public List<String> getAreaList() {
-        return areaList;
-    }
-
+    //Used in class Area
+    //CHECK IF THE area BELONGS TO ONE OF THE AREAS: BattleArea, ShopArea, DangerArea, and QuestArea & print with different font color
     public void view(){
         for(String area: areaList){
             System.out.print("->");
@@ -47,5 +49,10 @@ public class AreaList {
             }
             System.out.println(area);
         }
+    }
+
+    //GETTERS
+    public List<String> getAreaList() {
+        return areaList;
     }
 }

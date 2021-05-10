@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Character {
-
+    //Character class is used by Player,Enemy, Enemies,Boss
     //FIELDS
     private String name;
     private double health;
@@ -22,6 +22,7 @@ public class Character {
     private double  maxHealth;
     private int level;
 
+    //List for the player's items, quest items and equipment
     private PlayerType playerType;
     public List<Item> items = new ArrayList<>();
     public List<String> questItems = new ArrayList<>();
@@ -132,11 +133,15 @@ public class Character {
         this.level = level;
     }
 
+
+    //used for equipping items to the character
     public void addWearableItem(WearItem item) {
         item.equipItem(this);
         equipment.add(item);
     }
 
+    //this method has you enter a item name, it will loop through the items and check it's size
+    // and the output is you will either have items or you won't
     public void viewInventory() {
         System.out.println("\nEnter the item name or back: ");
         System.out.println("\n***INVENTORY***");
@@ -152,7 +157,8 @@ public class Character {
     }
 
 
-    // select item
+    // calls the viewInventory method so user can see what they have and select an item
+    //If they don't have the item you will get line 172
     public void selectItem() {
         viewInventory();
         System.out.println("Which Item would you like to select? ");
@@ -165,7 +171,6 @@ public class Character {
             System.out.println("Invalid Selection");
             selectItem();
         }
-
     }
 
     // check item  -- Will check to see if item is in player inventory
@@ -189,6 +194,8 @@ public class Character {
         }
     }
 
+    //equipping the item
+    //Seems similar to method addWearableItem
     public void equip(Item item) {
         System.out.println("Equip or Cancel");
         String userInput = scanner.nextLine();
@@ -204,7 +211,7 @@ public class Character {
             System.out.println("Cannot equip item");
         }
     }
-
+    //checking to see if the WearItemType and Armor type is the same
     public boolean isTheSameWearType(Item wearItem){
         for (WearItem armorType : equipment) {
             if(wearItem.getWearItemType().equals(armorType.getWearItemType())){
@@ -214,6 +221,7 @@ public class Character {
         return false;
     }
 
+    //Checked to see if item is equipped
     public boolean isEquipped(Item item) {
         for (Item currentEquipment : equipment) {
             if (currentEquipment.getName().equals(item.getName())) {
@@ -223,6 +231,7 @@ public class Character {
         return false;
     }
 
+    //finds the equipment in your inventory
     public Item findEquipment(String equipmentSelection){
         for (Item currentEquipment : equipment) {
             if(currentEquipment.getName().equals(equipmentSelection)){
@@ -232,6 +241,7 @@ public class Character {
         return null;
     }
 
+    //finds a method in the inventory
     public Item findItem(String itemName) {
         for (Item currentItem : items) {
             if (itemName.equalsIgnoreCase(currentItem.getName())) {
@@ -249,6 +259,7 @@ public class Character {
         this.maxHealth = maxHealth;
     }
 
+    //method not used. Its for picking up items
     public void pickUpItem(Item item) {
         String playerAction = scanner.nextLine();
         if (playerAction.equalsIgnoreCase("Pick up" + item.getName())) {

@@ -10,17 +10,21 @@ import java.util.Locale;
 import java.util.Scanner;
 
 
-public class Player extends Character implements BattleActions  {
-
+public class Player extends Character implements BattleActions {
+    //Changes the text colors
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_CYAN = "\u001B[36m";
 
-
+    //List is making a questlog and scanner is for user input
     private List<Quest> questLog = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+
+    //fields for maxLevel and leveling up
     int maxLevel = 20;
     int levelUpXp = 100;
+
+    //Constructor, no args
     public Player() {
 
     }
@@ -31,14 +35,16 @@ public class Player extends Character implements BattleActions  {
         Player player = new Player();
 
         //create intro
-        System.out.println(TEXT_CYAN+"Welcome Champion and thank you for coming to aid of Eldinia!!");
-        System.out.println(TEXT_CYAN+"Tell us about this brave soul who has come to defeat"+TEXT_RESET+TEXT_RED
-                +" Tyronious the Black"+TEXT_CYAN);
+        System.out.println(TEXT_CYAN + "Welcome Champion and thank you for coming to aid of Eldinia!!");
+        System.out.println(TEXT_CYAN + "Tell us about this brave soul who has come to defeat" + TEXT_RESET + TEXT_RED
+                + " Tyronious the Black" + TEXT_CYAN);
 
-        // create PlayerName
+        // creates PlayerName
         System.out.println("What shall we call you?:");
         // SHOW ANY CLASS OPTIONS
         player.setName(scanner.nextLine());
+
+
         player.setPlayerType(createPlayerClass());
         player.setHealth(50);
         player.setXp(0);
@@ -66,24 +72,24 @@ public class Player extends Character implements BattleActions  {
                 System.out.println("You have entered an invalid type");
         }
         System.out.println("Welcome " + player.getName() + " the " + player.getPlayerType() + ". " +
-                "Please go speak with the Warcheif at the town hall"+TEXT_RESET);
+                "Please go speak with the Warcheif at the town hall" + TEXT_RESET);
         return player;
 
     }
-
-    public static PlayerType createPlayerClass(){
+    //user can choose a fighter style but user has cannot see the options
+    public static PlayerType createPlayerClass() {
         System.out.println("What style of fighter are you?");
         String userInput = scanner.next();
         PlayerType chosenClass;
-        try{
+        try {
             chosenClass = PlayerType.valueOf(userInput.toUpperCase(Locale.ROOT));
             return chosenClass;
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Invalid");
             return createPlayerClass();
         }
     }
-
+    //Method used to attack the enemy and get the various stats
     @Override
     public void attack(Character character) {
         Enemy enemy = (Enemy) character;
@@ -95,23 +101,27 @@ public class Player extends Character implements BattleActions  {
         }
     }
 
+    //Method is used to run
     @Override
     public boolean run(Character character) {
         Enemy enemy = (Enemy) character;
         return (this.getSpeed() * Utility.randomNumber()) > (enemy.getSpeed() * Utility.randomNumber());
     }
 
+    //Method used to defend
     @Override
     public int defend() {
         return getDefense();
     }
 
+    //Method for what I would assume, use item
     @Override
     public void use() {
 
     }
-
-    public void viewStats(){
+  
+    //Method to view your stats
+    public void viewStats() {
         System.out.println("Name:" + this.getName());
         System.out.println("Health:" + this.getHealth());
         System.out.println("Defense:" + this.getDefense());
@@ -123,58 +133,58 @@ public class Player extends Character implements BattleActions  {
         System.out.println("Level:" + this.getLevel());
     }
 
-    public void addXp(){
+    public void addXp() {
 
-    /*
-     * This  Method check to see if the player's level is high than the make level.
-     * If the level is lower than maxLevel then the method checks the
-     */
-       if(getLevel()< maxLevel) {
-           if (getXp() >= levelUpXp){
-
-
-               this.setLevel(this.getLevel()+1);
-               this.setHealth(this.getHealth()+ 15);
-               this.setBezos(this.getBezos() +15);
-               System.out.println("You have leveled up!! You are now level:" + this.getLevel());
-               /*
-                *This switch statement adds to the Stats based on PlayerType
-                */
-               switch(this.getPlayerType()){
-                   case MAGE:
-                       this.setDefense(this.getDefense() + 10);
-                       this.setStrength(this.getStrength() + 10);
-                       this.setSpeed(this.getSpeed() + 15);
-                       this.setIntel(this.getIntel() + 25);
-
-                       break;
-                   case ARCHER:
-                       this.setDefense(this.getDefense() + 15);
-                       this.setStrength(this.getStrength() + 15);
-                       this.setSpeed(this.getSpeed() +20);
-                       this.setIntel(this.getIntel()+ 10);
-                       break;
-                   case KNIGHT:
-                       this.setDefense(this.getDefense() + 20);
-                       this.setStrength(this.getStrength() + 25);
-                       this.setSpeed(this.getSpeed() + 15 );
-                       break;
-               }
+        /*
+         * This  Method check to see if the player's level is high than the make level.
+         * If the level is lower than maxLevel then the method checks the
+         */
+        if (getLevel() < maxLevel) {
+            if (getXp() >= levelUpXp) {
 
 
+                this.setLevel(this.getLevel() + 1);
+                this.setHealth(this.getHealth() + 15);
+                this.setBezos(this.getBezos() + 15);
+                System.out.println("You have leveled up!! You are now level:" + this.getLevel());
+                /*
+                 *This switch statement adds to the Stats based on PlayerType
+                 */
+                switch (this.getPlayerType()) {
+                    case MAGE:
+                        this.setDefense(this.getDefense() + 10);
+                        this.setStrength(this.getStrength() + 10);
+                        this.setSpeed(this.getSpeed() + 15);
+                        this.setIntel(this.getIntel() + 25);
 
-               this.setDefense(this.getDefense());
-               this.setStrength(this.getStrength());
-               this.setSpeed(this.getSpeed());
-               this.setIntel(this.getIntel());
+                        break;
+                    case ARCHER:
+                        this.setDefense(this.getDefense() + 15);
+                        this.setStrength(this.getStrength() + 15);
+                        this.setSpeed(this.getSpeed() + 20);
+                        this.setIntel(this.getIntel() + 10);
+                        break;
+                    case KNIGHT:
+                        this.setDefense(this.getDefense() + 20);
+                        this.setStrength(this.getStrength() + 25);
+                        this.setSpeed(this.getSpeed() + 15);
+                        break;
+                }
+
+
+                this.setDefense(this.getDefense());
+                this.setStrength(this.getStrength());
+                this.setSpeed(this.getSpeed());
+                this.setIntel(this.getIntel());
 
                 levelUpXp = levelUpXp + 100;
-           }
-       }
+            }
+        }
 
     }
 
-    public void addQuest(Quest quest){
+    //Method to add quest to your quest log
+    public void addQuest(Quest quest) {
         questLog.add(quest);
         System.out.println(quest.getName() + " has been added to your quest log");
     }

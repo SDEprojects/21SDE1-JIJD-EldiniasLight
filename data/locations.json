@@ -3,19 +3,19 @@
     "Lucino Town" : {
       "type": "safe",
       "description": "The largest city in Eldina and one of the last strong holds preventing Tyroneious form gaining complete control",
-      "neighbors": ["lucino shops", "lucino town hall"],
+      "neighbors": ["Lucino Shops", "lucino town hall"],
       "commands": "worldCommand"
     },
     "Lucino Shops" : {
       "type": "safe",
       "description": "You are in a market place with a variety of shops. You can see the Armory, Inn, and Magic shop. ",
-      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town"],
+      "neighbors": ["armory", "magic", "inn", "front gate", "Lucino Town"],
       "commands": "worldCommand"
     },
     "Armory" : {
       "type": "shop",
       "description": "no description so far",
-      "neighbors": ["lucino shops"],
+      "neighbors": ["Lucino Shops"],
       "commands": "shopCommand",
       "npc": {
         "name": "Hank",
@@ -32,7 +32,7 @@
     "Lucino Town Hall" : {
       "type": "safe",
       "description": "no description so far",
-      "neighbors": ["lucino Town, Warchief"],
+      "neighbors": ["Lucino Town, Warchief"],
       "commands": "townHallCommand"
     },
     "Magic" : {
@@ -49,7 +49,7 @@
     "Front Gate" : {
       "type": "safe",
       "description": "The main enterance to Lucino Town. It looks strong and sturdy, but you can see the marks left by a recent attack",
-      "neighbors": ["lucino shops", "open world"],
+      "neighbors": ["Lucino Shops", "open world"],
       "commands": "worldCommand"
     },
     "Open World" : {

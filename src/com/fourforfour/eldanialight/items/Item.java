@@ -1,29 +1,31 @@
 package com.fourforfour.eldanialight.items;
 
 public class Item {
-
-
+    //class is used by WearItem, RewardItem, UtilityItem,
+    //fields for different items
     private String name;
     private int count;
     private int itemWorth;
     private WearItemType wearItemType;
+
 
     public Item(String name) {
         this.setName(name);
         setCount(1);
     }
 
-    public Item(String name, int count){
+    public Item(String name, int count) {
         setName(name);
         setCount(count);
     }
 
-    public Item(String name, int count,int itemWorth){
+    public Item(String name, int count, int itemWorth) {
         setName(name);
         setCount(count);
         setItemWorth(itemWorth);
     }
-    public Item(String name, int count,int itemWorth, WearItemType wearItemType){
+
+    public Item(String name, int count, int itemWorth, WearItemType wearItemType) {
         setName(name);
         setCount(count);
         setItemWorth(itemWorth);

@@ -5,7 +5,7 @@ import com.fourforfour.eldanialight.characters.Enemy;
 
 public enum AreaInfo {
 
-    //areas of Lucino town
+    //AREAS OF LUCINO TOWN
     LUCINO_TOWN(" The largest city in Eldina and one of the last strong holds preventing Tyroneious form" +
             "gaining complete control"),
     LUCINO_SHOPS("You are in a market place with a variety of shops. You can see the Armory, Inn, and Magic shop. "),
@@ -15,7 +15,6 @@ public enum AreaInfo {
 
     OPEN_WORLD("A vast open area. You see a sign that point to the evil forest, badlands, fire mountain" +
             "and Castle Eldina"),
-
     //evil forest and areas within
     EVIL_FOREST("A forest full of brown trees. There is a odd smell in the air. There are two trial, one leading" +
             "deeper into the forest, and the second to the Giant's lair"),
@@ -50,15 +49,17 @@ public enum AreaInfo {
     THRONE_ROOM("You have entered the throne room. You can see Tyroneious sitting with a sinister grin upon his face. " +
             "You can feel his evil intent as you prepare yourself for battle!");
 
+    //FIELD
     String info;
 
+    //CONSTRUCTOR
      AreaInfo(String info){
     this.info = info;
     }
+
+    //METHOD
     public String getDescription(){
         return info;
     }
-
-
 
 }//EOC
