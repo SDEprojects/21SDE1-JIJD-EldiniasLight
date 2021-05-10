@@ -1,22 +1,31 @@
 {
   "Classes": {
     "Knight": {
+      "health": 50,
+      "xp": 0,
       "strength": 35,
       "speed": 20,
-      "intelligence": 5,
-      "defense": 30
+      "intel": 5,
+      "defense": 30,
+      "bezos": 50
     },
     "Mage": {
+      "health": 50,
+      "xp": 0,
       "strength": 10,
       "speed": 20,
-      "intelligence": 30,
-      "defense": 20
+      "intel": 30,
+      "defense": 20,
+      "bezos": 50
     },
     "Archer": {
+      "health": 50,
+      "xp": 0,
       "strength": 15,
       "speed": 25,
-      "intelligence": 15,
-      "defense": 35
+      "intel": 15,
+      "defense": 35,
+      "bezos": 50
     }
   },
   "Attributes": {
@@ -280,7 +289,7 @@
       "ITEM"
     ]
   },
-  "locations": {
+  "Locations": {
     "Lucino Town" : {
       "type": "safe",
       "description": "The largest city in Eldina and one of the last strong holds preventing Tyroneious form gaining complete control",
@@ -423,5 +432,4 @@
       "commands": "battleCommand"
     }
   }
-
 }
