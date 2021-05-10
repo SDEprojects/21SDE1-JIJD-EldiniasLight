@@ -125,14 +125,14 @@ public class DataParserTest {
     }
 
     @Test
-    public void isClass_shouldReturnTrue_whenClassAllowed() {
+    public void isPlayerClass_shouldReturnTrue_whenClassAllowed() {
         assertTrue(dp.isPlayerClass("Mage"));
         assertTrue(dp.isPlayerClass("Knight"));
         assertTrue(dp.isPlayerClass("Archer"));
     }
 
     @Test
-    public void isClass_shouldReturnTrue_whenClassNotAllowed() {
+    public void isPlayerClass_shouldReturnTrue_whenClassNotAllowed() {
         assertFalse(dp.isPlayerClass("TEST-CLASS"));
         assertFalse(dp.isPlayerClass("mage"));
     }

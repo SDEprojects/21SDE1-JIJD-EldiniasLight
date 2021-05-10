@@ -38,11 +38,11 @@ class DataParser {
     DataParser() {
         try {
             // grabs the game dataParser file
-            InputStream gameData = getClass().getResourceAsStream("/gameData.json");
+            InputStream jsonFile = getClass().getResourceAsStream("/gameData.json");
             // create a mapper to read through the game data
             mapper = new ObjectMapper();
             // create the JSON starting point
-            this.gameData = mapper.readTree(gameData);
+            gameData = mapper.readTree(jsonFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
