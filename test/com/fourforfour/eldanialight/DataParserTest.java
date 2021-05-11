@@ -1,5 +1,9 @@
 package com.fourforfour.eldanialight;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fourforfour.eldanialight.characters.Character;
 import com.fourforfour.eldanialight.characters.Player;
 import org.junit.Before;
@@ -185,5 +189,89 @@ public class DataParserTest {
     @Test
     public void isLocation() {
         assertTrue(dp.isLocation("Lucino Town"));
+    }
+
+    @Test
+    public void getLocationType() {
+        String expected = "safe";
+        assertEquals("The location type doesn't match", expected, dp.getLocationType("Lucino Town"));
+    }
+
+    @Test
+    public void getLocationDescription() {
+        String expected = "The largest city in Eldina and one of the last strong holds preventing Tyroneious form gaining complete control";
+        assertEquals("The location description doesn't match", expected, dp.getLocationDescription("Lucino Town"));
+    }
+
+    @Test
+    public void getLocationNeighbors() {
+        List<String> expected = Arrays.asList("Lucino Shops", "Lucino Town Hall");
+        assertEquals("The location neighbors don't match", expected, dp.getLocationNeighbors("Lucino Town"));
+    }
+
+    @Test
+    public void getLocationCommands() {
+        List<String> expected = Arrays.asList("SHOP", "VIEW_ITEMS", "LEAVE", "VIEW_STATS");
+        assertEquals("The location commands don't match", expected, dp.getLocationCommands("Lucino Town"));
+    }
+
+    @Test
+    public void getEnemy() {
+        String json = "{ \"name\" : \"Wolf\", \"health\" : 30, \"defense\" : 60, \"strength\" : 30, \"speed\" : 40, \"intel\" : 20, \"bezos\" : 10, \"xp\" : 30, \"reward\" : \"wolf claw\"}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode expected = objectMapper.readTree(json);
+            assertEquals(expected, dp.getEnemy("Wolf"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getWeapon() {
+        String json = "{ \"name\" : \"sword\", \"attack\" : 5, \"value\" : 20, \"hand\" : \"Main Hand\"}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode expected = objectMapper.readTree(json);
+            assertEquals(expected, dp.getWeapon("sword"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getArmor() {
+        String json = "{ \"name\" : \"chestPlate\", \"health\" : 10, \"defense\" : 8, \"value\" : 20, \"hand\" : \"Chest\"}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode expected = objectMapper.readTree(json);
+            assertEquals(expected, dp.getArmor("chestPlate"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getConsumable() {
+        String json = "{ \"name\" : \"healthPotion\", \"enhancer\" : 10, \"attribute\" : \"Health\", \"value\" : 5}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode expected = objectMapper.readTree(json);
+            assertEquals(expected, dp.getConsumable("healthPotion"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getLocationNPC() {
+        String json = "{ \"name\" : \"Hank\", \"type\" : \"Shop\", \"items\" : \"armoryList\"}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode expected = objectMapper.readTree(json);
+            assertEquals(expected, dp.getLocationNPC("Armory"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 }
