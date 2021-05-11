@@ -13,25 +13,14 @@ import java.awt.event.ActionListener;
 public class UI extends JFrame {
 
     //This method creates the frame to begin the game
-    private JFrame frame; //Creates a frame
-    private JTextArea textArea;
+    private JFrame frame,locationOneScreen; //Creates a frame
+    private JTextArea textArea, locationInfo;
     private BufferedImage image;
-    private ImageIcon locationImage;
-    private JLabel titleLabel;
-    private JLabel commandInputLabel;
-    private JLabel locationImageContainer;
-    private JTextArea locationInfo;
+    private JLabel titleLabel, commandInputLabel, locationImageContainer;
     private JTextField playerInputTF;
-    JFrame startScreen, locationOneScreen; //Creates a frame
-    JLabel titleNameLabel;
-    Image backgroundImage;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN,36);
-    JTextArea textArea;
-    ImageIcon image;
-    JLabel label = new JLabel();
-    Container container;
-    JPanel titleNamePanel, startButtonPanel, optionsButtonPanel, exitButtonPanel;
-    JButton startButton, optionButton, exitButton;
+
+    JPanel titleNamePanel, startButtonPanel, exitButtonPanel;
+    JButton startButton, exitButton;
     TitleScreeHandler titleScreenHandler = new TitleScreeHandler();
 
     UI(){
@@ -100,7 +89,7 @@ public class UI extends JFrame {
         locationOneScreen = new JFrame("Crypto Millionaire Presents");
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
-        startScreen.setVisible(false);
+        frame.setVisible(false);
 
         //Setting up the frame
         locationOneScreen.setVisible(true); //makes the frame visible
@@ -132,8 +121,6 @@ public class UI extends JFrame {
 
     public static void main(String[] args) {
         UI ui = new UI();
-        ui.displayOpenScreen();
-
         //used to play the audio wav file when the game is running
         Thread thread = new Thread(() -> {
             SimpleAudioPlayer audioPlayer;
