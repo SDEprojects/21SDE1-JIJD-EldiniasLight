@@ -11,11 +11,9 @@ import java.util.List;
 
 class DataParser {
     // STATIC FIELDS
-    private static final String CHARACTERS_NODE = "Characters";
     private static final String CLASS_NODE = "Classes";
     private static final String NPC_NODE = "NPCs";
     private static final String ENEMIES_NODE = "Enemies";
-    private static final String ITEMS_NODE = "Items";
     private static final String ATTRIBUTES_NODE = "Attributes";
     private static final String STATS_NODE = "stats";
     private static final String TYPE_NODE = "type";
@@ -29,6 +27,10 @@ class DataParser {
     private static final String ARMORY_LIST_NODE = "armoryList";
     private static final String MAGIC_LIST_NODE = "magicList";
     private static final String LOCATIONS_NODE = "Locations";
+    private static final String DESCRIPTION_NODE = "description";
+    private static final String NEIGHBOR_NODE = "neighbors";
+    private static final String COMMANDS_NODE = "commands";
+    private static final String SHOP_NPC_NODE = "npc";
 
     // FIELDS
     private ObjectMapper mapper;
@@ -51,7 +53,7 @@ class DataParser {
     // HELPER METHODS
     private List<String> getArrayAsList(JsonNode node, String childNode) {
         List<String> result = new ArrayList<>();
-        node.path(childNode).forEach(stat -> result.add(stat.asText()));
+        node.path(childNode).forEach(val -> result.add(val.asText()));
         return result;
     }
 
@@ -89,6 +91,13 @@ class DataParser {
     public boolean isEnemy(String enemy) {
         return getEnemies().contains(enemy);
     }
+    public JsonNode getEnemy(String enemy) {
+        if (isEnemy(enemy)) {
+            return gameData.path(ENEMIES_NODE).path(enemy);
+        } else {
+            throw new IllegalArgumentException("Please input a valid enemy");
+        }
+    }
 
     public List<String> getItemStats() {
         return getArrayAsList(gameData.path(ATTRIBUTES_NODE), STATS_NODE);
@@ -110,6 +119,13 @@ class DataParser {
     public boolean isWeapon(String weapon) {
         return getWeapons().contains(weapon);
     }
+    public JsonNode getWeapon(String weapon) {
+        if (isWeapon(weapon)) {
+            return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon);
+        } else {
+            throw new IllegalArgumentException("Please input a valid weapon");
+        }
+    }
 
     public List<String> getArmor() {
         return getKeysAsList(gameData.path(WEAR_ITEM_NODE), ARMOR_NODE);
@@ -117,12 +133,26 @@ class DataParser {
     public boolean isArmor(String armor) {
         return getArmor().contains(armor);
     }
+    public JsonNode getArmor(String armor) {
+        if (isArmor(armor)) {
+            return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor);
+        } else {
+            throw new IllegalArgumentException("Please input a valid armor");
+        }
+    }
 
     public List<String> getConsumables() {
         return getKeysAsList(gameData, CONSUMABLES_NODE);
     }
     public boolean isConsumable(String consumable) {
         return getConsumables().contains(consumable);
+    }
+    public JsonNode getConsumable(String consumable) {
+        if (isConsumable(consumable)) {
+            return gameData.path(CONSUMABLES_NODE).path(consumable);
+        } else {
+            throw new IllegalArgumentException("Please input a valid enemy");
+        }
     }
 
     public List<String> getUtilityItems() {
@@ -144,6 +174,41 @@ class DataParser {
     }
     public boolean isLocation(String location) {
         return getLocations().contains(location);
+    }
+    public String getLocationType(String location) {
+        if (isLocation(location)) {
+            return gameData.path(LOCATIONS_NODE).path(location).path(TYPE_NODE).asText();
+        } else {
+            throw new IllegalArgumentException("Please input a valid location");
+        }
+    }
+    public String getLocationDescription(String location) {
+        if (isLocation(location)) {
+            return gameData.path(LOCATIONS_NODE).path(location).path(DESCRIPTION_NODE).asText();
+        } else {
+            throw new IllegalArgumentException("Please input a valid location");
+        }
+    }
+    public List<String> getLocationNeighbors(String location) {
+        if (isLocation(location)) {
+            return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), NEIGHBOR_NODE);
+        } else {
+            throw new IllegalArgumentException("Please input a valid location");
+        }
+    }
+    public List<String> getLocationCommands(String location) {
+        if (isLocation(location)) {
+            return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), COMMANDS_NODE);
+        } else {
+            throw new IllegalArgumentException("Please input a valid location");
+        }
+    }
+    public JsonNode getLocationNPC(String location) {
+        if (isLocation(location)) {
+            return gameData.path(LOCATIONS_NODE).path(location).path(SHOP_NPC_NODE);
+        } else {
+            throw new IllegalArgumentException("Please input a valid location");
+        }
     }
 
     public List<String> getArmoryList() {
