@@ -125,7 +125,7 @@ public class UI extends JFrame {
         Thread thread = new Thread(() -> {
             SimpleAudioPlayer audioPlayer;
             try {
-                String filePath = "/Users/jasminemeade/IdeaProjects/Eldinas-Light/Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/01-prelude game opener.wav";
+                String filePath = "Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/01-prelude game opener.wav";
                 audioPlayer = new SimpleAudioPlayer(filePath);
                 audioPlayer.play();
             } catch (Exception e) {
