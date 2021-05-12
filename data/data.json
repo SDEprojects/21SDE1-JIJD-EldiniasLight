@@ -191,7 +191,7 @@
       "intel": 0,
       "bezos": 10,
       "xp": 30,
-      "reward": "drop something"
+      "rewardItem": "drop something"
     },
     "Wolf": {
       "name": "Wolf",
@@ -202,7 +202,7 @@
       "intel": 20,
       "bezos": 10,
       "xp": 30,
-      "reward": "wolf claw"
+      "rewardItem": "wolf claw"
     },
     "Troll": {
       "name": "Troll",
@@ -213,7 +213,7 @@
       "intel": 0,
       "bezos": 35,
       "xp": 40,
-      "reward": "drop something"
+      "rewardItem": "drop something"
     },
     "Undead": {
       "name": "Undead",
@@ -224,7 +224,7 @@
       "intel": 0,
       "bezos": 10,
       "xp": 20,
-      "reward": "drop something"
+      "rewardItem": "drop something"
     },
     "Andre the Giant": {
       "name": "Andre the Giant",

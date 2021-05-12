@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fourforfour.eldanialight.characters.Character;
+import com.fourforfour.eldanialight.characters.Enemy;
 import com.fourforfour.eldanialight.characters.Player;
 import org.junit.Before;
 import org.junit.Test;
@@ -273,5 +274,12 @@ public class DataParserTest {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void createEnemy_shouldReturnTrue_whenEnemyAllowed() {
+        Enemy test = dp.createEnemy("Haku");
+        assertTrue(test instanceof Enemy);
+        assertTrue(test instanceof Character);
     }
 }
