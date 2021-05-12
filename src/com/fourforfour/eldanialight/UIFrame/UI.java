@@ -131,7 +131,7 @@ public class UI extends JFrame {
 
     private void processSubmitInput(){
         //String inputText = playerInputTF.getText().toLowerCase();
-        //String result = controller...
+        //String result = controller....
         System.out.println("hey");
 
     }
