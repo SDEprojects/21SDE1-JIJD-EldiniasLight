@@ -19,8 +19,10 @@ public class UI extends JFrame {
     private BufferedImage image;
     private JLabel titleLabel, commandInputLabel, locationImageContainer, commandLabel;
     private JTextField playerInputTF;
-    JPanel titleNamePanel, startButtonPanel, exitButtonPanel;
-    JButton startButton, exitButton;
+    private JPanel titleNamePanel, startButtonPanel, exitButtonPanel;
+    private JButton startButton, exitButton;
+
+    HandleSubmitButtonWhenClicked submitHandle = new HandleSubmitButtonWhenClicked();
 
     UI() {
         //Setting up the title of the game
@@ -68,7 +70,8 @@ public class UI extends JFrame {
         playerInputTF.setForeground(Color.ORANGE);
         playerInputTF.setFont(new Font("Book Antiqua", Font.PLAIN, 20));//sets font of the text
         playerInputTF.setHorizontalAlignment(JTextField.CENTER); //sets the start point to center
-        //playerInputTF.addActionListener(new HandleEnterPressOnPlayerInputTF()); //Need this later
+        playerInputTF.addActionListener(new HandleSubmitButtonWhenClicked());
+        playerInputTF.addActionListener(new HandleSubmitButtonPressEnter());
 
         //Setting up the frame
         frame = new JFrame("Crypto Millionaire Presents");
@@ -81,6 +84,8 @@ public class UI extends JFrame {
 
         startButton = new JButton("Submit");
         startButton.setBounds(545, 600, 50, 20);
+        startButton.addActionListener(new HandleSubmitButtonWhenClicked());
+        startButton.addActionListener(new HandleSubmitButtonWhenClicked());
         startButton.setBackground(Color.white);
         startButton.setForeground(Color.black);
 
@@ -125,22 +130,24 @@ public class UI extends JFrame {
     }
 
     private void processSubmitInput(){
-        String inputText = playerInputTF.getText().toLowerCase();
-        //String result =
+        //String inputText = playerInputTF.getText().toLowerCase();
+        //String result = controller.
+        System.out.println("hey");
+
     }
 
     //Transitions between the open screen and first location screen
     public class HandleSubmitButtonWhenClicked implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-           processSubmitInput();
+            System.out.println("hey");
         }
     }
 
     public class HandleSubmitButtonPressEnter implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            processSubmitInput();
+            System.out.println(playerInputTF.getText());
         }
     }
 
