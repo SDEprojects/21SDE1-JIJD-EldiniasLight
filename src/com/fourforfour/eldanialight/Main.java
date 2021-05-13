@@ -7,20 +7,20 @@ import com.fourforfour.eldanialight.controller.SwingController;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-//        Thread.sleep(3000);
-//
-//        //used to play the audio wav file when the game is running
-//        Thread thread = new Thread(() -> {
-//            SimpleAudioPlayer audioPlayer;
-//            try {
-//                String filePath = "Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/01-prelude game opener.wav";
-//                audioPlayer = new SimpleAudioPlayer(filePath);
-//                audioPlayer.play();
-//            } catch (Exception e) {
-//                System.out.println(e.getMessage());
-//            }
-//        });
-//        thread.start();
+        Thread.sleep(3000);
+
+        //used to play the audio wav file when the game is running
+        Thread thread = new Thread(() -> {
+            SimpleAudioPlayer audioPlayer;
+            try {
+                String filePath = "Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/prelude game opener-Edited.wav";
+                audioPlayer = new SimpleAudioPlayer(filePath);
+                audioPlayer.play();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        thread.start();
 
         GameInterface gi = new Game();
         SwingController controller = new SwingController(gi);
