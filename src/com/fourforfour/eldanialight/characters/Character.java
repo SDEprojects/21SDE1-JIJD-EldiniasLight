@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Character {
+public class Character implements java.io.Serializable {
     //Character class is used by Player,Enemy, Enemies,Boss
     //FIELDS
     private String name;
@@ -19,15 +19,14 @@ public class Character {
     private int intel;
     private int speed;
     private int xp;
-    private double  maxHealth;
+    private double maxHealth;
     private int level;
 
     //List for the player's items, quest items and equipment
-    private PlayerType playerType;
     public List<Item> items = new ArrayList<>();
     public List<String> questItems = new ArrayList<>();
     public List<WearItem> equipment = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    transient Scanner scanner = new Scanner(System.in);
 
 
     //CONSTRUCTOR
@@ -48,6 +47,7 @@ public class Character {
         this.intel = intel;
         this.speed = speed;
     }
+
     //Getter and Setters
     public String getName() {
         return name;
@@ -58,11 +58,11 @@ public class Character {
     }
 
     public double getHealth() {
-        return health ;
+        return health;
     }
 
     public void setHealth(double health) {
-       this.health = health;
+        this.health = health;
     }
 
     public int getStrength() {
@@ -78,7 +78,7 @@ public class Character {
     }
 
     public void setDefense(int defense) {
-      this.defense = defense;
+        this.defense = defense;
     }
 
     public int getBezos() {
@@ -105,13 +105,6 @@ public class Character {
         this.speed = speed;
     }
 
-    public PlayerType getPlayerType() {
-        return playerType;
-    }
-
-    public void setPlayerType(PlayerType playerType) {
-        this.playerType = playerType;
-    }
 
     public int getXp() {
         return xp;
@@ -157,22 +150,6 @@ public class Character {
     }
 
 
-    // calls the viewInventory method so user can see what they have and select an item
-    //If they don't have the item you will get line 172
-    public void selectItem() {
-        viewInventory();
-        System.out.println("Which Item would you like to select? ");
-        String userInput = scanner.nextLine();
-        if (checkItem(userInput)) {
-            useItem(findItem(userInput));
-        } else if (userInput.equalsIgnoreCase("back")) {
-                Game.currentArea.printCommands();
-        } else {
-            System.out.println("Invalid Selection");
-            selectItem();
-        }
-    }
-
     // check item  -- Will check to see if item is in player inventory
     public boolean checkItem(String itemName) {
         for (Item currentItem : items) {
@@ -183,16 +160,6 @@ public class Character {
         return false;
     }
 
-    // check item type and will use appropriately
-    public void useItem(Item item) {
-        if (item instanceof ConsumableItem) {
-            ((ConsumableItem) item).useItem(this);
-            items.remove(item);
-        } else if (item instanceof WearItem) {
-            WearItem armor = (WearItem) item;
-            equip(armor);
-        }
-    }
 
     //equipping the item
     //Seems similar to method addWearableItem
@@ -200,21 +167,22 @@ public class Character {
         System.out.println("Equip or Cancel");
         String userInput = scanner.nextLine();
         if (userInput.equalsIgnoreCase("Equip")) {
-            if(isEquipped(findEquipment(item.getName())) && isTheSameWearType(item)){
+            if (isEquipped(findEquipment(item.getName())) && isTheSameWearType(item)) {
                 System.out.println("You already have the item equipped");
                 return;
             }
-            ((WearItem)item).equipItem(this);
-            addWearableItem(((WearItem)item));
+            ((WearItem) item).equipItem(this);
+            addWearableItem(((WearItem) item));
             items.remove(item);
         } else {
             System.out.println("Cannot equip item");
         }
     }
+
     //checking to see if the WearItemType and Armor type is the same
-    public boolean isTheSameWearType(Item wearItem){
+    public boolean isTheSameWearType(Item wearItem) {
         for (WearItem armorType : equipment) {
-            if(wearItem.getWearItemType().equals(armorType.getWearItemType())){
+            if (wearItem.getWearItemType().equals(armorType.getWearItemType())) {
                 return true;
             }
         }
@@ -232,9 +200,9 @@ public class Character {
     }
 
     //finds the equipment in your inventory
-    public Item findEquipment(String equipmentSelection){
+    public Item findEquipment(String equipmentSelection) {
         for (Item currentEquipment : equipment) {
-            if(currentEquipment.getName().equals(equipmentSelection)){
+            if (currentEquipment.getName().equals(equipmentSelection)) {
                 return currentEquipment;
             }
         }
@@ -266,4 +234,4 @@ public class Character {
             items.add(item);
         }
     }
-}//EOC
+}

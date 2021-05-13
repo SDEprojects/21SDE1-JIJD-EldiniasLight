@@ -1,6 +1,5 @@
 package com.fourforfour.eldanialight.characters;
 
-import com.fourforfour.eldanialight.battle.Utility;
 
 import java.awt.*;
 import java.io.Console;
@@ -10,15 +9,15 @@ import java.util.Locale;
 import java.util.Scanner;
 
 
-public class Player extends Character implements BattleActions {
+public class Player extends Character {
     //Changes the text colors
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_CYAN = "\u001B[36m";
 
     //List is making a questlog and scanner is for user input
-    private List<Quest> questLog = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+//    private List<Quest> questLog = new ArrayList<>();
+    private static transient Scanner scanner = new Scanner(System.in);
 
     //fields for maxLevel and leveling up
     int maxLevel = 20;
@@ -45,81 +44,20 @@ public class Player extends Character implements BattleActions {
         player.setName(scanner.nextLine());
 
 
-        player.setPlayerType(createPlayerClass());
-        player.setHealth(50);
-        player.setXp(0);
-        player.setBezos(50);
-        switch (player.getPlayerType()) {
-            case MAGE:
-                player.setStrength(10);
-                player.setSpeed(20);
-                player.setIntel(30);
-                player.setDefense(20);
-                break;
-            case ARCHER:
-                player.setStrength(15);
-                player.setSpeed(25);
-                player.setIntel(15);
-                player.setDefense(35);
-                break;
-            case KNIGHT:
-                player.setStrength(35);
-                player.setSpeed(20);
-                player.setIntel(5);
-                player.setDefense(30);
-                break;
-            default:
-                System.out.println("You have entered an invalid type");
-        }
-        System.out.println("Welcome " + player.getName() + " the " + player.getPlayerType() + ". " +
+
+        System.out.println("Welcome " + player.getName() +  ". " +
                 "Please go speak with the Warcheif at the town hall" + TEXT_RESET);
         return player;
 
     }
     //user can choose a fighter style but user has cannot see the options
-    public static PlayerType createPlayerClass() {
+    public void createPlayerClass() {
         System.out.println("What style of fighter are you?");
         String userInput = scanner.next();
-        PlayerType chosenClass;
-        try {
-            chosenClass = PlayerType.valueOf(userInput.toUpperCase(Locale.ROOT));
-            return chosenClass;
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid");
-            return createPlayerClass();
-        }
-    }
-    //Method used to attack the enemy and get the various stats
-    @Override
-    public void attack(Character character) {
-        Enemy enemy = (Enemy) character;
-        double attackingPower = (this.getStrength() + this.getSpeed()) * Utility.randomNumber();
-        double defendingPower = enemy.defend() * Utility.randomNumber();
 
-        if (attackingPower > defendingPower) {
-            enemy.setHealth(enemy.getHealth() - (attackingPower - defendingPower));
-        }
-    }
-
-    //Method is used to run
-    @Override
-    public boolean run(Character character) {
-        Enemy enemy = (Enemy) character;
-        return (this.getSpeed() * Utility.randomNumber()) > (enemy.getSpeed() * Utility.randomNumber());
-    }
-
-    //Method used to defend
-    @Override
-    public int defend() {
-        return getDefense();
-    }
-
-    //Method for what I would assume, use item
-    @Override
-    public void use() {
 
     }
-  
+
     //Method to view your stats
     public void viewStats() {
         System.out.println("Name:" + this.getName());
@@ -131,61 +69,7 @@ public class Player extends Character implements BattleActions {
         System.out.println("Bezos:" + this.getBezos());
         System.out.println("XP:" + this.getXp());
         System.out.println("Level:" + this.getLevel());
-    }
-
-    public void addXp() {
-
-        /*
-         * This  Method check to see if the player's level is high than the make level.
-         * If the level is lower than maxLevel then the method checks the
-         */
-        if (getLevel() < maxLevel) {
-            if (getXp() >= levelUpXp) {
-
-
-                this.setLevel(this.getLevel() + 1);
-                this.setHealth(this.getHealth() + 15);
-                this.setBezos(this.getBezos() + 15);
-                System.out.println("You have leveled up!! You are now level:" + this.getLevel());
-                /*
-                 *This switch statement adds to the Stats based on PlayerType
-                 */
-                switch (this.getPlayerType()) {
-                    case MAGE:
-                        this.setDefense(this.getDefense() + 10);
-                        this.setStrength(this.getStrength() + 10);
-                        this.setSpeed(this.getSpeed() + 15);
-                        this.setIntel(this.getIntel() + 25);
-
-                        break;
-                    case ARCHER:
-                        this.setDefense(this.getDefense() + 15);
-                        this.setStrength(this.getStrength() + 15);
-                        this.setSpeed(this.getSpeed() + 20);
-                        this.setIntel(this.getIntel() + 10);
-                        break;
-                    case KNIGHT:
-                        this.setDefense(this.getDefense() + 20);
-                        this.setStrength(this.getStrength() + 25);
-                        this.setSpeed(this.getSpeed() + 15);
-                        break;
-                }
-
-
-                this.setDefense(this.getDefense());
-                this.setStrength(this.getStrength());
-                this.setSpeed(this.getSpeed());
-                this.setIntel(this.getIntel());
-
-                levelUpXp = levelUpXp + 100;
-            }
-        }
 
     }
 
-    //Method to add quest to your quest log
-    public void addQuest(Quest quest) {
-        questLog.add(quest);
-        System.out.println(quest.getName() + " has been added to your quest log");
-    }
 }//EOC
