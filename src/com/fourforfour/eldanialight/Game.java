@@ -44,7 +44,7 @@ public class Game implements Serializable, GameInterface {
             if (dataParser.isPlayerClass(input)) {
                 player = dataParser.createPlayerClass(input);
                 playerTypeSaved = true;
-               return result = "What is your name";
+               return result = "What is your name?";
             } else {
                return result = "That is not a correct input\n What type of Player are you\n MAGE or KNIGHT or ARCHER";
             }
@@ -53,20 +53,17 @@ public class Game implements Serializable, GameInterface {
         if(!nameSaved){
             player.setName(input);
             nameSaved = true;
-            return result = "Welcome "  + input + " Please go speak with the Warcheif at the town hall";
+            return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
 
         }
         String command = input.toLowerCase(Locale.ROOT);
         if  (command.isEmpty()){
-            result = "I don't understand \"" +input +"\"";
+            result = "I don't understand: \"" +input +"\"";
         }else if(getNeighbors().contains(command)){
             result = processVentureCommand(command);
         }
-
-
         return result;
     }
-
 
     private void processSaveCommand() {
         gameLoaded = false;
@@ -92,13 +89,10 @@ public class Game implements Serializable, GameInterface {
         System.out.println("game saved");
     }
 
-
-
     private String processloadCommand(){
         String result = "";
         if(!gameLoaded){
             try {
-
                 FileInputStream fis = new FileInputStream("data/saveGameData.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
 
@@ -127,8 +121,6 @@ public class Game implements Serializable, GameInterface {
         return result;
     }
 
-
-
     private void processShopCommand() {
         System.out.println("Hello Traveler, what can I do for you?");
         System.out.println("you can BUY or SELL or LEAVE");
@@ -142,7 +134,7 @@ public class Game implements Serializable, GameInterface {
                 sellItems();
 
             } else {
-                System.out.println("You did not enter a correct command");
+                System.out.println("You did not enter a correct command.");
             }
         }
     }
@@ -152,7 +144,7 @@ public class Game implements Serializable, GameInterface {
     }
 
     private void buyItems() {
-        System.out.println("available item" + getLocationItemsList());
+        System.out.println("Available item(s):" + getLocationItemsList());
 
     }
 
@@ -169,17 +161,15 @@ public class Game implements Serializable, GameInterface {
             setCurrentCity(command);
             setLocationCommands(dataParser.getLocationCommands(currentCity));
             setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
-            return "You have entered " + command;
+            return "You have entered: " + command;
     }
-
 
     public void processLeaveCommand(){
         setCurrentCity(previousCity);
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
-        System.out.println("You have entered " + currentCity);
+        System.out.println("You have entered: " + currentCity);
     }
-
 
     public List<String> getNeighbors(){
         return dataParser.getLocationNeighbors(currentCity);
@@ -188,8 +178,6 @@ public class Game implements Serializable, GameInterface {
     public List<String> getLocationCommands() {
         return locationCommands;
     }
-
-
 
     public void setLocationCommands(List<String> locationCommands) {
         this.locationCommands = locationCommands;
@@ -230,9 +218,9 @@ public class Game implements Serializable, GameInterface {
     @Override
     public String getDescriptionText() {
         String result = "Location: " + getCurrentLocationDescription() +
-              "\n \nAllowed Commands "+ getLocationCommands() +
-              "\n \nPossible Destinations ->" + dataParser.getLocationNeighbors(currentCity) +
-                "\nType destination name to move";
+              "\n \nAllowed Commands: "+ getLocationCommands() +
+              "\n \nPossible Destinations: " + dataParser.getLocationNeighbors(currentCity) +
+                "\nType destination name to move...";
 
         return result;
     }
