@@ -13,7 +13,7 @@ public class Main {
 //        Thread thread = new Thread(() -> {
 //            SimpleAudioPlayer audioPlayer;
 //            try {
-//                String filePath = "data/music/ffixhome.wav";
+//                String filePath = "Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/01-prelude game opener.wav";
 //                audioPlayer = new SimpleAudioPlayer(filePath);
 //                audioPlayer.play();
 //            } catch (Exception e) {

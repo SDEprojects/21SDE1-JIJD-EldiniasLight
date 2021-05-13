@@ -50,7 +50,7 @@ public class Game implements Serializable, GameInterface {
         if (!nameSaved) {
             player.setName(input);
             nameSaved = true;
-            return result = "Welcome "  + input + " Please go speak with the Warchief at the town hall";
+            return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
         }
 
         String command = input.toLowerCase(Locale.ROOT);
@@ -59,7 +59,6 @@ public class Game implements Serializable, GameInterface {
             result = "I don't understand \"" +input+"\"";
         else if (getNeighbors().contains(command))
             result = processVentureCommand(command);
-
         return result;
     }
 
@@ -92,6 +91,7 @@ public class Game implements Serializable, GameInterface {
         String result;
 
         if (!gameLoaded) {
+
             try {
                 FileInputStream fis = new FileInputStream("data/saveGameData.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
@@ -135,7 +135,7 @@ public class Game implements Serializable, GameInterface {
     }
 
     private void buyItems() {
-        System.out.println("available item" + getLocationItemsList());
+        System.out.println("Available item(s):" + getLocationItemsList());
     }
 
     public List<String> getLocationItemsList() {
@@ -157,7 +157,7 @@ public class Game implements Serializable, GameInterface {
         setCurrentCity(previousCity);
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
-        System.out.println("You have entered " + currentCity);
+        System.out.println("You have entered: " + currentCity);
     }
 
     public List<String> getNeighbors() {
