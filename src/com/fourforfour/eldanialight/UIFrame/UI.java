@@ -12,45 +12,49 @@ import java.awt.event.ActionListener;
 
 public class UI extends JFrame {
 
+    //FIELDS
     private SwingController controller;
-
-    private final int FRAME_X_SIZE = 520;
+    private final int FRAME_X_SIZE = 600;
     private final int FRAME_Y_SIZE = 900;
-
     private JTextArea displayArea;
     private JTextField playerInputTF;
     private JLabel saveGameMsgLbl;
+    private JLabel locationImageContainer;
+    private JLabel titleLabel;
     private JTextArea playerMessageLbl;
     private JButton submitCommandBtn;
-
-    private JLabel locationImageContainer;
-
-
-
 
     public UI(SwingController controller) {
         this.controller = controller;
 
+        //SETTING UP FRAME
         setLocation(100,100);
         setSize(FRAME_X_SIZE,FRAME_Y_SIZE);
         setResizable(false);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //Setting up Title label
+        titleLabel = new JLabel("Eldinias Light");
+        titleLabel.setBounds(240, 0, 200, 50);
+        titleLabel.setFont(new Font("Monospaced Bold", Font.BOLD, 20));
+        add(titleLabel);
+
         Image locationImage = null;
         try {
-            locationImage = ImageIO.read(new File("data/images/Opening screen.jpg"));
+            locationImage = ImageIO.read(new File("Eldinias-Light/data/images/Opening screen.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        //Setting up location container
         locationImageContainer = new JLabel(new ImageIcon(locationImage), SwingConstants.CENTER);
-        locationImageContainer.setBounds(0,50,500,260);
+        locationImageContainer.setBounds(15,50,570,260);
         add(locationImageContainer);
 
-
+        //Setting up main display area that contains the messages
         displayArea = new JTextArea(25,40);
-        displayArea.setBounds(25,315,430,250);
+        displayArea.setBounds(15,315,570,250);
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
@@ -59,19 +63,18 @@ public class UI extends JFrame {
         displayArea.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(displayArea);
 
-
+        //Setting up the text area to show the commands available
         playerMessageLbl = new JTextArea(15,40);
-        playerMessageLbl.setBounds(25,570,430,120);
+        playerMessageLbl.setBounds(15,570,570,120);
         playerMessageLbl.setEditable(false);
         playerMessageLbl.append("Welcome Champion and thank you for coming to aid of Eldinia!!");
-        playerMessageLbl.append("\nTell us about this brave soul who has come to defeat Tyronious the Black\n");
-        playerMessageLbl.append("\nWhat type of player are you");
-        playerMessageLbl.append("\nChoose from Mage or Knight or Archer");
+        playerMessageLbl.append("\nTell us about this brave soul who has come to defeat Tyronious the Black.\n");
+        playerMessageLbl.append("\nWhat type of player are you?");
+        playerMessageLbl.append("\n Options: Mage OR Knight OR Archer");
         playerMessageLbl.setWrapStyleWord(true);
         playerMessageLbl.setLineWrap(true);
         playerMessageLbl.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(playerMessageLbl);
-
 
 //        saveGameMsgLbl = new JLabel("use save/load commands to save/load game", SwingConstants.LEFT);
 //        saveGameMsgLbl.setBounds(25,780,430,25);
@@ -82,17 +85,22 @@ public class UI extends JFrame {
 //        saveGameMsgLbl.setFont(f.deriveFont(f.getStyle() & ~Font.BOLD));
 //        add(saveGameMsgLbl);
 
+        //Setting up player's text input area
         playerInputTF = new JTextField();
-        playerInputTF.setBounds(25,695,430,25);
+        playerInputTF.setBounds(70,695,430,30);
         playerInputTF.addActionListener(new HandleSubmitButtonPressEnter());
         playerInputTF.setBackground(Color.BLACK);
         playerInputTF.setForeground(Color.ORANGE);
         playerInputTF.setFont(new Font("Book Antiqua", Font.PLAIN, 20));//sets font of the text
         playerInputTF.setHorizontalAlignment(JTextField.CENTER);
+        playerInputTF.getCaret().setVisible(true);
+        playerInputTF.setCaretColor(Color.ORANGE);
         add(playerInputTF);
 
+
+        //Submit button
         submitCommandBtn = new JButton();
-        submitCommandBtn.setBounds(380,725,75,25);
+        submitCommandBtn.setBounds(250,725,75,25);
         submitCommandBtn.setText("Submit");
         submitCommandBtn.addActionListener(new HandleSubmitButtonWhenClicked());
         add(submitCommandBtn);
@@ -105,9 +113,7 @@ public class UI extends JFrame {
         playerMessageLbl.setText(result);
         String displayData = controller.getDescription();
         displayArea.setText(displayData);
-
         playerInputTF.setText("");
-
     }
 
     public class HandleSubmitButtonWhenClicked implements ActionListener {
