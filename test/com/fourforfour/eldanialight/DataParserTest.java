@@ -35,9 +35,12 @@ public class DataParserTest {
     @Test
     public void createPlayerClass_shouldReturnTrue_whenClassStatsCorrect() {
         Player player = dp.createPlayerClass("mage");
-        player.viewStats();
-        player.setName("TEST");
-        player.viewStats();
+        assertEquals(50.0, player.getHealth(), 0.001);
+        assertEquals(10, player.getStrength());
+        assertEquals(20, player.getDefense());
+        assertEquals(50, player.getBezos());
+        assertEquals(30, player.getIntel());
+        assertEquals(20, player.getSpeed());
     }
 
     @Test

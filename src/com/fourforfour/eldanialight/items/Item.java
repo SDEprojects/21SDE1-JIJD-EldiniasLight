@@ -8,7 +8,6 @@ public class Item {
     private int itemWorth;
     private WearItemType wearItemType;
 
-
     public Item(String name) {
         this.setName(name);
         setCount(1);
@@ -63,5 +62,4 @@ public class Item {
     public void setWearItemType(WearItemType wearItemType) {
         this.wearItemType = wearItemType;
     }
-
-}
+}// EOC

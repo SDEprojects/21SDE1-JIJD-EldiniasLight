@@ -1,7 +1,7 @@
 package com.fourforfour.eldanialight.items;
 
+// ENUM for stats
 public enum ItemType {
-    //ENUM for stats
     HEALTH,
     DEFENSE,
     INTELLECT,

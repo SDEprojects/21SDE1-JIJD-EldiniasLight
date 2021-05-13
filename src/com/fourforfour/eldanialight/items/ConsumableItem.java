@@ -3,19 +3,18 @@ package com.fourforfour.eldanialight.items;
 import com.fourforfour.eldanialight.characters.Character;
 
 public class ConsumableItem  extends Item{
-
-    //fields for the enhancer and item type
+    // fields for the enhancer and item type
     private int enhancer;
     private ItemType type;
 
-    //constructor to consume items
+    // constructor to consume items
     public ConsumableItem(String name, int enhancer, ItemType type, int itemWorth) {
         super(name);
         this.enhancer = enhancer;
         this.type = type;
     }
 
-    //Switch case to choose what stat user wants to enhance
+    // Switch case to choose what stat user wants to enhance
     public void useItem(Character player){
         switch (this.type){
             case HEALTH:
@@ -33,4 +32,4 @@ public class ConsumableItem  extends Item{
                 System.out.println("Cant help you...");
         }
     }
-}
+}// EOC

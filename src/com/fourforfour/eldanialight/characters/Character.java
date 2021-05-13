@@ -30,13 +30,11 @@ public class Character implements java.io.Serializable {
 
 
     //CONSTRUCTOR
-
     //no args
     public Character() {
-
     }
-    //This constructor was to all for original enemy creation
 
+    //This constructor was to all for original enemy creation
     //all args
     public Character(String name, double health, int strength, int defense, int bezos, int intel, int speed) {
         this.name = name;
@@ -105,7 +103,6 @@ public class Character implements java.io.Serializable {
         this.speed = speed;
     }
 
-
     public int getXp() {
         return xp;
     }
@@ -126,7 +123,6 @@ public class Character implements java.io.Serializable {
         this.level = level;
     }
 
-
     //used for equipping items to the character
     public void addWearableItem(WearItem item) {
         item.equipItem(this);
@@ -139,12 +135,12 @@ public class Character implements java.io.Serializable {
         System.out.println("\nEnter the item name or back: ");
         System.out.println("\n***INVENTORY***");
 
-        for (Item item : items) {
+        for (Item item : items)
             System.out.println(item.getName());
-        }
-        if (items.size() == 0) {
+
+        if (items.size() == 0)
             System.out.println("There is nothing in the inventory");
-        }
+
         System.out.println("****************");
         System.out.println("# of Items in Inventory: " + items.size() + "\n");
     }
@@ -153,13 +149,11 @@ public class Character implements java.io.Serializable {
     // check item  -- Will check to see if item is in player inventory
     public boolean checkItem(String itemName) {
         for (Item currentItem : items) {
-            if (itemName.equalsIgnoreCase(currentItem.getName())) {
+            if (itemName.equalsIgnoreCase(currentItem.getName()))
                 return true;
-            }
         }
         return false;
     }
-
 
     //equipping the item
     //Seems similar to method addWearableItem
@@ -182,9 +176,8 @@ public class Character implements java.io.Serializable {
     //checking to see if the WearItemType and Armor type is the same
     public boolean isTheSameWearType(Item wearItem) {
         for (WearItem armorType : equipment) {
-            if (wearItem.getWearItemType().equals(armorType.getWearItemType())) {
+            if (wearItem.getWearItemType().equals(armorType.getWearItemType()))
                 return true;
-            }
         }
         return false;
     }
@@ -192,9 +185,8 @@ public class Character implements java.io.Serializable {
     //Checked to see if item is equipped
     public boolean isEquipped(Item item) {
         for (Item currentEquipment : equipment) {
-            if (currentEquipment.getName().equals(item.getName())) {
+            if (currentEquipment.getName().equals(item.getName()))
                 return true;
-            }
         }
         return false;
     }
@@ -202,9 +194,8 @@ public class Character implements java.io.Serializable {
     //finds the equipment in your inventory
     public Item findEquipment(String equipmentSelection) {
         for (Item currentEquipment : equipment) {
-            if (currentEquipment.getName().equals(equipmentSelection)) {
+            if (currentEquipment.getName().equals(equipmentSelection))
                 return currentEquipment;
-            }
         }
         return null;
     }
@@ -212,9 +203,8 @@ public class Character implements java.io.Serializable {
     //finds a method in the inventory
     public Item findItem(String itemName) {
         for (Item currentItem : items) {
-            if (itemName.equalsIgnoreCase(currentItem.getName())) {
+            if (itemName.equalsIgnoreCase(currentItem.getName()))
                 return currentItem;
-            }
         }
         return null;
     }
@@ -230,8 +220,7 @@ public class Character implements java.io.Serializable {
     //method not used. Its for picking up items
     public void pickUpItem(Item item) {
         String playerAction = scanner.nextLine();
-        if (playerAction.equalsIgnoreCase("Pick up" + item.getName())) {
+        if (playerAction.equalsIgnoreCase("Pick up" + item.getName()))
             items.add(item);
-        }
     }
-}
+}// EOC
