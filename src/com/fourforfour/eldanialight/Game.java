@@ -1,6 +1,5 @@
 package com.fourforfour.eldanialight;
 
-
 import com.fourforfour.eldanialight.characters.Player;
 import com.fourforfour.eldanialight.controller.GameInterface;
 
@@ -9,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
 
 public class Game implements Serializable, GameInterface {
     DataParser dataParser;
@@ -26,9 +24,8 @@ public class Game implements Serializable, GameInterface {
 
     // A LOT THINGS BEING DONE IN THIS CLASS JUST TO QUICKLY TEST - WILL SEPARATE SOON
     // NEED TO CREATE AN INPUT PARSER LATER
-    //CREATE ANOTHER CLASS TO SEPARATE DISPLAY STUFF
+    // CREATE ANOTHER CLASS TO SEPARATE DISPLAY STUFF
     Game() {
-        // insert the name of the JSON file that will be read
         dataParser = new DataParser();
         currentCity = "home";
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
@@ -40,37 +37,38 @@ public class Game implements Serializable, GameInterface {
     public String submitPlayerString(String input) {
         String result = "";
 
-        if(!playerTypeSaved){
+        if (!playerTypeSaved) {
             if (dataParser.isPlayerClass(input)) {
                 player = dataParser.createPlayerClass(input);
                 playerTypeSaved = true;
-               return result = "What is your name?";
-            } else {
-               return result = "That is not a correct input\n What type of Player are you\n MAGE or KNIGHT or ARCHER";
+                return result = "What is your name";
             }
+            else
+                return result = "That is not a correct input\n What type of Player are you\n MAGE or KNIGHT or ARCHER";
         }
 
-        if(!nameSaved){
+        if (!nameSaved) {
             player.setName(input);
             nameSaved = true;
             return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
+        }
 
-        }
         String command = input.toLowerCase(Locale.ROOT);
-        if  (command.isEmpty()){
-            result = "I don't understand: \"" +input +"\"";
-        }else if(getNeighbors().contains(command)){
+
+        if (command.isEmpty())
+            result = "I don't understand \"" +input+"\"";
+        else if (getNeighbors().contains(command))
             result = processVentureCommand(command);
-        }
         return result;
     }
 
     private void processSaveCommand() {
         gameLoaded = false;
-        HashMap<String, Object> gameObjects = new HashMap<String, Object>();
+        HashMap<String, Object> gameObjects = new HashMap<>();
         gameObjects.put("player", player);
         gameObjects.put("currentCity", currentCity);
         gameObjects.put("previousCity", previousCity);
+
         try {
             FileOutputStream fos = new FileOutputStream("data/saveGameData.txt");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -79,10 +77,10 @@ public class Game implements Serializable, GameInterface {
             oos.close();
             fos.close();
         } catch (FileNotFoundException e) {
-            System.out.printf("Failed to load the game files:");
+            System.out.print("Failed to load the game files:");
             System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.printf("Failed to load the game files:");
+            System.out.print("Failed to load the game files:");
             e.printStackTrace();
         }
 
@@ -90,13 +88,15 @@ public class Game implements Serializable, GameInterface {
     }
 
     private String processloadCommand(){
-        String result = "";
-        if(!gameLoaded){
+        String result;
+
+        if (!gameLoaded) {
+
             try {
                 FileInputStream fis = new FileInputStream("data/saveGameData.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
 
-                HashMap<String,Object> data = (HashMap<String,Object>)ois.readObject();
+                HashMap<String, Object> data = (HashMap<String, Object>) ois.readObject();
                 fis.close();
 
                 currentCity = (String) data.get("currentCity");
@@ -107,15 +107,10 @@ public class Game implements Serializable, GameInterface {
 
                 gameLoaded = true;
                 result = "game loaded from last checkpoint";
-
-            } catch (FileNotFoundException | ClassNotFoundException e) {
-                result = "game could not be loaded";
-            } catch (IOException e) {
-                result = "game could not be loaded";
-            }catch (Exception e){
+            } catch (Exception e) {
                 result = "game could not be loaded";
             }
-        }else {
+        } else {
             result = "You have already loaded the game. You cannot do it again";
         }
         return result;
@@ -125,53 +120,47 @@ public class Game implements Serializable, GameInterface {
         System.out.println("Hello Traveler, what can I do for you?");
         System.out.println("you can BUY or SELL or LEAVE");
         String choice = scanner.nextLine();
-        while (choice != "leave") {
 
-            if (choice.equals("buy")) {
+        while (!choice.equals("leave")) {
+            if (choice.equals("buy"))
                 buyItems();
-            }
-            if (choice.equals("sell")) {
+            if (choice.equals("sell"))
                 sellItems();
-
-            } else {
-                System.out.println("You did not enter a correct command.");
-            }
+            else
+                System.out.println("You did not enter a correct command");
         }
     }
 
     private void sellItems() {
-
     }
 
     private void buyItems() {
         System.out.println("Available item(s):" + getLocationItemsList());
-
     }
 
-    public List<String> getLocationItemsList(){
-        if(currentCity.equals("armory")){
+    public List<String> getLocationItemsList() {
+        if (currentCity.equals("armory"))
             return dataParser.getArmoryList();
-        }else{
+        else
             return dataParser.getMagicList();
-        }
     }
 
-    public String processVentureCommand(String command){
-            setPreviousCity(currentCity);
-            setCurrentCity(command);
-            setLocationCommands(dataParser.getLocationCommands(currentCity));
-            setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
-            return "You have entered: " + command;
+    public String processVentureCommand(String command) {
+        setPreviousCity(currentCity);
+        setCurrentCity(command);
+        setLocationCommands(dataParser.getLocationCommands(currentCity));
+        setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
+        return "You have entered " + command;
     }
 
-    public void processLeaveCommand(){
+    public void processLeaveCommand() {
         setCurrentCity(previousCity);
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
         System.out.println("You have entered: " + currentCity);
     }
 
-    public List<String> getNeighbors(){
+    public List<String> getNeighbors() {
         return dataParser.getLocationNeighbors(currentCity);
     }
 
@@ -217,18 +206,14 @@ public class Game implements Serializable, GameInterface {
 
     @Override
     public String getDescriptionText() {
-        String result = "Location: " + getCurrentLocationDescription() +
-              "\n \nAllowed Commands: "+ getLocationCommands() +
-              "\n \nPossible Destinations: " + dataParser.getLocationNeighbors(currentCity) +
-                "\nType destination name to move...";
-
-        return result;
+        return "Location: " + getCurrentLocationDescription() +
+              "\n \nAllowed Commands "+ getLocationCommands() +
+              "\n \nPossible Destinations ->" + dataParser.getLocationNeighbors(currentCity) +
+              "\nType destination name to move";
     }
 
     @Override
     public String getLocationImagePath() {
         return null;
     }
-
-
-}
+}// EOC

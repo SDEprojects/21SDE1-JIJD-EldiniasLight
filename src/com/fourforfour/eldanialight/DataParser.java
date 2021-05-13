@@ -115,11 +115,10 @@ class DataParser{
     }
 
     public JsonNode getEnemy(String enemy) {
-        if (isEnemy(enemy)) {
+        if (isEnemy(enemy))
             return gameData.path(ENEMIES_NODE).path(enemy);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid enemy");
-        }
     }
 
     /**
@@ -162,11 +161,10 @@ class DataParser{
     }
 
     public JsonNode getWeapon(String weapon) {
-        if (isWeapon(weapon)) {
+        if (isWeapon(weapon))
             return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid weapon");
-        }
     }
 
     /**
@@ -185,11 +183,10 @@ class DataParser{
     }
 
     public JsonNode getArmor(String armor) {
-        if (isArmor(armor)) {
+        if (isArmor(armor))
             return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid armor");
-        }
     }
 
     /**
@@ -208,11 +205,10 @@ class DataParser{
     }
 
     public JsonNode getConsumable(String consumable) {
-        if (isConsumable(consumable)) {
+        if (isConsumable(consumable))
             return gameData.path(CONSUMABLES_NODE).path(consumable);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid enemy");
-        }
     }
 
     /**
@@ -263,43 +259,38 @@ class DataParser{
     }
 
     public String getLocationType(String location) {
-        if (isLocation(location)) {
+        if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(TYPE_NODE).asText();
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid location");
-        }
     }
 
     public String getLocationDescription(String location) {
-        if (isLocation(location)) {
+        if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(DESCRIPTION_NODE).asText();
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid location");
-        }
     }
 
     public List<String> getLocationNeighbors(String location) {
-        if (isLocation(location)) {
+        if (isLocation(location))
             return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), NEIGHBOR_NODE);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid location");
-        }
     }
 
     public List<String> getLocationCommands(String location) {
-        if (isLocation(location)) {
+        if (isLocation(location))
             return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), COMMANDS_NODE);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid location");
-        }
     }
 
     public JsonNode getLocationNPC(String location) {
-        if (isLocation(location)) {
+        if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(SHOP_NPC_NODE);
-        } else {
+        else
             throw new IllegalArgumentException("Please input a valid location");
-        }
     }
 
     /**
@@ -328,9 +319,8 @@ class DataParser{
      */
     public Player createPlayerClass(String classChoice) {
         // allows you to create an instance of a character straight from your JSON game data
-        if (!isPlayerClass(classChoice)) {
+        if (!isPlayerClass(classChoice))
             throw new IllegalArgumentException("Requested character class does not exist in your game data");
-        }
 
         Player result = null;
         try {
@@ -342,21 +332,4 @@ class DataParser{
         }
         return result;
     }
-
-//    public Enemy createEnemy(String enemy) {
-//        // allows you to create an instance of an enemy straight from your JSON game data
-//        if (!isEnemy(enemy)) {
-//            throw new IllegalArgumentException("Requested enemy does not exist in your game data");
-//        }
-//
-//        Enemy result = null;
-//        try {
-//            JsonNode enemyInformation = gameData.path(ENEMIES_NODE).path(enemy);
-//            // allows you to pass in a JsonNode and it returns a Java Object of your choosing (as long as it has the proper fields)
-//            result = mapper.treeToValue(enemyInformation, Enemy.class);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
-}
+}// EOC

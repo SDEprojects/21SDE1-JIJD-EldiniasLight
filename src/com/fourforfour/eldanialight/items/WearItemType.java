@@ -1,7 +1,7 @@
 package com.fourforfour.eldanialight.items;
 
+//ENUM for items the player can wear
 public enum WearItemType {
-    //ENUM for items the player can wear
     HEAD,
     CHEST,
     MAIN_HAND,

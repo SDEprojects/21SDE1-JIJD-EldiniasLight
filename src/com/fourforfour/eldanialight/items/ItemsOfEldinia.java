@@ -3,7 +3,6 @@ package com.fourforfour.eldanialight.items;
 import java.util.List;
 
 public class ItemsOfEldinia {
-
     // Weapons
     public static WearItem sword = new WearItem("sword",0,0,5,20, WearItemType.MAIN_HAND);
     public static WearItem battleAxe = new WearItem("battleAxe",0,0,10,20, WearItemType.MAIN_HAND);
@@ -27,8 +26,4 @@ public class ItemsOfEldinia {
 
     //Reward Items
     public static RewardItem wolfClaw = new RewardItem("wolf claw");
-
-    // Shop Inventory
-    public static List<Item> armoryList = new ItemList(sword, shield, battleAxe,bow,staff).getList();
-    public static List<Item> magicList = new ItemList(healthPotion, manaPotion,speedPotion,strengthPotion).getList();
-}
+}// EOC
