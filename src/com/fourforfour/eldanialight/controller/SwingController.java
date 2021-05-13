@@ -1,5 +1,7 @@
 package com.fourforfour.eldanialight.controller;
 
+import com.fourforfour.eldanialight.Game;
+
 public class SwingController {
     private GameInterface gi;
 
@@ -8,11 +10,13 @@ public class SwingController {
         this.gi = gi;
     }
 
-    public String getLocationImagePath(){
-        return gi.getLocationImagePath();
+    public String getDescription() {
+        return gi.getDescriptionText();
     }
 
-    public String getLocationDescription(String location){
-        return gi.getLocationDescription(location);
+    // GUI TEST FUNCTIONS
+    public String processInput(String input) {
+        return gi.submitPlayerString(input);
     }
+
 }

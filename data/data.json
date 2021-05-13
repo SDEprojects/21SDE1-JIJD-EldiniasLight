@@ -1,6 +1,6 @@
 {
-  "Classes": {
-    "Knight": {
+  "classes": {
+    "knight": {
       "health": 50,
       "xp": 0,
       "strength": 35,
@@ -9,7 +9,7 @@
       "defense": 30,
       "bezos": 50
     },
-    "Mage": {
+    "mage": {
       "health": 50,
       "xp": 0,
       "strength": 10,
@@ -18,7 +18,7 @@
       "defense": 20,
       "bezos": 50
     },
-    "Archer": {
+    "archer": {
       "health": 50,
       "xp": 0,
       "strength": 15,
@@ -28,35 +28,35 @@
       "bezos": 50
     }
   },
-  "Attributes": {
-    "stats": [ "Health", "Defense", "Intellect", "Speed", "Strength"],
-    "type": ["Head", "Chest", "Main Hand", "Off Hand"]
+  "attributes": {
+    "stats": [ "health", "defense", "intellect", "speed", "strength"],
+    "type": ["head", "chest", "main hand", "off hand"]
   },
-  "Wear Item": {
+  "wear item": {
     "weapons": {
       "sword": {
         "name": "sword",
         "attack": 5,
         "value": 20,
-        "hand": "Main Hand"
+        "hand": "main hand"
       },
-      "battleAxe": {
-        "name": "battleAxe",
+      "battleaxe": {
+        "name": "battleaxe",
         "attack": 10,
         "value": 20,
-        "hand": "Main Hand"
+        "hand": "main hand"
       },
       "bow": {
         "name": "bow",
         "attack": 10,
         "value": 20,
-        "hand": "Main Hand"
+        "hand": "main hand"
       },
       "staff": {
         "name": "staff",
         "attack": 10,
         "value": 20,
-        "hand": "Main Hand"
+        "hand": "main hand"
       }
     },
     "armor": {
@@ -65,125 +65,125 @@
         "health": 5,
         "defense": 5,
         "value": 20,
-        "hand": "Off Hand"
+        "hand": "off hand"
       },
-      "chestPlate": {
-        "name": "chestPlate",
+      "chestplate": {
+        "name": "chestplate",
         "health": 10,
         "defense": 8,
         "value": 20,
-        "hand": "Chest"
+        "hand": "chest"
       },
-      "lightHelm": {
-        "name": "lightHelm",
+      "lighthelm": {
+        "name": "lighthelm",
         "health": 5,
         "defense": 5,
         "value": 20,
-        "hand": "Off Hand"
+        "hand": "off hand"
       }
     }
   },
-  "Consumables": {
-    "healthPotion": {
-      "name": "healthPotion",
+  "consumables": {
+    "healthpotion": {
+      "name": "healthpotion",
       "enhancer": 10,
-      "attribute": "Health",
+      "attribute": "health",
       "value": 5
     },
-    "manaPotion": {
-      "name": "manaPotion",
+    "manapotion": {
+      "name": "manapotion",
       "enhancer": 10,
-      "attribute": "Intellect",
+      "attribute": "intellect",
       "value": 5
     },
-    "speedPotion": {
-      "name": "speedPotion",
+    "speedpotion": {
+      "name": "speedpotion",
       "enhancer": 10,
-      "attribute": "Speed",
+      "attribute": "speed",
       "value": 5
     },
-    "strengthPotion": {
-      "name": "strengthPotion",
+    "strengthpotion": {
+      "name": "strengthpotion",
       "enhancer": 10,
-      "attribute": "Strength",
+      "attribute": "strength",
       "value": 5
     }
   },
-  "Utility": ["escapeRope", "treasureChestKey"],
-  "Rewards": ["wolf claw"],
-  "Shop Inventory": {
-    "armoryList": ["sword", "shield", "battleAxe", "bow", "staff"],
-    "magicList": ["healthPotion", "manaPotion", "speedPotion", "strengthPotion"]
+  "utility": ["escaperope", "treasurechestkey"],
+  "rewards": ["wolf claw"],
+  "shop inventory": {
+    "armorylist": ["sword", "shield", "battleaxe", "bow", "staff"],
+    "magiclist": ["healthpotion", "manapotion", "speedpotion", "strengthpotion"]
   },
-  "NPCs": {
-    "Quest": {
-      "War Chief": {
+  "npcs": {
+    "quest": {
+      "war chief": {
         "health": 10,
         "strength": 10,
         "defense": 10,
         "bezos": 50,
         "intel": 10,
         "speed": 5,
-        "dialog": "Greetings hero! Thank you for your help. Our forces are stretched thin defending Lucino Town \n Stop by the Shops to gear up for your adventure. Head to the Evil Forest to start on you way do stopping Tyoneious.",
-        "quest": "killTyroneious"
+        "dialog": "greetings hero! thank you for your help. our forces are stretched thin defending lucino town \n stop by the shops to gear up for your adventure. head to the evil forest to start on you way do stopping tyoneious.",
+        "quest": "killtyroneious"
       }
     },
-    "Shop": {
-      "Blacksmith": {
-        "name": "Blacksmith",
+    "shop": {
+      "blacksmith": {
+        "name": "blacksmith",
         "health": 5,
         "strength": 5,
         "defense": 5,
         "bezos": 1500,
         "intel": 5,
         "speed": 1,
-        "dialog": "Welcome to my Shop"
+        "dialog": "welcome to my shop"
       },
-      "Shop Keeper": {
-        "name": "Shop Keeper",
+      "shop keeper": {
+        "name": "shop keeper",
         "health": 5,
         "strength": 5,
         "defense": 5,
         "bezos": 2000,
         "intel": 5,
         "speed": 1,
-        "dialog": "Welcome to my Shop"
+        "dialog": "welcome to my shop"
       },
-      "Inn Keeper": {
-        "name": "Inn Keeper",
+      "inn keeper": {
+        "name": "inn keeper",
         "health": 5,
         "strength": 5,
         "defense": 5,
         "bezos": 1000,
         "intel": 5,
         "speed": 1,
-        "dialog": "Welcome to my Inn"
+        "dialog": "welcome to my inn"
       },
-      "Hank": {
-        "name": "Hank",
+      "hank": {
+        "name": "hank",
         "health": 10,
         "strength": 10,
         "defense": 10,
         "bezos": 10,
         "intel": 10,
         "speed": 34,
-        "dialog": "Welcome to the Armory"
+        "dialog": "welcome to the armory"
       },
-      "Hans": {
-        "name": "Hans",
+      "hans": {
+        "name": "hans",
         "health": 10,
         "strength": 10,
         "defense": 10,
         "bezos": 10,
         "intel": 10,
         "speed": 34,
-        "dialog": "Welcome to the Magic Shop"
+        "dialog": "welcome to the magic shop"
       }
     }
   },
-  "Enemies": {
-    "Goblin": {
-      "name": "Goblin",
+  "enemies": {
+    "goblin": {
+      "name": "goblin",
       "health": 50,
       "defense": 30,
       "strength": 25,
@@ -191,10 +191,10 @@
       "intel": 0,
       "bezos": 10,
       "xp": 30,
-      "rewardItem": "drop something"
+      "reward": "drop something"
     },
-    "Wolf": {
-      "name": "Wolf",
+    "wolf": {
+      "name": "wolf",
       "health": 30,
       "defense": 60,
       "strength": 30,
@@ -202,10 +202,10 @@
       "intel": 20,
       "bezos": 10,
       "xp": 30,
-      "rewardItem": "wolf claw"
+      "reward": "wolf claw"
     },
-    "Troll": {
-      "name": "Troll",
+    "troll": {
+      "name": "troll",
       "health": 60,
       "defense": 45,
       "strength": 60,
@@ -213,10 +213,10 @@
       "intel": 0,
       "bezos": 35,
       "xp": 40,
-      "rewardItem": "drop something"
+      "reward": "drop something"
     },
-    "Undead": {
-      "name": "Undead",
+    "undead": {
+      "name": "undead",
       "health": 50,
       "defense": 35,
       "strength": 35,
@@ -224,10 +224,10 @@
       "intel": 0,
       "bezos": 10,
       "xp": 20,
-      "rewardItem": "drop something"
+      "reward": "drop something"
     },
-    "Andre the Giant": {
-      "name": "Andre the Giant",
+    "andre the giant": {
+      "name": "andre the giant",
       "health": 100,
       "defense": 100,
       "strength": 150,
@@ -236,8 +236,8 @@
       "bezos": 100,
       "xp": 150
     },
-    "Haku": {
-      "name": "Haku",
+    "haku": {
+      "name": "haku",
       "health": 125,
       "defense": 100,
       "strength": 80,
@@ -246,8 +246,8 @@
       "bezos": 100,
       "xp": 150
     },
-    "Tyronious the Black": {
-      "name": "Tyronious the Black",
+    "tyronious the black": {
+      "name": "tyronious the black",
       "health": 300,
       "defense": 150,
       "strength": 150,
@@ -257,290 +257,302 @@
       "xp": 1000
     }
   },
-  "Commands": {
-    "shopCommand": [
-      "SHOP",
-      "VIEW_ITEMS",
-      "LEAVE",
-      "VIEW_STATS"
+  "commands": {
+    "shopcommand": [
+      "shop",
+      "view items",
+      "leave",
+      "view_stats"
     ],
-    "talkCommand": [
-      "LEAVE",
-      "TALK"
+    "talkcommand": [
+      "leave",
+      "talk"
     ],
-    "townHallCommand": [
-      "VIEW_CHARACTERS",
-      "LEAVE",
-      "VIEW_ITEMS",
-      "VIEW_STATS"
+    "townhallcommand": [
+      "view_characters",
+      "leave",
+      "view items",
+      "view_stats"
     ],
-    "worldCommand": [
-      "VIEW",
-      "VENTURE",
-      "VIEW_ITEMS",
-      "VIEW_STATS"
+    "worldcommand": [
+      "view",
+      "venture",
+      "view items",
+      "view_stats"
     ],
-    "battleCommand": [
-      "VIEW",
-      "VENTURE",
-      "VIEW_ITEMS",
-      "VIEW_STATS",
-      "ATTACK",
-      "ITEM"
+    "battlecommand": [
+      "view",
+      "venture",
+      "view items",
+      "view_stats",
+      "attack",
+      "item"
     ]
   },
-  "Locations": {
-    "Lucino Town" : {
+  "locations": {
+    "home" : {
       "type": "safe",
-      "description": "The largest city in Eldina and one of the last strong holds preventing Tyroneious form gaining complete control",
-      "neighbors": ["Lucino Shops", "Lucino Town Hall"],
+      "description": "you are in the outskirts of the city in your home - farmland surrounds you - and a new jounrey is calling out to you",
+      "neighbors": ["lucino town"],
       "commands": [
-        "SHOP",
-        "VIEW_ITEMS",
-        "LEAVE",
-        "VIEW_STATS"
+        "view",
+        "view items",
+        "venture",
+        "view stats"
       ]
     },
-    "Lucino Shops" : {
+    "lucino town" : {
       "type": "safe",
-      "description": "You are in a market place with a variety of shops. You can see the Armory, Inn, and Magic shop. ",
-      "neighbors": ["armory", "magic", "inn", "front gate", "Lucino Town"],
+      "description": "the largest city in eldina and one of the last strong holds preventing tyroneious form gaining complete control",
+      "neighbors": ["lucino shops", "lucino town hall"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "view items",
+        "venture",
+        "view stats"
       ]
     },
-    "Armory" : {
+    "lucino shops" : {
+      "type": "safe",
+      "description": "you are in a market place with a variety of shops. you can see the armory, inn, and magic shop. ",
+      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town"],
+      "commands": [
+        "view",
+        "venture",
+        "view items",
+        "view stats"
+      ]
+    },
+    "armory" : {
       "type": "shop",
       "description": "no description so far",
-      "neighbors": ["Lucino Shops"],
+      "neighbors": ["lucino shops"],
       "commands": [
-        "SHOP",
-        "VIEW_ITEMS",
-        "LEAVE",
-        "VIEW_STATS"
+        "shop",
+        "view items",
+        "leave",
+        "view stats"
       ],
       "npc": {
-        "name": "Hank",
-        "type": "Shop",
-        "items": "armoryList"
+        "name": "hank",
+        "type": "shop",
+        "items": "armorylist"
       }
     },
-    "Warchief" : {
+    "warchief" : {
       "type": "quest",
       "description": "no description so far",
-      "neighbors": ["Lucino Town Hall"],
+      "neighbors": ["lucino town hall"],
       "commands": [
-        "LEAVE",
-        "TALK"
+        "leave",
+        "talk"
       ]
     },
-    "Lucino Town Hall" : {
+    "lucino town hall" : {
       "type": "safe",
       "description": "no description so far",
-      "neighbors": ["Lucino Town, Warchief"],
+      "neighbors": ["lucino town, warchief"],
       "commands": [
-        "VIEW_CHARACTERS",
-        "LEAVE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view_characters",
+        "leave",
+        "view items",
+        "view_stats",
+        "view"
       ]
     },
-    "Magic" : {
+    "magic" : {
       "type": "shop",
       "description": "no description so far",
-      "neighbors": ["Lucino Shops"],
+      "neighbors": ["lucino shops"],
       "commands": [
-        "SHOP",
-        "VIEW_ITEMS",
-        "LEAVE",
-        "VIEW_STATS"
+        "shop",
+        "view items",
+        "leave",
+        "view stats"
       ],
       "npc": {
-        "name": "Hans",
-        "type": "Shop",
-        "items": "magicList"
+        "name": "hans",
+        "type": "shop",
+        "items": "magiclist"
       }
     },
-    "Front Gate" : {
+    "front gate" : {
       "type": "safe",
-      "description": "The main enterance to Lucino Town. It looks strong and sturdy, but you can see the marks left by a recent attack",
-      "neighbors": ["Lucino Shops", "open world"],
+      "description": "the main enterance to lucino town. it looks strong and sturdy, but you can see the marks left by a recent attack",
+      "neighbors": ["lucino shops", "open world"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Open World" : {
+    "open world" : {
       "type": "danger",
-      "description": "A vast open area. You see a sign that point to the evil forest, badlands, fire mountain and Castle Eldina",
+      "description": "a vast open area. you see a sign that point to the evil forest, badlands, fire mountain and castle eldina",
       "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Evil Forest" : {
+    "evil forest" : {
       "type": "danger",
-      "description": "A forest full of brown trees. There is a odd smell in the air. There are two trial, one leading deeper into the forest, and the second to the Giant's lair",
+      "description": "a forest full of brown trees. there is a odd smell in the air. there are two trial, one leading deeper into the forest, and the second to the giant's lair",
       "neighbors": ["open world", "inner evil forest", "evil forest lair"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Inner Evil Forest" : {
+    "inner evil forest" : {
       "type": "battle",
-      "description": "The path takes you deeper into the forest and it starts to get darker. There is is another path that takes you to what looks like a lair of some type. You cab hear a sinister sound you turn and prepare for battle",
+      "description": "the path takes you deeper into the forest and it starts to get darker. there is is another path that takes you to what looks like a lair of some type. you cab hear a sinister sound you turn and prepare for battle",
       "neighbors": ["evil forest", "evil forest lair"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Evil Forest Lair" : {
+    "evil forest lair" : {
       "type": "danger",
-      "description": "The forest seems to have open up and the tree seem to no longer block the little light in the sky. You can see the two trails that lead here. You can see the remains of the Giant's victims scattered on the ground. Suddenly you hear a loud thud followed by another. They seem to get closer",
+      "description": "the forest seems to have open up and the tree seem to no longer block the little light in the sky. you can see the two trails that lead here. you can see the remains of the giant's victims scattered on the ground. suddenly you hear a loud thud followed by another. they seem to get closer",
       "neighbors": ["evil forest", "inner evil forest "],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Badlands" : {
+    "badlands" : {
       "type": "danger",
-      "description": "You find yourself if a desolate land. you can tell that it was once full of life, but that life has been drained by the dark powers of Tyroneous. There is sign pointing to Fang hill and Elki Town",
+      "description": "you find yourself if a desolate land. you can tell that it was once full of life, but that life has been drained by the dark powers of tyroneous. there is sign pointing to fang hill and elki town",
       "neighbors": ["open world", "elki town", "fang hill"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Elki Town" : {
+    "elki town" : {
       "type": "safe",
-      "description": "A small town that sits within the Badlands. The people seem to be on edge",
+      "description": "a small town that sits within the badlands. the people seem to be on edge",
       "neighbors": ["badlands", "fang hill"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Fang Hill" : {
+    "fang hill" : {
       "type": "battle",
-      "description": "A hill covered area known to be home of wolves. you should be careful as they can attack from nowhere",
+      "description": "a hill covered area known to be home of wolves. you should be careful as they can attack from nowhere",
       "neighbors": ["badlands", "elki town"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Fire Mountain" : {
+    "fire mountain" : {
       "type": "danger",
-      "description": "You have come to the area of Fire Mountain the highest area of all the land. You can see the red glow from the lava within and the large smoke cloud it makes. It is know to the be the home of deadly Dragon You can see the pat that takes you to the base of the mountain",
+      "description": "you have come to the area of fire mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. it is know to the be the home of deadly dragon you can see the pat that takes you to the base of the mountain",
       "neighbors": ["badlands", "elki town"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Base" : {
+    "base" : {
       "type": "battle",
-      "description": "You have made it to the the base of the mountain. Above you can see a cave that is home to the Dragon There seems to be a something moving towards you that doesn't want you to reach the cave",
+      "description": "you have made it to the the base of the mountain. above you can see a cave that is home to the dragon there seems to be a something moving towards you that doesn't want you to reach the cave",
       "neighbors": ["fire mountain", "cave"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Cave" : {
+    "cave" : {
       "type": "battle",
-      "description": "You have climbed the mountain face and reached a Cave. You enter and the smell of sulfur hangs in the air. It seems to get warmer as you mover further in steeping over the charred skeletons. Suddenly there is a bright light and you hear a roar.",
+      "description": "you have climbed the mountain face and reached a cave. you enter and the smell of sulfur hangs in the air. it seems to get warmer as you mover further in steeping over the charred skeletons. suddenly there is a bright light and you hear a roar.",
       "neighbors": ["fire mountain", "base"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Castle Eldina" : {
+    "castle eldina" : {
       "type": "danger",
-      "description": "The great Castle Eldian, once the home to King Lumas. You can see what the dark influence of Tyroneius had done",
+      "description": "the great castle eldian, once the home to king lumas. you can see what the dark influence of tyroneius had done",
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Training Grounds" : {
+    "training grounds" : {
       "type": "safe",
-      "description": "This is the area one ran buy the War chief to train the soldiers of Eldiean. Now you can find some black market merchants that can sell you some useful items.",
+      "description": "this is the area one ran buy the war chief to train the soldiers of eldiean. now you can find some black market merchants that can sell you some useful items.",
       "neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS"
+        "view",
+        "venture",
+        "view items",
+        "view stats"
       ]
     },
-    "Dungeon" : {
+    "dungeon" : {
       "type": "battle",
-      "description": "You find yourself in the castle dungeon. those once held as prisoners have been changed into monsters",
+      "description": "you find yourself in the castle dungeon. those once held as prisoners have been changed into monsters",
       "neighbors": ["training grounds", "castle eldina","throne room"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     },
-    "Throne Room" : {
+    "throne room" : {
       "type": "battle",
-      "description": "You have entered the throne room. You can see Tyroneious sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
+      "description": "you have entered the throne room. you can see tyroneious sitting with a sinister grin upon his face. you can feel his evil intent as you prepare yourself for battle!",
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "commands": [
-        "VIEW",
-        "VENTURE",
-        "VIEW_ITEMS",
-        "VIEW_STATS",
-        "ATTACK",
-        "ITEM"
+        "view",
+        "venture",
+        "view items",
+        "view stats",
+        "attack",
+        "item"
       ]
     }
   }
