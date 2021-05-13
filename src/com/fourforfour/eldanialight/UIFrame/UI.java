@@ -42,7 +42,7 @@ public class UI extends JFrame {
 
         Image locationImage = null;
         try {
-            locationImage = ImageIO.read(new File("Eldinias-Light/data/images/Opening screen.jpg"));
+            locationImage = ImageIO.read(new File("data/images/Opening screen.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
