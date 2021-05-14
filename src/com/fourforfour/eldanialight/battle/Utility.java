@@ -1,12 +1,12 @@
-// package com.fourforfour.eldanialight.battle;
+package com.fourforfour.eldanialight.battle;
 
-// import java.util.Random;
+import java.util.Random;
 
-// public class Utility {
+public class Utility {
 
-      // called in class Enemy for randomization (double)
-//    public static double randomNumber(){
-//        Random rand = new Random();
-//        return rand.nextDouble();
-//    }
-//}//EOC
+    // called in class Enemy for randomization (double)
+    public static double randomNumber() {
+        Random rand = new Random();
+        return rand.nextDouble();
+    }
+}//EOC

@@ -1,7 +1,5 @@
 package com.fourforfour.eldanialight.characters;
 
-import com.fourforfour.eldanialight.Game;
-
 import java.util.*;
 
 public class Character implements java.io.Serializable {
@@ -22,7 +20,6 @@ public class Character implements java.io.Serializable {
     public HashMap<String, Integer> items = new HashMap<>();
     public List<String> questItems = new ArrayList<>();
     transient Scanner scanner = new Scanner(System.in);
-
 
     //CONSTRUCTOR
     //no args
@@ -107,7 +104,7 @@ public class Character implements java.io.Serializable {
     }
 
     public void addItem(String itemName, int value) {
-        items.put(itemName,value);
+        items.put(itemName, value);
     }
 
     public int getLevel() {

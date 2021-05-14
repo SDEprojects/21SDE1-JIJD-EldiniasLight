@@ -1,15 +1,17 @@
 package com.fourforfour.eldanialight.characters;
 
+import com.fourforfour.eldanialight.battle.Utility;
+
 import java.util.Scanner;
 
 import static com.fourforfour.eldanialight.ColorChange.*;
 
-public class Player extends Character {
+public class Player extends Character implements BattleActions {
     // List is making a questlog and scanner is for user input
-    // private List<Quest> questLog = new ArrayList<>();
+//    private List<Quest> questLog = new ArrayList<>();
     private static transient Scanner scanner = new Scanner(System.in);
 
-    // fields for maxLevel and leveling up
+    String playerType;
     int maxLevel = 20;
     int levelUpXp = 100;
 
@@ -32,7 +34,7 @@ public class Player extends Character {
         // SHOW ANY CLASS OPTIONS
         player.setName(scanner.nextLine());
 
-        System.out.println("Welcome " +player.getName()+ ". Please go speak with the Warcheif at the town hall" + TEXT_RESET);
+        System.out.println("Welcome " + player.getName() + ". Please go speak with the Warcheif at the town hall" + TEXT_RESET);
         return player;
     }
 
@@ -42,12 +44,91 @@ public class Player extends Character {
         String userInput = scanner.next();
     }
 
+    @Override
+    public void attack(Character character) {
+        Enemy enemy = (Enemy) character;
+        double attackingPower = (this.getStrength() + this.getSpeed()) * Utility.randomNumber();
+        double defendingPower = enemy.defend() * Utility.randomNumber();
+
+        if (attackingPower > defendingPower)
+            enemy.setHealth(enemy.getHealth() - (attackingPower - defendingPower));
+    }
+
+    @Override
+    public boolean run(Character character) {
+        Enemy enemy = (Enemy) character;
+        return (this.getSpeed() * Utility.randomNumber()) > (enemy.getSpeed() * Utility.randomNumber());
+    }
+
+    @Override
+    public int defend() {
+        return getDefense();
+    }
+
+    @Override
+    public void use() {
+    }
+
     // Method to view your stats
     public String viewStats() {
-        return "Name:" + this.getName() +" *** "+ "Health:" + this.getHealth() +
-                "\nDefense:" + this.getDefense() +" *** "+ "Strength:" + this.getStrength() +
-                "\nSpeed:" + this.getSpeed() +" *** "+ "Intel:" + this.getIntel() +
-                "\nBezos:" + this.getBezos() +" *** "+ "XP:" + this.getXp() +
+        return "Name:" + this.getName() + " *** " + "Health:" + this.getHealth() +
+                "\nDefense:" + this.getDefense() + " *** " + "Strength:" + this.getStrength() +
+                "\nSpeed:" + this.getSpeed() + " *** " + "Intel:" + this.getIntel() +
+                "\nBezos:" + this.getBezos() + " *** " + "XP:" + this.getXp() +
                 "\nLevel:" + this.getLevel();
     }
+
+    public String getPlayerType() {
+        return this.playerType;
+    }
+
+    public void addXp() {
+
+        /*
+         * This  Method check to see if the player's level is high than the make level.
+         * If the level is lower than maxLevel then the method checks the
+         */
+        if (getLevel() < maxLevel && getXp() >= levelUpXp) {
+            this.setLevel(this.getLevel() + 1);
+            this.setHealth(this.getHealth() + 15);
+            this.setBezos(this.getBezos() + 15);
+
+            System.out.println("You have leveled up!! You are now level:" + this.getLevel());
+
+            /*
+             *This switch statement adds to the Stats based on PlayerType
+             */
+            switch (this.getPlayerType()) {
+                case "mage":
+                    this.setDefense(this.getDefense() + 10);
+                    this.setStrength(this.getStrength() + 10);
+                    this.setSpeed(this.getSpeed() + 15);
+                    this.setIntel(this.getIntel() + 25);
+                    break;
+                case "archer":
+                    this.setDefense(this.getDefense() + 15);
+                    this.setStrength(this.getStrength() + 15);
+                    this.setSpeed(this.getSpeed() + 20);
+                    this.setIntel(this.getIntel() + 10);
+                    break;
+                case "knight":
+                    this.setDefense(this.getDefense() + 20);
+                    this.setStrength(this.getStrength() + 25);
+                    this.setSpeed(this.getSpeed() + 15);
+                    break;
+            }
+
+            this.setDefense(this.getDefense());
+            this.setStrength(this.getStrength());
+            this.setSpeed(this.getSpeed());
+            this.setIntel(this.getIntel());
+
+            levelUpXp = levelUpXp + 100;
+        }
+    }
+
+//    public void addQuest(Quest quest){
+//        questLog.add(quest);
+//        System.out.println(quest.getName() + " has been added to your quest log");
+//    }
 }// EOC

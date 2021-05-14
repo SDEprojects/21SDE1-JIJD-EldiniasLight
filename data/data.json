@@ -7,7 +7,8 @@
       "speed": 20,
       "intel": 5,
       "defense": 30,
-      "bezos": 50
+      "bezos": 50,
+      "type": "knight"
     },
     "mage": {
       "health": 50,
@@ -16,7 +17,8 @@
       "speed": 20,
       "intel": 30,
       "defense": 20,
-      "bezos": 50
+      "bezos": 50,
+      "type": "mage"
     },
     "archer": {
       "health": 50,
@@ -25,7 +27,8 @@
       "speed": 25,
       "intel": 15,
       "defense": 35,
-      "bezos": 50
+      "bezos": 50,
+      "type": "archer"
     }
   },
   "attributes": {
