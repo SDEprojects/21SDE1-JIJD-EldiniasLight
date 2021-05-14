@@ -11,9 +11,10 @@ public class Player extends Character implements BattleActions {
 //    private List<Quest> questLog = new ArrayList<>();
     private static transient Scanner scanner = new Scanner(System.in);
 
-    String playerType;
+    String type;
     int maxLevel = 20;
     int levelUpXp = 100;
+
 
     // Constructor, no args
     public Player() {
@@ -51,7 +52,7 @@ public class Player extends Character implements BattleActions {
         double defendingPower = enemy.defend() * Utility.randomNumber();
 
         if (attackingPower > defendingPower)
-            enemy.setHealth(enemy.getHealth() - (attackingPower - defendingPower));
+            enemy.setHealth((int) (enemy.getHealth() - (attackingPower - defendingPower)));
     }
 
     @Override
@@ -78,27 +79,23 @@ public class Player extends Character implements BattleActions {
                 "\nLevel:" + this.getLevel();
     }
 
-    public String getPlayerType() {
-        return this.playerType;
+    public String getType() {
+        return this.type;
     }
 
-    public void addXp() {
-
+    public String checkLevelUp() {
+        String result="";
         /*
          * This  Method check to see if the player's level is high than the make level.
          * If the level is lower than maxLevel then the method checks the
          */
         if (getLevel() < maxLevel && getXp() >= levelUpXp) {
+
             this.setLevel(this.getLevel() + 1);
             this.setHealth(this.getHealth() + 15);
             this.setBezos(this.getBezos() + 15);
 
-            System.out.println("You have leveled up!! You are now level:" + this.getLevel());
-
-            /*
-             *This switch statement adds to the Stats based on PlayerType
-             */
-            switch (this.getPlayerType()) {
+            switch (this.getType()) {
                 case "mage":
                     this.setDefense(this.getDefense() + 10);
                     this.setStrength(this.getStrength() + 10);
@@ -124,7 +121,11 @@ public class Player extends Character implements BattleActions {
             this.setIntel(this.getIntel());
 
             levelUpXp = levelUpXp + 100;
+            result = "You have leveled up!! You are now level:" + this.getLevel();
+
         }
+        return result;
+
     }
 
 //    public void addQuest(Quest quest){
