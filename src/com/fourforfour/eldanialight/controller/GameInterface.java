@@ -9,4 +9,5 @@ public interface GameInterface {
     String submitPlayerString(String input);
 
     String getDescriptionText();
+
 }

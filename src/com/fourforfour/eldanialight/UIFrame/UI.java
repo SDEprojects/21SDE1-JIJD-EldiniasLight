@@ -76,14 +76,14 @@ public class UI extends JFrame {
         playerMessageLbl.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(playerMessageLbl);
 
-//        saveGameMsgLbl = new JLabel("use save/load commands to save/load game", SwingConstants.LEFT);
-//        saveGameMsgLbl.setBounds(25,780,430,25);
-//        JLabel label = new JLabel("I'm bold");
-//        Font font = new Font("Courier", Font.BOLD,12);
-//        saveGameMsgLbl.setFont(font);
-//        Font f = label.getFont();
-//        saveGameMsgLbl.setFont(f.deriveFont(f.getStyle() & ~Font.BOLD));
-//        add(saveGameMsgLbl);
+        saveGameMsgLbl = new JLabel("use save/load commands to save/load game", SwingConstants.CENTER);
+        saveGameMsgLbl.setBounds(70,715,430,30);
+        JLabel label = new JLabel("I'm bold");
+        Font font = new Font("Courier", Font.BOLD,12);
+        saveGameMsgLbl.setFont(font);
+        Font f = label.getFont();
+        saveGameMsgLbl.setFont(f.deriveFont(f.getStyle() & ~Font.BOLD));
+        add(saveGameMsgLbl);
 
         //Setting up player's text input area
         playerInputTF = new JTextField();
@@ -100,7 +100,7 @@ public class UI extends JFrame {
 
         //Submit button
         submitCommandBtn = new JButton();
-        submitCommandBtn.setBounds(250,725,75,25);
+        submitCommandBtn.setBounds(250,740,75,25);
         submitCommandBtn.setText("Submit");
         submitCommandBtn.addActionListener(new HandleSubmitButtonWhenClicked());
         add(submitCommandBtn);
@@ -114,6 +114,7 @@ public class UI extends JFrame {
         String displayData = controller.getDescription();
         displayArea.setText(displayData);
         playerInputTF.setText("");
+        locationImageContainer.setIcon(new ImageIcon(controller.getImage()));
     }
 
     public class HandleSubmitButtonWhenClicked implements ActionListener {

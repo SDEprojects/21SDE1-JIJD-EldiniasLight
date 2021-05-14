@@ -19,4 +19,8 @@ public class SwingController {
         return gi.submitPlayerString(input);
     }
 
+    public String getImage(){
+        return gi.getLocationImagePath();
+    }
+
 }
