@@ -42,14 +42,12 @@ public class Player extends Character {
         String userInput = scanner.next();
     }
 
-
     // Method to view your stats
     public String viewStats() {
-        return "Name:" + this.getName() + " *** " + "Health:" + this.getHealth() +
-        "\nDefense:" + this.getDefense() + " *** " + "Strength:" + this.getStrength() +
-        "\nSpeed:" + this.getSpeed() +" *** " +"Intel:" + this.getIntel() +
-         "\nBezos:" + this.getBezos() + " *** " + "XP:" + this.getXp() +
-        "\nLevel:" + this.getLevel();
-
+        return "Name:" + this.getName() +" *** "+ "Health:" + this.getHealth() +
+                "\nDefense:" + this.getDefense() +" *** "+ "Strength:" + this.getStrength() +
+                "\nSpeed:" + this.getSpeed() +" *** "+ "Intel:" + this.getIntel() +
+                "\nBezos:" + this.getBezos() +" *** "+ "XP:" + this.getXp() +
+                "\nLevel:" + this.getLevel();
     }
 }// EOC

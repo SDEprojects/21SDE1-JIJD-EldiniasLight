@@ -1,7 +1,7 @@
 package com.fourforfour.eldanialight;
 
 public interface ColorChange {
-    //This is only to keep track to the commands to change colors
+    // This is only to keep track to the commands to change colors
     String TEXT_RESET = "\u001B[0m";
     String TEXT_BLACK = "\u001B[30m";
     String TEXT_RED = "\u001B[31m";
