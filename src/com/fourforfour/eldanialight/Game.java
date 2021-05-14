@@ -29,9 +29,11 @@ public class Game implements Serializable, GameInterface {
     Game() {
         dataParser = new DataParser();
         currentCity = "home";
-        setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
         scanner = new Scanner(System.in);
+        setCurrentLocationDescription("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyroneious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
         setLocationCommands(dataParser.getLocationCommands(currentCity));
+        setImagePath("data/images/Opening screen.jpg");
+
     }
 
     @Override
@@ -60,6 +62,8 @@ public class Game implements Serializable, GameInterface {
         if (!nameSaved) {
             player.setName(command);
             nameSaved = true;
+            setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
+            setImagePath(dataParser.getLocationImage(currentCity));
             return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
         }
 
@@ -151,7 +155,8 @@ public class Game implements Serializable, GameInterface {
         gameObjects.put("player", player);
         gameObjects.put("currentCity", currentCity);
         gameObjects.put("previousCity", previousCity);
-        gameObjects.put("imagePath", imagePath);
+        gameObjects.put("nameSaved", nameSaved);
+        gameObjects.put("playerTypeSaved", playerTypeSaved);
 
         try {
             FileOutputStream fos = new FileOutputStream("data/saveGameData.txt");
@@ -191,6 +196,8 @@ public class Game implements Serializable, GameInterface {
                 setLocationCommands(dataParser.getLocationCommands(currentCity));
                 previousCity = (String) data.get("previousCity");
                 imagePath = (String) data.get("imagePath");
+                playerTypeSaved = (boolean) data.get("playerTypeSaved");
+                nameSaved = (boolean) data.get("nameSaved");
                 gameLoaded = true;
                 result = "game loaded from last checkpoint";
             } catch (Exception e) {
@@ -241,12 +248,6 @@ public class Game implements Serializable, GameInterface {
         return "You have entered " + command;
     }
 
-    public void processLeaveCommand() {
-        setCurrentCity(previousCity);
-        setLocationCommands(dataParser.getLocationCommands(currentCity));
-        setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
-        System.out.println("You have entered: " + currentCity);
-    }
 
     public List<String> getNeighbors() {
         return dataParser.getLocationNeighbors(currentCity);
@@ -302,6 +303,11 @@ public class Game implements Serializable, GameInterface {
 
     @Override
     public String getDescriptionText() {
+
+        if(!nameSaved){
+            return getCurrentLocationDescription();
+        }
+
         String result = "Location: " + getCurrentLocationDescription() +
               "\n \nAllowed Commands "+ getLocationCommands() +
               "\n \nPossible Destinations ->" + dataParser.getLocationNeighbors(currentCity) +
@@ -317,6 +323,9 @@ public class Game implements Serializable, GameInterface {
         if(currentCity.equalsIgnoreCase("pawnshop")){
             result += "\nYou can type available items to SELL" +
                     player.itemsToSell();
+        }
+        if(dataParser.getLocationType(currentCity).equals("battle")){
+            result += "\nYou have encountered an enemy\nIf you would like to fight -> type attack";
         }
         return result;
     }
