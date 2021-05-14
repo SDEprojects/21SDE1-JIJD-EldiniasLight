@@ -51,10 +51,10 @@ public class Game implements Serializable, GameInterface {
             if (dataParser.isPlayerClass(command)) {
                 player = dataParser.createPlayerClass(command);
                 playerTypeSaved = true;
-                return result = "What is your name";
+                return result = "What is your name?";
             }
             else
-                return result = "That is not a correct input\n What type of Player are you\n MAGE or KNIGHT or ARCHER";
+                return result = "That is not a correct input.\n What type of Player are you?\n MAGE or KNIGHT or ARCHER";
         }
 
         if (!nameSaved) {
@@ -197,14 +197,14 @@ public class Game implements Serializable, GameInterface {
                 result = "game could not be loaded";
             }
         } else {
-            result = "You have already loaded the game. You cannot do it again";
+            result = "You have already loaded the game. You cannot do it again.";
         }
         return result;
     }
 
     private void processShopCommand() {
         System.out.println("Hello Traveler, what can I do for you?");
-        System.out.println("you can BUY or SELL or LEAVE");
+        System.out.println("You can BUY or SELL or LEAVE");
         String choice = scanner.nextLine();
 
         while (!choice.equals("leave")) {
@@ -213,7 +213,7 @@ public class Game implements Serializable, GameInterface {
             if (choice.equals("sell"))
                 sellItems();
             else
-                System.out.println("You did not enter a correct command");
+                System.out.println("You did not enter a correct command.");
         }
     }
 
