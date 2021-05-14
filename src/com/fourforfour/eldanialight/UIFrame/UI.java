@@ -130,21 +130,4 @@ public class UI extends JFrame {
             processSubmitInput();
         }
     }
-
-//    public static void main(String[] args) {
-//        UI ui = new UI();
-//        //used to play the audio wav file when the game is running
-////        Thread thread = new Thread(() -> {
-////            SimpleAudioPlayer audioPlayer;
-////            try {
-////                String filePath = "Eldinias-Light/src/com/fourforfour/eldanialight/UIFrame/01-prelude game opener.wav";
-////                audioPlayer = new SimpleAudioPlayer(filePath);
-////                audioPlayer.play();
-////            } catch (Exception e) {
-////                System.out.println(e.getMessage());
-////            }
-////        });
-////        thread.start();
-////    }
-//    }
 }

@@ -298,6 +298,7 @@
       "description": "you are in the outskirts of the city in your home - farmland surrounds you - and a new jounrey is calling out to you",
       "neighbors": ["lucino town"],
       "imagepath" : "data/images/home (1).jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -308,6 +309,7 @@
       "description": "the largest city in eldina and one of the last strong holds preventing tyroneious form gaining complete control",
       "neighbors": ["lucino shops", "lucino town hall"],
       "imagepath": "data/images/lucino town (1).jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -318,6 +320,7 @@
       "description": "you are in a market place with a variety of shops. you can see the armory, inn, and magic shop. ",
       "neighbors": ["armory", "magic", "inn", "front gate", "lucino town", "pawnshop"],
       "imagepath": "data/images/Goblin.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -328,6 +331,7 @@
       "description": "You have arrived at a pawnshop where you can sell your items",
       "neighbors": ["lucino shops"],
       "imagepath" : "data/images/lucino shops (1).jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -336,8 +340,9 @@
     "armory" : {
       "type": "shop",
       "description": "You are in a shop with magnificent weapons on the wall and all over the place. Swords and shield, and battleaxes all for sale",
-      "neighbors": ["lucino shops"],
+      "neighbors": ["lucino shops", "training grounds"],
       "imagepath": "data/images/armory.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -361,8 +366,9 @@
     "magic" : {
       "type": "shop",
       "description": "no description so far",
-      "neighbors": ["lucino shops"],
+      "neighbors": ["lucino shops", "training grounds"],
       "imagepath": "data/images/Magic Shop.png",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -378,6 +384,7 @@
       "description": "the main enterance to lucino town. it looks strong and sturdy, but you can see the marks left by a recent attack",
       "neighbors": ["lucino shops", "open world"],
       "imagepath": "data/images/Front Gate.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -388,6 +395,7 @@
       "description": "a vast open area. you see a sign that point to the evil forest, badlands, fire mountain and castle eldina",
       "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
       "imagepath": "data/images/openWorld.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -398,6 +406,7 @@
       "description": "a forest full of brown trees. there is a odd smell in the air. there are two trial, one leading deeper into the forest, and the second to the giant's lair",
       "neighbors": ["open world", "inner evil forest", "evil forest lair"],
       "imagepath": "data/images/Evil Forest.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -408,6 +417,7 @@
       "description": "the path takes you deeper into the forest and it starts to get darker. there is is another path that takes you to what looks like a lair of some type. you cab hear a sinister sound you turn and prepare for battle",
       "neighbors": ["evil forest", "evil forest lair"],
       "imagepath": "data/images/Inner Evil Forest.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -420,6 +430,7 @@
       "description": "the forest seems to have open up and the tree seem to no longer block the little light in the sky. you can see the two trails that lead here. you can see the remains of the giant's victims scattered on the ground. suddenly you hear a loud thud followed by another. they seem to get closer",
       "neighbors": ["evil forest", "inner evil forest "],
       "imagepath": "Evil Forest Lair.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -432,6 +443,7 @@
       "description": "you find yourself if a desolate land. you can tell that it was once full of life, but that life has been drained by the dark powers of tyroneous. there is sign pointing to fang hill and elki town",
       "neighbors": ["open world", "elki town", "fang hill"],
       "imagepath": "data/images/Badlands.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -442,6 +454,7 @@
       "description": "a small town that sits within the badlands. the people seem to be on edge",
       "neighbors": ["badlands", "fang hill"],
       "imagepath": "data/images/Elki Town.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -452,6 +465,7 @@
       "description": "a hill covered area known to be home of wolves. you should be careful as they can attack from nowhere",
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/fang hill (1).jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -464,6 +478,7 @@
       "description": "you have come to the area of fire mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. it is know to the be the home of deadly dragon you can see the pat that takes you to the base of the mountain",
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/Fire Mountain.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -474,6 +489,7 @@
       "description": "you have made it to the the base of the mountain. above you can see a cave that is home to the dragon there seems to be a something moving towards you that doesn't want you to reach the cave",
       "neighbors": ["fire mountain", "cave"],
       "imagepath": "data/images/Base.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -486,6 +502,7 @@
       "description": "you have climbed the mountain face and reached a cave. you enter and the smell of sulfur hangs in the air. it seems to get warmer as you mover further in steeping over the charred skeletons. suddenly there is a bright light and you hear a roar.",
       "neighbors": ["fire mountain", "base"],
       "imagepath": "data/images/Cave.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -498,6 +515,7 @@
       "description": "the great castle eldian, once the home to king lumas. you can see what the dark influence of tyroneius had done",
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "imagepath": "data/images/Castle.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -508,6 +526,7 @@
       "description": "this is the area one ran buy the war chief to train the soldiers of eldiean. now you can find some black market merchants that can sell you some useful items.",
       "neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"],
       "imagepath": "data/images/Castle.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats"
@@ -518,6 +537,7 @@
       "description": "you find yourself in the castle dungeon. those once held as prisoners have been changed into monsters",
       "neighbors": ["training grounds", "castle eldina","throne room"],
       "imagepath": "data/images/Dungeon.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",
@@ -530,6 +550,7 @@
       "description": "you have entered the throne room. you can see tyroneious sitting with a sinister grin upon his face. you can feel his evil intent as you prepare yourself for battle!",
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "imagepath": "data/images/Throne Room.jpeg",
+      "map": "",
       "commands": [
         "view items",
         "view stats",

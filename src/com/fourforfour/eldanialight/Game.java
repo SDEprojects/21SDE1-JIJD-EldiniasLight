@@ -47,6 +47,11 @@ public class Game implements Serializable, GameInterface {
             return processSaveCommand();
         }
 
+        if(command.equals("map")){
+            setImagePath(dataParser.getLocationMap(currentCity));
+            return "Here is Map of the location.";
+        }
+
         if (!playerTypeSaved) {
             if (dataParser.isPlayerClass(command)) {
                 player = dataParser.createPlayerClass(command);
