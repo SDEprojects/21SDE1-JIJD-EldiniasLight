@@ -13,7 +13,7 @@ public class Main {
         Thread thread = new Thread(() -> {
             SimpleAudioPlayer audioPlayer;
             try {
-                String filePath = "data/music/prelude game opener-Edited.wav";
+                String filePath = "data/music/prelude game opener-Edited 2.wav";
                 audioPlayer = new SimpleAudioPlayer(filePath);
                 audioPlayer.play();
             } catch (Exception e) {
