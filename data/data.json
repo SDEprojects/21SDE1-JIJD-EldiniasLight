@@ -316,7 +316,7 @@
     "lucino shops" : {
       "type": "safe",
       "description": "you are in a market place with a variety of shops. you can see the armory, inn, and magic shop. ",
-      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town", "pawnshop"],
+      "neighbors": ["armory", "magic", "front gate", "lucino town", "pawnshop"],
       "imagepath": "data/images/Goblin.jpeg",
       "commands": [
         "view items",
@@ -347,16 +347,6 @@
         "type": "shop",
         "items": "armorylist"
       }
-    },
-    "lucino town hall" : {
-      "type": "safe",
-      "description": "no description so far",
-      "neighbors": ["lucino town"],
-      "imagepath": "data/images/Lucino Town Hall.png",
-      "commands": [
-        "view items",
-        "view stats"
-      ]
     },
     "magic" : {
       "type": "shop",

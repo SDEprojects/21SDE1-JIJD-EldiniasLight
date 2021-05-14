@@ -11,7 +11,7 @@ public class Player extends Character implements BattleActions {
 //    private List<Quest> questLog = new ArrayList<>();
     private static transient Scanner scanner = new Scanner(System.in);
 
-    String playerType;
+    String type;
     int maxLevel = 20;
     int levelUpXp = 100;
 
@@ -78,8 +78,8 @@ public class Player extends Character implements BattleActions {
                 "\nLevel:" + this.getLevel();
     }
 
-    public String getPlayerType() {
-        return this.playerType;
+    public String getType() {
+        return this.type;
     }
 
     public void addXp() {
@@ -98,7 +98,7 @@ public class Player extends Character implements BattleActions {
             /*
              *This switch statement adds to the Stats based on PlayerType
              */
-            switch (this.getPlayerType()) {
+            switch (this.getType()) {
                 case "mage":
                     this.setDefense(this.getDefense() + 10);
                     this.setStrength(this.getStrength() + 10);
