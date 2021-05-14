@@ -6,14 +6,14 @@ public class Character implements java.io.Serializable {
     //Character class is used by Player,Enemy, Enemies,Boss
     //FIELDS
     private String name;
-    private double health;
+    private int health;
     private int strength;
     private int defense;
     int bezos;
     private int intel;
     private int speed;
     private int xp;
-    private double maxHealth;
+    private int maxHealth;
     private int level;
 
     //List for the player's items, quest items and equipment
@@ -28,7 +28,7 @@ public class Character implements java.io.Serializable {
 
     //This constructor was to all for original enemy creation
     //all args
-    public Character(String name, double health, int strength, int defense, int bezos, int intel, int speed) {
+    public Character(String name, int health, int strength, int defense, int bezos, int intel, int speed) {
         this.name = name;
         this.health = health;
         this.strength = strength;
@@ -47,11 +47,11 @@ public class Character implements java.io.Serializable {
         this.name = name;
     }
 
-    public double getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(double health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
@@ -144,11 +144,11 @@ public class Character implements java.io.Serializable {
         return "\nItems you can sell from your inventory -->\n" + item;
     }
 
-    public double getMaxHealth() {
+    public int getMaxHealth() {
         return maxHealth;
     }
 
-    public void setMaxHealth(double maxHealth) {
+    public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }
 }// EOC

@@ -2,7 +2,7 @@ package com.fourforfour.eldanialight.characters;
 
 public class Boss extends Character implements BattleActions {
     // this class uses the character fields
-    public Boss(String name, double health, int defense, int strength, int speed, int intel, int bezos, int xp) {
+    public Boss(String name, int health, int defense, int strength, int speed, int intel, int bezos, int xp) {
         this.setName(name);
         this.setHealth(health);
         this.setDefense(defense);
