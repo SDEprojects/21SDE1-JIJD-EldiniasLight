@@ -32,6 +32,7 @@ class DataParser{
     private static final String COMMANDS_NODE = "commands";
     private static final String SHOP_NPC_NODE = "npc";
     private static final String IMAGE_PATH_NODE = "imagepath";
+    private static final String MAP_PATH_NODE = "mappath";
     private static final String ITEM_VALUE_NODE = "value";
 
 
@@ -297,6 +298,13 @@ class DataParser{
     public String getLocationImage(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(IMAGE_PATH_NODE).asText();
+        else
+            throw new IllegalArgumentException("Please input a valid location");
+    }
+
+    public String getLocationMap(String location) {
+        if (isLocation(location))
+            return gameData.path(LOCATIONS_NODE).path(location).path(MAP_PATH_NODE).asText();
         else
             throw new IllegalArgumentException("Please input a valid location");
     }
