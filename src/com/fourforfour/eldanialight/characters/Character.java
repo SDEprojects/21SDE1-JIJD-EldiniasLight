@@ -118,39 +118,34 @@ public class Character implements java.io.Serializable {
         this.level = level;
     }
 
-
     //this method has you enter a item name, it will loop through the items and check it's size
     // and the output is you will either have items or you won't
     public String viewInventory() {
         String result = "";
         List<String> item = new ArrayList<>();
 
-        if (items.size() == 0){
+        if (items.size() == 0)
             return "There is nothing in the inventory";
-        }
 
         for (Map.Entry<String, Integer> entry : items.entrySet()) {
             item.add(entry.getKey());
         }
 
-        return "\nYour inventory -->"+ item;
+        return "\nYour inventory -->\n" + item;
     }
+
     public String itemsToSell() {
         List<String> item = new ArrayList<>();
 
-        if (items.size() == 0){
+        if (items.size() == 0)
             return "There is nothing in the inventory";
-        }
 
         for (Map.Entry<String, Integer> entry : items.entrySet()) {
             item.add(entry.getKey());
         }
 
-        return "\nItems you can sell from your inventory -->" +
-                "\n" + item;
+        return "\nItems you can sell from your inventory -->\n" + item;
     }
-
-
 
     public double getMaxHealth() {
         return maxHealth;
@@ -159,6 +154,4 @@ public class Character implements java.io.Serializable {
     public void setMaxHealth(double maxHealth) {
         this.maxHealth = maxHealth;
     }
-
-
 }// EOC

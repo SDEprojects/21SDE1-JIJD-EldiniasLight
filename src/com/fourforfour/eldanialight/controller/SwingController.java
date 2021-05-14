@@ -22,5 +22,4 @@ public class SwingController {
     public String getImage(){
         return gi.getLocationImagePath();
     }
-
 }
