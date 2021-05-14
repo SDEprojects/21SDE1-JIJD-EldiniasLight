@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Game implements Serializable, GameInterface {
     DataParser dataParser;
     private transient Scanner scanner;
-    public Player player;
+    public static Player player;
     String currentCity;
     boolean gameOver = false;
     public String currentLocationDescription;
@@ -36,7 +36,7 @@ public class Game implements Serializable, GameInterface {
 
     @Override
     public String submitPlayerString(String input) {
-        String result = "";
+        String result;
         String command = input.toLowerCase(Locale.ROOT);
 
         if(command.equals("load")){
@@ -145,7 +145,7 @@ public class Game implements Serializable, GameInterface {
     }
 
     private String processSaveCommand() {
-        String result = "";
+        String result;
         gameLoaded = false;
         HashMap<String, Object> gameObjects = new HashMap<>();
         gameObjects.put("player", player);

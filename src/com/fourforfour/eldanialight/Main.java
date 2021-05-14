@@ -25,6 +25,5 @@ public class Main {
         SwingController controller = new SwingController(gi);
         UI ui = new UI(controller);
         ui.setVisible(true);
-
     }
 }
