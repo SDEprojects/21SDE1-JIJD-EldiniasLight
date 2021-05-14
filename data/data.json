@@ -296,9 +296,7 @@
       "neighbors": ["lucino town"],
       "imagepath" : "data/images/home (1).jpeg",
       "commands": [
-        "view",
         "view items",
-        "venture",
         "view stats"
       ]
     },
@@ -308,33 +306,37 @@
       "neighbors": ["lucino shops", "lucino town hall"],
       "imagepath": "data/images/lucino town (1).jpeg",
       "commands": [
-        "view",
         "view items",
-        "venture",
         "view stats"
       ]
     },
     "lucino shops" : {
       "type": "safe",
       "description": "you are in a market place with a variety of shops. you can see the armory, inn, and magic shop. ",
-      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town"],
+      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town", "pawnshop"],
+      "imagepath": "data/images/Goblin.jpeg",
+      "commands": [
+        "view items",
+        "view stats"
+      ]
+    },
+    "pawnshop" : {
+      "type": "safe",
+      "description": "You have arrived at a pawnshop where you can sell your items",
+      "neighbors": ["lucino shops"],
       "imagepath" : "data/images/lucino shops (1).jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
     },
     "armory" : {
       "type": "shop",
-      "description": "no description so far",
+      "description": "You are in a shop with magnificent weapons on the wall and all over the place. Swords and shield, and battleaxes all for sale",
       "neighbors": ["lucino shops"],
       "imagepath": "data/images/armory.jpeg",
       "commands": [
-        "shop",
         "view items",
-        "leave",
         "view stats"
       ],
       "npc": {
@@ -343,27 +345,14 @@
         "items": "armorylist"
       }
     },
-    "warchief" : {
-      "type": "quest",
-      "description": "no description so far",
-      "neighbors": ["lucino town hall"],
-      "imagepath": "data/images/War Chief.jpeg",
-      "commands": [
-        "leave",
-        "talk"
-      ]
-    },
     "lucino town hall" : {
       "type": "safe",
       "description": "no description so far",
-      "neighbors": ["lucino town, warchief"],
+      "neighbors": ["lucino town"],
       "imagepath": "data/images/Lucino Town Hall.png",
       "commands": [
-        "view_characters",
-        "leave",
         "view items",
-        "view_stats",
-        "view"
+        "view stats"
       ]
     },
     "magic" : {
@@ -372,9 +361,7 @@
       "neighbors": ["lucino shops"],
       "imagepath": "data/images/Magic Shop.png",
       "commands": [
-        "shop",
         "view items",
-        "leave",
         "view stats"
       ],
       "npc": {
@@ -389,8 +376,6 @@
       "neighbors": ["lucino shops", "open world"],
       "imagepath": "data/images/Front Gate.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -401,8 +386,6 @@
       "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
       "imagepath": "data/images/openWorld.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -413,8 +396,6 @@
       "neighbors": ["open world", "inner evil forest", "evil forest lair"],
       "imagepath": "data/images/Evil Forest.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -425,8 +406,6 @@
       "neighbors": ["evil forest", "evil forest lair"],
       "imagepath": "data/images/Inner Evil Forest.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -439,8 +418,6 @@
       "neighbors": ["evil forest", "inner evil forest "],
       "imagepath": "Evil Forest Lair.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -453,8 +430,6 @@
       "neighbors": ["open world", "elki town", "fang hill"],
       "imagepath": "data/images/Badlands.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -465,8 +440,6 @@
       "neighbors": ["badlands", "fang hill"],
       "imagepath": "data/images/Elki Town.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -477,8 +450,6 @@
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/fang hill (1).jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -491,8 +462,6 @@
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/Fire Mountain.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -503,8 +472,6 @@
       "neighbors": ["fire mountain", "cave"],
       "imagepath": "data/images/Base.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -517,8 +484,6 @@
       "neighbors": ["fire mountain", "base"],
       "imagepath": "data/images/Cave.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -531,8 +496,6 @@
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "imagepath": "data/images/Castle.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -543,8 +506,6 @@
       "neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"],
       "imagepath": "data/images/Castle.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats"
       ]
@@ -555,8 +516,6 @@
       "neighbors": ["training grounds", "castle eldina","throne room"],
       "imagepath": "data/images/Dungeon.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",
@@ -569,8 +528,6 @@
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "imagepath": "data/images/Throne Room.jpeg",
       "commands": [
-        "view",
-        "venture",
         "view items",
         "view stats",
         "attack",

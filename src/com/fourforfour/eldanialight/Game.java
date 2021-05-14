@@ -21,6 +21,7 @@ public class Game implements Serializable, GameInterface {
     public boolean nameSaved = false;
     public boolean playerTypeSaved = false;
     boolean gameLoaded = false;
+    String imagePath;
 
     // A LOT THINGS BEING DONE IN THIS CLASS JUST TO QUICKLY TEST - WILL SEPARATE SOON
     // NEED TO CREATE AN INPUT PARSER LATER
@@ -36,10 +37,19 @@ public class Game implements Serializable, GameInterface {
     @Override
     public String submitPlayerString(String input) {
         String result = "";
+        String command = input.toLowerCase(Locale.ROOT);
+
+        if(command.equals("load")){
+            return processloadCommand();
+        }
+
+        if(command.equals("save")){
+            return processSaveCommand();
+        }
 
         if (!playerTypeSaved) {
-            if (dataParser.isPlayerClass(input)) {
-                player = dataParser.createPlayerClass(input);
+            if (dataParser.isPlayerClass(command)) {
+                player = dataParser.createPlayerClass(command);
                 playerTypeSaved = true;
                 return result = "What is your name";
             }
@@ -48,26 +58,100 @@ public class Game implements Serializable, GameInterface {
         }
 
         if (!nameSaved) {
-            player.setName(input);
+            player.setName(command);
             nameSaved = true;
             return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
         }
 
-        String command = input.toLowerCase(Locale.ROOT);
+        if(currentCity.equalsIgnoreCase("armory")){
+            if(dataParser.isArmor(command)) {
+                if (player.getBezos() >= dataParser.getArmorValue(command)) {
+                    player.addItem(command, dataParser.getArmorValue(command));
+                    player.setBezos(player.getBezos() - dataParser.getArmorValue(command));
+                    return " You have added a " + command + " to your inventory" +
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }else {
+                    return "You dont have enough bezos." +
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }
+            }
+            if(dataParser.isWeapon(command)){
+            if (player.getBezos() >= dataParser.getWeaponValue(command)){
+                    player.addItem(command, dataParser.getWeaponValue(command));
+                    player.setBezos(player.getBezos() - dataParser.getWeaponValue(command));
+                    return " You have added a " + command + " to your inventory"+
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }else {
+                    return "You dont have enough bezos." +
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }
+            }
+        }
 
-        if (command.isEmpty())
-            result = "I don't understand \"" +input+"\"";
-        else if (getNeighbors().contains(command))
+        if(currentCity.equalsIgnoreCase("magic")){
+            if(dataParser.isConsumable(command)){
+                if (player.getBezos() >= dataParser.getConsumableValue(command)){
+                    player.addItem(command, dataParser.getConsumableValue(command));
+                    player.setBezos(player.getBezos() - dataParser.getConsumableValue(command));
+                    return " You have added a " + command + " to your inventory" +
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }else {
+                    return "You dont have enough bezos." +
+                            "\nYou currently only have " + player.getBezos() + " bezos";
+                }
+            }
+        }
+
+        if(currentCity.equalsIgnoreCase("pawnshop")){
+            if(dataParser.isConsumable(command) && player.items.containsKey(command)){
+                    player.items.remove(command);
+                    player.setBezos(player.getBezos() + dataParser.getConsumableValue(command));
+                    return " You have SOLD a " + command + " to the pawnshop" + " for " + dataParser.getConsumableValue(command) +" bezos" +
+                            "\nYou currently have " + player.getBezos() + " bezos";
+                }
+            if(dataParser.isArmor(command) && player.items.containsKey(command)){
+                player.items.remove(command);
+                player.setBezos(player.getBezos() + dataParser.getArmorValue(command));
+                return " You have SOLD a " + command + " to the pawnshop" + " for " + dataParser.getArmorValue(command) +" bezos" +
+                        "\nYou currently have " + player.getBezos() + " bezos";
+            }
+            if(dataParser.isWeapon(command) && player.items.containsKey(command)){
+                player.items.remove(command);
+                player.setBezos(player.getBezos() + dataParser.getWeaponValue(command));
+                return " You have SOLD a " + command + " to the pawnshop" + " for " + dataParser.getWeaponValue(command) +" bezos" +
+                        "\nYou currently have " + player.getBezos() + " bezos";
+            }
+        }
+
+
+
+
+        if(command.equals("view stats")){
+            return player.viewStats();
+        }
+
+        if(command.equals("view items")){
+            return player.viewInventory();
+        }
+
+        if (command.isEmpty()) {
+            result = "I don't understand \"" + input + "\"";
+        } else if (getNeighbors().contains(command)) {
             result = processVentureCommand(command);
+        }else{
+            result = "You have entered a wrong input";
+        }
         return result;
     }
 
-    private void processSaveCommand() {
+    private String processSaveCommand() {
+        String result = "";
         gameLoaded = false;
         HashMap<String, Object> gameObjects = new HashMap<>();
         gameObjects.put("player", player);
         gameObjects.put("currentCity", currentCity);
         gameObjects.put("previousCity", previousCity);
+        gameObjects.put("imagePath", imagePath);
 
         try {
             FileOutputStream fos = new FileOutputStream("data/saveGameData.txt");
@@ -76,15 +160,17 @@ public class Game implements Serializable, GameInterface {
             oos.flush();
             oos.close();
             fos.close();
+
+            result = "game saved";
         } catch (FileNotFoundException e) {
-            System.out.print("Failed to load the game files:");
+            result = "Failed to load the game files:";
             System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.print("Failed to load the game files:");
+            result = "Failed to load the game files:";
             e.printStackTrace();
         }
 
-        System.out.println("game saved");
+        return result;
     }
 
     private String processloadCommand(){
@@ -104,7 +190,7 @@ public class Game implements Serializable, GameInterface {
                 setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
                 setLocationCommands(dataParser.getLocationCommands(currentCity));
                 previousCity = (String) data.get("previousCity");
-
+                imagePath = (String) data.get("imagePath");
                 gameLoaded = true;
                 result = "game loaded from last checkpoint";
             } catch (Exception e) {
@@ -150,6 +236,8 @@ public class Game implements Serializable, GameInterface {
         setCurrentCity(command);
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
+        setImagePath(dataParser.getLocationImage(currentCity));
+        System.out.println(dataParser.getLocationImage(currentCity));
         return "You have entered " + command;
     }
 
@@ -204,16 +292,37 @@ public class Game implements Serializable, GameInterface {
         this.previousCity = previousCity;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     @Override
     public String getDescriptionText() {
-        return "Location: " + getCurrentLocationDescription() +
+        String result = "Location: " + getCurrentLocationDescription() +
               "\n \nAllowed Commands "+ getLocationCommands() +
               "\n \nPossible Destinations ->" + dataParser.getLocationNeighbors(currentCity) +
               "\nType destination name to move";
+        if(currentCity.equalsIgnoreCase("armory")){
+            result += "\nYou can type available items to BUY " +
+                    dataParser.getArmoryList();
+        }
+        if(currentCity.equalsIgnoreCase("magic")){
+            result += "\nYou can type available items to BUY" +
+                    dataParser.getMagicList();
+        }
+        if(currentCity.equalsIgnoreCase("pawnshop")){
+            result += "\nYou can type available items to SELL" +
+                    player.itemsToSell();
+        }
+        return result;
     }
 
     @Override
     public String getLocationImagePath() {
-        return null;
+        return getImagePath();
     }
-}// EOC
+}

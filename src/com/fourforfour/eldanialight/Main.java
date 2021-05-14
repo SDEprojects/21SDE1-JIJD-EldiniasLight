@@ -1,8 +1,8 @@
 package com.fourforfour.eldanialight;
-
 import com.fourforfour.eldanialight.UIFrame.UI;
 import com.fourforfour.eldanialight.controller.GameInterface;
 import com.fourforfour.eldanialight.controller.SwingController;
+
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -21,10 +21,10 @@ public class Main {
             }
         });
         thread.start();
-
         GameInterface gi = new Game();
         SwingController controller = new SwingController(gi);
         UI ui = new UI(controller);
         ui.setVisible(true);
+
     }
-}// EOC
+}

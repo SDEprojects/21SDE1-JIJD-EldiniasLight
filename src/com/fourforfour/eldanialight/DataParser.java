@@ -31,6 +31,10 @@ class DataParser{
     private static final String NEIGHBOR_NODE = "neighbors";
     private static final String COMMANDS_NODE = "commands";
     private static final String SHOP_NPC_NODE = "npc";
+    private static final String IMAGE_PATH_NODE = "imagepath";
+    private static final String ITEM_VALUE_NODE = "value";
+
+
 
     // FIELDS
     private static ObjectMapper mapper;
@@ -166,6 +170,12 @@ class DataParser{
         else
             throw new IllegalArgumentException("Please input a valid weapon");
     }
+    public int getWeaponValue(String weapon) {
+        if (isWeapon(weapon))
+            return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon).path(ITEM_VALUE_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid weapon");
+    }
 
     /**
      * ARMOR
@@ -185,6 +195,13 @@ class DataParser{
     public JsonNode getArmor(String armor) {
         if (isArmor(armor))
             return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor);
+        else
+            throw new IllegalArgumentException("Please input a valid armor");
+    }
+
+    public int getArmorValue(String armor) {
+        if (isArmor(armor))
+            return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(ITEM_VALUE_NODE).asInt();
         else
             throw new IllegalArgumentException("Please input a valid armor");
     }
@@ -210,7 +227,12 @@ class DataParser{
         else
             throw new IllegalArgumentException("Please input a valid enemy");
     }
-
+    public int getConsumableValue(String consumable) {
+        if (isConsumable(consumable))
+            return gameData.path(CONSUMABLES_NODE).path(consumable).path(ITEM_VALUE_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid enemy");
+    }
     /**
      * UTILITY ITEMS
      *
@@ -268,6 +290,13 @@ class DataParser{
     public String getLocationDescription(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(DESCRIPTION_NODE).asText();
+        else
+            throw new IllegalArgumentException("Please input a valid location");
+    }
+
+    public String getLocationImage(String location) {
+        if (isLocation(location))
+            return gameData.path(LOCATIONS_NODE).path(location).path(IMAGE_PATH_NODE).asText();
         else
             throw new IllegalArgumentException("Please input a valid location");
     }
