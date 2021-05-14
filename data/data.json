@@ -58,6 +58,8 @@
       "staff": {
         "name": "staff",
         "attack": 10,
+        "health": 0,
+        "defense": 0,
         "value": 20,
         "hand": "main hand"
       }
@@ -306,7 +308,7 @@
     "lucino town" : {
       "type": "safe",
       "description": "the largest city in eldina and one of the last strong holds preventing tyroneious form gaining complete control",
-      "neighbors": ["lucino shops", "lucino town hall"],
+      "neighbors": ["lucino shops", "home"],
       "imagepath": "data/images/lucino town (1).jpeg",
       "commands": [
         "view items",
@@ -408,7 +410,7 @@
     "evil forest lair" : {
       "type": "danger",
       "description": "the forest seems to have open up and the tree seem to no longer block the little light in the sky. you can see the two trails that lead here. you can see the remains of the giant's victims scattered on the ground. suddenly you hear a loud thud followed by another. they seem to get closer",
-      "neighbors": ["evil forest", "inner evil forest "],
+      "neighbors": ["evil forest", "inner evil forest"],
       "imagepath": "Evil Forest Lair.jpeg",
       "commands": [
         "view items",
@@ -452,7 +454,7 @@
     "fire mountain" : {
       "type": "danger",
       "description": "you have come to the area of fire mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. it is know to the be the home of deadly dragon you can see the pat that takes you to the base of the mountain",
-      "neighbors": ["badlands", "elki town"],
+      "neighbors": ["badlands", "elki town", "base","cave"],
       "imagepath": "data/images/Fire Mountain.jpeg",
       "commands": [
         "view items",

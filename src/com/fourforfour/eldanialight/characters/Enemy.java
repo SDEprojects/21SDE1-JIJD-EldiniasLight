@@ -25,7 +25,7 @@ public class Enemy extends Character implements BattleActions {
         double defendingPower = player.defend() * Utility.randomNumber();
 
         if (attackingPower > defendingPower)
-            player.setHealth((player.getHealth() - (attackingPower - defendingPower)));
+            player.setHealth((int) (player.getHealth() - (attackingPower - defendingPower)));
     }
 
     // used to see if you can run away
