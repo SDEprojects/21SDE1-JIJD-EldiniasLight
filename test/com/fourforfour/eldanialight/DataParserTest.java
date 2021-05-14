@@ -276,11 +276,4 @@ public class DataParserTest {
             e.printStackTrace();
         }
     }
-
-//    @Test
-//    public void createEnemy_shouldReturnTrue_whenEnemyAllowed() {
-//        Enemy test = dp.createEnemy("Haku");
-//        assertTrue(test instanceof Enemy);
-//        assertTrue(test instanceof Character);
-//    }
 }
