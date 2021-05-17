@@ -60,7 +60,7 @@ public class DataParserTest {
     @Test
     public void getEnemies_shouldReturnTrue() {
         List<String> expected = Arrays.asList(
-                "goblin", "wolf", "troll", "undead", "andre the giant", "haku", "tyronious the black"
+                "goblin", "wolf", "troll", "undead", "andre the giant", "haku", "gandolf the black"
         );
         assertEquals("The enemies aren't matching up", expected, dp.getEnemies());
     }
@@ -201,7 +201,7 @@ public class DataParserTest {
 
     @Test
     public void getLocationDescription() {
-        String expected = "the largest city in Eldina and one of the last strong holds preventing Tyronious from gaining complete control";
+        String expected = "the largest city in Eldina and one of the last strong holds preventing Gandolf from gaining complete control";
         assertEquals("The location description doesn't match", expected, dp.getLocationDescription("lucino town"));
     }
 

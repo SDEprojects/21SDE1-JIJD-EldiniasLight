@@ -64,7 +64,7 @@ public class UI extends JFrame{
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
-        displayArea.setText("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyronious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
+        displayArea.setText("The once peaceful land of Eldina has recently been taken over by the evil warlock Gandolf the Black who has cast a darkness upon the land. You are the one chosen to defeat Gandolf and his Army to restore Eldina back to its peaceful ways.");
         displayArea.setBackground(Color.orange);
         displayArea.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(displayArea);
@@ -74,7 +74,7 @@ public class UI extends JFrame{
         playerMessageLbl.setBounds(15,570,570,120);
         playerMessageLbl.setEditable(false);
         playerMessageLbl.append("Welcome Champion and thank you for coming to aid of Eldinia!!");
-        playerMessageLbl.append("\nTell us about this brave soul who has come to defeat Tyronious the Black.\n");
+        playerMessageLbl.append("\nTell us about this brave soul who has come to defeat Gandolf the Black.\n");
         playerMessageLbl.append("\nWhat type of player are you?");
         playerMessageLbl.append("\n Options: Mage OR Knight OR Archer");
         playerMessageLbl.setWrapStyleWord(true);
