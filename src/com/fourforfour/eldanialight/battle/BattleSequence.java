@@ -63,7 +63,7 @@ public class BattleSequence implements java.io.Serializable{
 
     //When the player kills the enemy this method adds to the players stats, and takes them back to the previous location
     public String win() {
-        if(this.enemy.getName().equals("tyronious the black")){
+        if(this.enemy.getName().equals("gandolf the black")){
             Game.gameOver = true;
         }else{
             Game.player.setXp((Game.player.getXp()) + this.enemy.getXp());

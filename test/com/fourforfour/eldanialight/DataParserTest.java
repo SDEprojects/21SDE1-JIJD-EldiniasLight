@@ -60,7 +60,7 @@ public class DataParserTest {
     @Test
     public void getEnemies_shouldReturnTrue() {
         List<String> expected = Arrays.asList(
-                "goblin", "wolf", "troll", "undead", "andre the giant", "haku", "tyronious the black"
+                "goblin", "wolf", "troll", "undead", "andre the giant", "haku", "gandolf the black"
         );
         assertEquals("The enemies aren't matching up", expected, dp.getEnemies());
     }
@@ -122,7 +122,7 @@ public class DataParserTest {
     @Test
     public void getLocations_shouldReturnTrue() {
         List<String> expected = Arrays.asList(
-                "home", "lucino town", "lucino shops", "armory", "warchief", "lucino town hall",
+                "home", "lucino town", "lucino shops", "pawnshop", "armory", "lucino town hall",
                 "magic", "front gate", "open world", "evil forest", "inner evil forest",
                 "evil forest lair", "badlands", "elki town","fang hill", "fire mountain",
                 "base", "cave", "castle eldina", "training grounds", "dungeon", "throne room"
@@ -201,19 +201,19 @@ public class DataParserTest {
 
     @Test
     public void getLocationDescription() {
-        String expected = "the largest city in eldina and one of the last strong holds preventing tyroneious form gaining complete control";
+        String expected = "the largest city in Eldina and one of the last strong holds preventing Gandolf from gaining complete control";
         assertEquals("The location description doesn't match", expected, dp.getLocationDescription("lucino town"));
     }
 
     @Test
     public void getLocationNeighbors() {
-        List<String> expected = Arrays.asList("lucino shops", "lucino town hall");
+        List<String> expected = Arrays.asList("lucino shops", "home");
         assertEquals("The location neighbors don't match", expected, dp.getLocationNeighbors("lucino town"));
     }
 
     @Test
     public void getLocationCommands() {
-        List<String> expected = Arrays.asList("view", "view items", "venture", "view stats");
+        List<String> expected = Arrays.asList("view items", "view stats");
         assertEquals("The location commands don't match", expected, dp.getLocationCommands("lucino town"));
     }
 

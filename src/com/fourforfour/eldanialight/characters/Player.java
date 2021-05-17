@@ -28,7 +28,7 @@ public class Player extends Character implements BattleActions {
         // create intro
         System.out.println(TEXT_CYAN + "Welcome Champion and thank you for coming to aid of Eldinia!!");
         System.out.println(TEXT_CYAN + "Tell us about this brave soul who has come to defeat" +
-                TEXT_RESET + TEXT_RED + " Tyronious the Black" + TEXT_CYAN);
+                TEXT_RESET + TEXT_RED + " Gandolf the Black" + TEXT_CYAN);
 
         // creates PlayerName
         System.out.println("What shall we call you?:");

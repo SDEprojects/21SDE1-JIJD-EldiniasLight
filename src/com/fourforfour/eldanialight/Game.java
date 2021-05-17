@@ -33,7 +33,7 @@ public class Game implements Serializable, GameInterface {
         dataParser = new DataParser();
         currentCity = "home";
         scanner = new Scanner(System.in);
-        setCurrentLocationDescription("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyroneious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
+        setCurrentLocationDescription("The once peaceful land of Eldina has recently been taken over by the evil warlock Gandolf the Black who has cast a darkness upon the land. You are the one chosen to defeat Gandolf and his Army to restore Eldina back to its peaceful ways.");
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setImagePath("data/images/Opening screen.jpg");
 

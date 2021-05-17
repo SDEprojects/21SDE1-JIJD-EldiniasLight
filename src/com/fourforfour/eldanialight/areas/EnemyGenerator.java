@@ -34,7 +34,7 @@ public class EnemyGenerator {
             case "dungeon":
                 result = new Enemy("haku", 30, 100, 30, 150, 60, 100, 150, "scale"); break;
             case "throne room":
-                result = new Enemy("tyronious the black", 100, 100, 40, 100, 1, 10000, 1000, "gem of light"); break;
+                result = new Enemy("gandolf the black", 100, 100, 40, 100, 1, 10000, 1000, "gem of light"); break;
             default:
                 result = new Enemy("unknown enemy", 999, 999, 999, 999, 999, 999, 99999, "unknown"); break;
         }

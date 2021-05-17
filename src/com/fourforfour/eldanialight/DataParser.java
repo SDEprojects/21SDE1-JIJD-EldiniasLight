@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 class DataParser{
-    // STATIC FIELDS
+    /*
+     * STATIC FIELDS
+     *
+     *  These fields specify which JsonNode to target
+     */
     private static final String CLASS_NODE = "classes";
     private static final String NPC_NODE = "npcs";
     private static final String ENEMIES_NODE = "enemies";
@@ -38,7 +42,6 @@ class DataParser{
     private static final String DEFENSE_STAT_NODE = "defense";
     private static final String HEALTH_STAT_NODE = "health";
 
-
     // FIELDS
     private static ObjectMapper mapper;
     private static JsonNode gameData;
@@ -58,19 +61,32 @@ class DataParser{
     }
 
     // HELPER METHODS
+    /**
+     * getArrayAsList()
+     *  returns a List<String> of array at the specified node
+     */
     private List<String> getArrayAsList(JsonNode node, String childNode) {
         List<String> result = new ArrayList<>();
         node.path(childNode).forEach(val -> result.add(val.asText()));
         return result;
     }
 
+    /**
+     * getKeysAsList()
+     *  returns a List<String> of all the keys inside of the specified node
+     */
     private List<String> getKeysAsList(JsonNode node, String childNode) {
         List<String> result = new ArrayList<>();
         node.path(childNode).fieldNames().forEachRemaining(result::add);
         return result;
     }
 
-    // Currently only being used to grab all the NPCs from "Quest" and "Shop"
+    /**
+     * getNestedKeysAsList()
+     *  returns a List<String> of all the keys nested inside of the specified node
+     *
+     *  Currently only being used to grab all the NPCs from "Quest" and "Shop"
+     */
     private List<String> getNestedKeysAsList(JsonNode node, String childNode) {
         List<String> result = new ArrayList<>();
         node.path(childNode).forEach(value -> value.fieldNames().forEachRemaining(result::add));
@@ -79,48 +95,57 @@ class DataParser{
 
     // METHODS
     /**
-     * PLAYER CLASSES
-     *
-     *  getPlayerClasses()  -> returns a List of available classes
-     *  isPlayerClass()     -> checks to see if a class is available in the gameData
+     * getPlayerClasses()
+     *  returns a List of available classes
      */
     public List<String> getPlayerClasses() {
         return getKeysAsList(gameData, CLASS_NODE);
     }
 
+    /**
+     * isPlayerClass()
+     *  checks to see if a class is available in the gameData
+     */
     public boolean isPlayerClass(String playerClass) {
         return getPlayerClasses().contains(playerClass);
     }
 
     /**
-     * NPCS
-     *
-     *  getNPCs()   -> returns a List of available NPCs
-     *  isNPC()     -> checks to see if an NPC is available in the gameData
+     * getNPCs()
+     *  returns a List of available NPCs
      */
     public List<String> getNPCs() {
         return getNestedKeysAsList(gameData, NPC_NODE);
     }
 
+    /**
+     * isNPC()
+     *  checks to see if an NPC is available in the gameData
+     */
     public boolean isNPC(String npc) {
         return getNPCs().contains(npc);
     }
 
     /**
-     * ENEMIES
-     *
-     *  getEnemies()    -> returns a List of available NPCs
-     *  isEnemy()       -> checks to see if an NPC is available in the gameData
-     *  getEnemy()      -> grabs the JsonNode of the specified enemy
+     * getEnemies()
+     *  returns a List of available NPCs
      */
     public List<String> getEnemies() {
         return getKeysAsList(gameData, ENEMIES_NODE);
     }
 
+    /**
+     * isEnemy()
+     *  checks to see if an NPC is available in the gameData
+     */
     public boolean isEnemy(String enemy) {
         return getEnemies().contains(enemy);
     }
 
+    /**
+     * getEnemy()
+     *  grabs the JsonNode of the specified enemy
+     */
     public JsonNode getEnemy(String enemy) {
         if (isEnemy(enemy))
             return gameData.path(ENEMIES_NODE).path(enemy);
@@ -129,50 +154,68 @@ class DataParser{
     }
 
     /**
-     * ITEMS
-     *
-     *  getItemStats()  -> returns a List of available Item Stats
-     *  isItemStat()    -> checks to see if an Item Stat is available in the gameData
-     *  getItemTypes()  -> returns a List of available Item Types
-     *  isItemType()    -> checks to see if an Item Type is available in the gameData
+     * getItemStats()
+     *  returns a List of available Item Stats
      */
     public List<String> getItemStats() {
         return getArrayAsList(gameData.path(ATTRIBUTES_NODE), STATS_NODE);
     }
 
+    /**
+     * isItemStat()
+     *  checks to see if an Item Stat is available in the gameData
+     */
     public boolean isItemStat(String itemStat) {
         return getItemStats().contains(itemStat);
     }
 
+    /**
+     * getItemTypes()
+     *  returns a List of available Item Types
+     */
     public List<String> getItemTypes() {
         return getArrayAsList(gameData.path(ATTRIBUTES_NODE), TYPE_NODE);
     }
 
+    /**
+     * isItemType()
+     *  checks to see if an Item Type is available in the gameData
+     */
     public boolean isItemType(String itemTypes) {
         return getItemTypes().contains(itemTypes);
     }
 
     /**
-     * WEAPONS
-     *
-     *  getWeapons()    -> returns a List of available Weapons
-     *  isWeapon()      -> checks to see if a Weapon is available in the gameData
-     *  getWeapon()     -> grabs the JsonNode of the specified Weapon
+     * getWeapons()
+     *  returns a List of available Weapons
      */
     public List<String> getWeapons() {
         return getKeysAsList(gameData.path(WEAR_ITEM_NODE), WEAPONS_NODE);
     }
 
+    /**
+     * isWeapon()
+     *  checks to see if a Weapon is available in the gameData
+     */
     public boolean isWeapon(String weapon) {
         return getWeapons().contains(weapon);
     }
 
+    /**
+     * getWeapon()
+     *  grabs the JsonNode of the specified Weapon
+     */
     public JsonNode getWeapon(String weapon) {
         if (isWeapon(weapon))
             return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon);
         else
             throw new IllegalArgumentException("Please input a valid weapon");
     }
+
+    /**
+     * getWeaponValue()
+     *  returns the value of the weapon
+     */
     public int getWeaponValue(String weapon) {
         if (isWeapon(weapon))
             return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon).path(ITEM_VALUE_NODE).asInt();
@@ -201,20 +244,25 @@ class DataParser{
     }
 
     /**
-     * ARMOR
-     *
-     *  getArmor()  -> returns a List of available Armor
-     *  isArmor()   -> checks to see if a Armor is available in the gameData
-     *  getArmor()  -> grabs the JsonNode of the specified Armor
+     * getArmor()
+     *  returns a List of available Armor
      */
     public List<String> getArmor() {
         return getKeysAsList(gameData.path(WEAR_ITEM_NODE), ARMOR_NODE);
     }
 
+    /**
+     * isArmor()
+     *  checks to see if a Armor is available in the gameData
+     */
     public boolean isArmor(String armor) {
         return getArmor().contains(armor);
     }
 
+    /**
+     * getArmor()
+     *  grabs the JsonNode of the specified Armor
+     */
     public JsonNode getArmor(String armor) {
         if (isArmor(armor))
             return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor);
@@ -222,6 +270,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid armor");
     }
 
+    /**
+     * getArmorValue()
+     *  returns the value of the armor
+     */
     public int getArmorValue(String armor) {
         if (isArmor(armor))
             return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(ITEM_VALUE_NODE).asInt();
@@ -249,79 +301,95 @@ class DataParser{
     }
 
     /**
-     * CONSUMABLES
-     *
-     *  getConsumables()    -> returns a List of available Consumables
-     *  isConsumable()      -> checks to see if a Armor is available in the gameData
-     *  getConsumable()     -> grabs the JsonNode of the specified Armor
+     * getConsumables()
+     *  returns a List of available Consumables
      */
     public List<String> getConsumables() {
         return getKeysAsList(gameData, CONSUMABLES_NODE);
     }
 
+    /**
+     * isConsumable()
+     *  checks to see if a Armor is available in the gameData
+     */
     public boolean isConsumable(String consumable) {
         return getConsumables().contains(consumable);
     }
 
+    /**
+     * getConsumable()
+     *  grabs the JsonNode of the specified Armor
+     */
     public JsonNode getConsumable(String consumable) {
         if (isConsumable(consumable))
             return gameData.path(CONSUMABLES_NODE).path(consumable);
         else
             throw new IllegalArgumentException("Please input a valid enemy");
     }
+
+    /**
+     * getConsumableValue()
+     *  returns the value of the consumable
+     */
     public int getConsumableValue(String consumable) {
         if (isConsumable(consumable))
             return gameData.path(CONSUMABLES_NODE).path(consumable).path(ITEM_VALUE_NODE).asInt();
         else
             throw new IllegalArgumentException("Please input a valid enemy");
     }
+
     /**
-     * UTILITY ITEMS
-     *
-     *  getUtilityItems()    -> returns a List of available Utility Items
-     *  isUtilityItem()      -> checks to see if a Utility Item is available in the gameData
+     * getUtilityItems()
+     *  returns a List of available Utility Items
      */
     public List<String> getUtilityItems() {
         return getArrayAsList(gameData, UTILITY_NODE);
     }
 
+    /**
+     * isUtilityItem()
+     *  checks to see if a Utility Item is available in the gameData
+     */
     public boolean isUtilityItem(String utilityItem) {
         return getUtilityItems().contains(utilityItem);
     }
 
     /**
-     * REWARD ITEMS
-     *
-     *  getRewardItems()    -> returns a List of available Reward Item
-     *  isRewardItem()      -> checks to see if a Reward Item is available in the gameData
+     * getRewardItems()
+     *  returns a List of available Reward Item
      */
     public List<String> getRewardItems() {
         return getArrayAsList(gameData, REWARDS_NODE);
     }
 
+    /**
+     * isRewardItem()
+     *  checks to see if a Reward Item is available in the gameData
+     */
     public boolean isRewardItem(String rewardItem) {
         return getRewardItems().contains(rewardItem);
     }
 
     /**
-     * LOCATIONS
-     *
-     *  getLocations()              -> returns a List of available Locations
-     *  isLocation()                -> checks to see if a Location is available in the gameData
-     *  getLocationType()           -> returns the Location's Type
-     *  getLocationDescription()    -> returns the Location's Description
-     *  getLocationNeighbors()      -> returns the Location's Neighbors
-     *  getLocationCommands()       -> returns the Location's Commands
-     *  getLocationNPC()            -> returns the Location's NPCs
+     * getLocations()
+     *  returns a List of available Locations
      */
     public List<String> getLocations() {
         return getKeysAsList(gameData, LOCATIONS_NODE);
     }
 
+    /**
+     * isLocation()
+     *  checks to see if a Location is available in the gameData
+     */
     public boolean isLocation(String location) {
         return getLocations().contains(location);
     }
 
+    /**
+     * getLocationType()
+     *  returns the Location's Type
+     */
     public String getLocationType(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(TYPE_NODE).asText();
@@ -329,6 +397,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationDescription()
+     *  returns the Location's Description
+     */
     public String getLocationDescription(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(DESCRIPTION_NODE).asText();
@@ -336,6 +408,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationImage()
+     *  returns a String of the location's image
+     */
     public String getLocationImage(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(IMAGE_PATH_NODE).asText();
@@ -343,6 +419,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationMap()
+     *  returns a String of the location's map
+     */
     public String getLocationMap(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(MAP_PATH_NODE).asText();
@@ -350,6 +430,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationNeighbors()
+     *  returns the Location's Neighbors
+     */
     public List<String> getLocationNeighbors(String location) {
         if (isLocation(location))
             return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), NEIGHBOR_NODE);
@@ -357,6 +441,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationCommands()
+     *  returns the Location's Commands
+     */
     public List<String> getLocationCommands(String location) {
         if (isLocation(location))
             return getArrayAsList(gameData.path(LOCATIONS_NODE).path(location), COMMANDS_NODE);
@@ -364,6 +452,10 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid location");
     }
 
+    /**
+     * getLocationNPC()
+     *  returns the Location's NPCs
+     */
     public JsonNode getLocationNPC(String location) {
         if (isLocation(location))
             return gameData.path(LOCATIONS_NODE).path(location).path(SHOP_NPC_NODE);
@@ -372,28 +464,24 @@ class DataParser{
     }
 
     /**
-     * ARMORY LIST
-     *
-     *  getArmoryList()    -> returns a List of the Armor Shop's available items
+     * getArmoryList()
+     *  returns a List of the Armor Shop's available items
      */
     public List<String> getArmoryList() {
         return getArrayAsList(gameData.path(SHOP_INVENTORY_NODE), ARMORY_LIST_NODE);
     }
 
     /**
-     * MAGIC LIST
-     *
-     *  getMagicList()    -> returns a List of the Magic Shop's available items
+     * getMagicList()
+     *  returns a List of the Magic Shop's available items
      */
     public List<String> getMagicList() {
         return getArrayAsList(gameData.path(SHOP_INVENTORY_NODE), MAGIC_LIST_NODE);
     }
 
     /**
-     * INSTANCE CREATORS
-     *
-     *  createPlayerClass() -> returns an instance of a Player Class
-     *  createEnemy()       -> returns an instance of an Enemy Class
+     * createPlayerClass()
+     *  returns an instance of a Player Class
      */
     public Player createPlayerClass(String classChoice) {
         // allows you to create an instance of a character straight from your JSON game data
