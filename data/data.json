@@ -7,8 +7,7 @@
       "speed": 20,
       "intel": 5,
       "defense": 30,
-      "bezos": 50,
-      "type": "knight"
+      "bezos": 50
     },
     "mage": {
       "health": 50,
@@ -17,8 +16,7 @@
       "speed": 20,
       "intel": 30,
       "defense": 20,
-      "bezos": 50,
-      "type": "mage"
+      "bezos": 50
     },
     "archer": {
       "health": 50,
@@ -27,8 +25,7 @@
       "speed": 25,
       "intel": 15,
       "defense": 35,
-      "bezos": 50,
-      "type": "archer"
+      "bezos": 50
     }
   },
   "attributes": {
@@ -129,8 +126,8 @@
         "bezos": 50,
         "intel": 10,
         "speed": 5,
-        "dialog": "greetings hero! thank you for your help. our forces are stretched thin defending lucino town \n stop by the shops to gear up for your adventure. head to the evil forest to start on you way do stopping tyoneious.",
-        "quest": "killtyroneious"
+        "dialog": "greetings hero! thank you for your help, our forces are stretched thin defending Lucino town \n Stop by the shops to gear up for your adventure. Head to the evil forest to start on your way to stopping Tyronious.",
+        "quest": "kill Tyronious"
       }
     },
     "shop": {
@@ -142,7 +139,7 @@
         "bezos": 1500,
         "intel": 5,
         "speed": 1,
-        "dialog": "welcome to my shop"
+        "dialog": "Welcome to my shop"
       },
       "shop keeper": {
         "name": "shop keeper",
@@ -152,7 +149,7 @@
         "bezos": 2000,
         "intel": 5,
         "speed": 1,
-        "dialog": "welcome to my shop"
+        "dialog": "Welcome to my shop"
       },
       "inn keeper": {
         "name": "inn keeper",
@@ -162,7 +159,7 @@
         "bezos": 1000,
         "intel": 5,
         "speed": 1,
-        "dialog": "welcome to my inn"
+        "dialog": "Welcome to my inn"
       },
       "hank": {
         "name": "hank",
@@ -172,7 +169,7 @@
         "bezos": 10,
         "intel": 10,
         "speed": 34,
-        "dialog": "welcome to the armory"
+        "dialog": "Welcome to the armory"
       },
       "hans": {
         "name": "hans",
@@ -182,7 +179,7 @@
         "bezos": 10,
         "intel": 10,
         "speed": 34,
-        "dialog": "welcome to the magic shop"
+        "dialog": "Welcome to the magic shop"
       }
     }
   },
@@ -297,7 +294,7 @@
   "locations": {
     "home" : {
       "type": "safe",
-      "description": "you are in the outskirts of the city in your home - farmland surrounds you - and a new jounrey is calling out to you",
+      "description": "You are in the outskirts of the city in your home - farmland surrounds you - and a new journey is calling out to you",
       "neighbors": ["lucino town"],
       "imagepath" : "data/images/home (1).jpeg",
       "map": "",
@@ -308,7 +305,7 @@
     },
     "lucino town" : {
       "type": "safe",
-      "description": "the largest city in eldina and one of the last strong holds preventing tyroneious form gaining complete control",
+      "description": "the largest city in Eldina and one of the last strong holds preventing Tyronious from gaining complete control",
       "neighbors": ["lucino shops", "home"],
       "imagepath": "data/images/lucino town (1).jpeg",
       "map": "",
@@ -319,8 +316,8 @@
     },
     "lucino shops" : {
       "type": "safe",
-      "description": "you are in a market place with a variety of shops. you can see the armory, inn, and magic shop. ",
-      "neighbors": ["armory", "magic", "front gate", "lucino town", "pawnshop"],
+      "description": "You are in a market place with a variety of shops. You can see the armory, inn, and magic shop. ",
+      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town", "pawnshop"],
       "imagepath": "data/images/Goblin.jpeg",
       "map": "",
       "commands": [
@@ -355,9 +352,19 @@
         "items": "armorylist"
       }
     },
+    "lucino town hall" : {
+      "type": "safe",
+      "description": "Welcome to the Lucino town hall! ",
+      "neighbors": ["lucino town"],
+      "imagepath": "data/images/Lucino Town Hall.png",
+      "commands": [
+        "view items",
+        "view stats"
+      ]
+    },
     "magic" : {
       "type": "shop",
-      "description": "no description so far",
+      "description": "Welcome traveler, are you ready to train for you next mission or head to the Lucino shops?",
       "neighbors": ["lucino shops", "training grounds"],
       "imagepath": "data/images/Magic Shop.png",
       "map": "",
@@ -373,7 +380,7 @@
     },
     "front gate" : {
       "type": "safe",
-      "description": "the main enterance to lucino town. it looks strong and sturdy, but you can see the marks left by a recent attack",
+      "description": "The main entrance to Lucino town. It looks strong and sturdy, but you can see the marks left by a recent attack",
       "neighbors": ["lucino shops", "open world"],
       "imagepath": "data/images/Front Gate.jpeg",
       "map": "",
@@ -384,8 +391,8 @@
     },
     "open world" : {
       "type": "danger",
-      "description": "a vast open area. you see a sign that point to the evil forest, badlands, fire mountain and castle eldina",
-      "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
+      "description": "A vast open area, you see a sign that point to the evil forest, badlands, fire mountain and castle Eldina",
+      "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle Eldina"],
       "imagepath": "data/images/openWorld.jpeg",
       "map": "",
       "commands": [
@@ -395,7 +402,7 @@
     },
     "evil forest" : {
       "type": "danger",
-      "description": "a forest full of brown trees. there is a odd smell in the air. there are two trial, one leading deeper into the forest, and the second to the giant's lair",
+      "description": "A forest full of brown trees. there is a odd smell in the air. There are two trial, one leading deeper into the forest and the second to the giant's lair",
       "neighbors": ["open world", "inner evil forest", "evil forest lair"],
       "imagepath": "data/images/Evil Forest.jpeg",
       "map": "",
@@ -406,7 +413,7 @@
     },
     "inner evil forest" : {
       "type": "battle",
-      "description": "the path takes you deeper into the forest and it starts to get darker. there is is another path that takes you to what looks like a lair of some type. you cab hear a sinister sound you turn and prepare for battle",
+      "description": "The path takes you deeper into the forest and it starts to get darker. There is is another path that takes you to what looks like a lair of some type. You can hear a sinister sound you turn and prepare for battle",
       "neighbors": ["evil forest", "evil forest lair"],
       "imagepath": "data/images/Inner Evil Forest.jpeg",
       "map": "",
@@ -419,7 +426,7 @@
     },
     "evil forest lair" : {
       "type": "danger",
-      "description": "the forest seems to have open up and the tree seem to no longer block the little light in the sky. you can see the two trails that lead here. you can see the remains of the giant's victims scattered on the ground. suddenly you hear a loud thud followed by another. they seem to get closer",
+      "description": "The forest seems to have open up and the tree seem to no longer block the little light in the sky. You can see the two trails that lead here, you can see the remains of the giant's victims scattered on the ground. Suddenly you hear a loud thud followed by another, they seem to be getting get closer",
       "neighbors": ["evil forest", "inner evil forest"],
       "imagepath": "Evil Forest Lair.jpeg",
       "map": "",
@@ -432,7 +439,7 @@
     },
     "badlands" : {
       "type": "danger",
-      "description": "you find yourself if a desolate land. you can tell that it was once full of life, but that life has been drained by the dark powers of tyroneous. there is sign pointing to fang hill and elki town",
+      "description": "You find yourself if a desolate land. You can tell that it was once full of life, but that life has been drained by the dark powers of Tyronious. There is sign pointing to fang hill and Elki town",
       "neighbors": ["open world", "elki town", "fang hill"],
       "imagepath": "data/images/Badlands.jpeg",
       "map": "",
@@ -443,7 +450,7 @@
     },
     "elki town" : {
       "type": "safe",
-      "description": "a small town that sits within the badlands. the people seem to be on edge",
+      "description": "A small town that sits within the badlands. The people seem to be on edge",
       "neighbors": ["badlands", "fang hill"],
       "imagepath": "data/images/Elki Town.jpeg",
       "map": "",
@@ -454,7 +461,7 @@
     },
     "fang hill" : {
       "type": "battle",
-      "description": "a hill covered area known to be home of wolves. you should be careful as they can attack from nowhere",
+      "description": "A hill covered area known to be home of wolves. You should be careful as they can attack from anywhere",
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/fang hill (1).jpeg",
       "map": "",
@@ -467,8 +474,8 @@
     },
     "fire mountain" : {
       "type": "danger",
-      "description": "you have come to the area of fire mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. it is know to the be the home of deadly dragon you can see the pat that takes you to the base of the mountain",
-      "neighbors": ["badlands", "elki town", "base","cave"],
+      "description": "You have come to the area of Fire Mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. It is know to the be the home of deadly dragon you can see the path that takes you to the base of the mountain",
+      "neighbors": ["badlands", "Elki town", "base","cave"],
       "imagepath": "data/images/Fire Mountain.jpeg",
       "map": "",
       "commands": [
@@ -478,7 +485,7 @@
     },
     "base" : {
       "type": "battle",
-      "description": "you have made it to the the base of the mountain. above you can see a cave that is home to the dragon there seems to be a something moving towards you that doesn't want you to reach the cave",
+      "description": "You have made it to the the base of the mountain. Above you can see a cave that is home to the dragon, there seems to be a something moving towards you that doesn't want you to reach the cave",
       "neighbors": ["fire mountain", "cave"],
       "imagepath": "data/images/Base.jpeg",
       "map": "",
@@ -491,7 +498,7 @@
     },
     "cave" : {
       "type": "battle",
-      "description": "you have climbed the mountain face and reached a cave. you enter and the smell of sulfur hangs in the air. it seems to get warmer as you mover further in steeping over the charred skeletons. suddenly there is a bright light and you hear a roar.",
+      "description": "You have climbed the mountain face and reached a cave. You enter and the smell of sulfur hangs in the air. It seems to get warmer as you mover further in steeping over the charred skeletons. Suddenly there is a bright light and you hear a roar.",
       "neighbors": ["fire mountain", "base"],
       "imagepath": "data/images/Cave.jpeg",
       "map": "",
@@ -504,7 +511,7 @@
     },
     "castle eldina" : {
       "type": "danger",
-      "description": "the great castle eldian, once the home to king lumas. you can see what the dark influence of tyroneius had done",
+      "description": "The great castle Eldian, once the home to King Lumas. You can see what the dark influence of Tyronious had done",
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "imagepath": "data/images/Castle.jpeg",
       "map": "",
@@ -515,7 +522,7 @@
     },
     "training grounds" : {
       "type": "safe",
-      "description": "this is the area one ran buy the war chief to train the soldiers of eldiean. now you can find some black market merchants that can sell you some useful items.",
+      "description": "This is the area one ran buy the war chief to train the soldiers of Eldiean. Now you can find some black market merchants that can sell you some useful items.",
       "neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"],
       "imagepath": "data/images/Castle.jpeg",
       "map": "",
@@ -526,7 +533,7 @@
     },
     "dungeon" : {
       "type": "battle",
-      "description": "you find yourself in the castle dungeon. those once held as prisoners have been changed into monsters",
+      "description": "You find yourself in the castle dungeon. Those once held as prisoners have been changed into monsters",
       "neighbors": ["training grounds", "castle eldina","throne room"],
       "imagepath": "data/images/Dungeon.jpeg",
       "map": "",
@@ -539,7 +546,7 @@
     },
     "throne room" : {
       "type": "battle",
-      "description": "you have entered the throne room. you can see tyroneious sitting with a sinister grin upon his face. you can feel his evil intent as you prepare yourself for battle!",
+      "description": "You have entered the throne room. you can see Tyronious sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "imagepath": "data/images/Throne Room.jpeg",
       "map": "",

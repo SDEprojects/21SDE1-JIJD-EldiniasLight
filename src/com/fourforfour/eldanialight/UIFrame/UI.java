@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UI extends JFrame {
+public class UI extends JFrame{
 
     //FIELDS
     private SwingController controller;
@@ -23,9 +23,13 @@ public class UI extends JFrame {
     private JLabel titleLabel;
     private JTextArea playerMessageLbl;
     private JButton submitCommandBtn;
+    Credits credits;
+
 
     public UI(SwingController controller) {
         this.controller = controller;
+        this.add(credits);
+
 
         //SETTING UP FRAME
         setLocation(100,100);
@@ -34,12 +38,14 @@ public class UI extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
         //Setting up Title label
         titleLabel = new JLabel("Eldinias Light");
         titleLabel.setBounds(240, 0, 200, 50);
         titleLabel.setFont(new Font("Monospaced Bold", Font.BOLD, 20));
         add(titleLabel);
 
+        //Displays image on JFrame
         Image locationImage = null;
         try {
             locationImage = ImageIO.read(new File("data/images/Opening screen.jpg"));
@@ -58,8 +64,7 @@ public class UI extends JFrame {
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
-        displayArea.append("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyroneious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
-        displayArea.append("\n\nQUEST --> Level up and defeat Tyronious");
+        displayArea.setText("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyronious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
         displayArea.setBackground(Color.orange);
         displayArea.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(displayArea);
@@ -109,12 +114,8 @@ public class UI extends JFrame {
     }
 
     private void processSubmitInput(){
-
         String inputText = playerInputTF.getText().toLowerCase();
         String result = controller.processInput(inputText);
-        if(result.equals("gameOver")){
-            this.setVisible(false);
-        }
         playerMessageLbl.setText(result);
         String displayData = controller.getDescription();
         displayArea.setText(displayData);
@@ -135,4 +136,5 @@ public class UI extends JFrame {
             processSubmitInput();
         }
     }
+
 }

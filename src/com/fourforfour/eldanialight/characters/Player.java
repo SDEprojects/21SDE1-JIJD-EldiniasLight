@@ -7,7 +7,7 @@ import java.util.Scanner;
 import static com.fourforfour.eldanialight.ColorChange.*;
 
 public class Player extends Character implements BattleActions {
-    // List is making a questlog and scanner is for user input
+    // List is making a quest log and scanner is for user input
 //    private List<Quest> questLog = new ArrayList<>();
     private static transient Scanner scanner = new Scanner(System.in);
 
