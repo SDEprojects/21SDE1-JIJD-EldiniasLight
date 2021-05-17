@@ -1,0 +1,616 @@
+{
+  "classes": {
+    "knight": {
+      "health": 50,
+      "xp": 0,
+      "strength": 35,
+      "speed": 20,
+      "intel": 5,
+      "defense": 30,
+      "bezos": 50
+    },
+    "mage": {
+      "health": 50,
+      "xp": 0,
+      "strength": 10,
+      "speed": 20,
+      "intel": 30,
+      "defense": 20,
+      "bezos": 50
+    },
+    "archer": {
+      "health": 50,
+      "xp": 0,
+      "strength": 15,
+      "speed": 25,
+      "intel": 15,
+      "defense": 35,
+      "bezos": 50
+    }
+  },
+  "attributes": {
+    "stats": [ "health", "defense", "intellect", "speed", "strength"],
+    "type": ["head", "chest", "main hand", "off hand"]
+  },
+  "wear item": {
+    "weapons": {
+      "sword": {
+        "name": "sword",
+        "attack": 5,
+        "health": 0,
+        "defense": 0,
+        "value": 20,
+        "hand": "main hand"
+      },
+      "battleaxe": {
+        "name": "battleaxe",
+        "attack": 10,
+        "health": 0,
+        "defense": 0,
+        "value": 20,
+        "hand": "main hand"
+      },
+      "bow": {
+        "name": "bow",
+        "attack": 10,
+        "health": 0,
+        "defense": 0,
+        "value": 20,
+        "hand": "main hand"
+      },
+      "staff": {
+        "name": "staff",
+        "attack": 10,
+        "health": 0,
+        "defense": 0,
+        "value": 20,
+        "hand": "main hand"
+      }
+    },
+    "armor": {
+      "shield": {
+        "name": "shield",
+        "health": 5,
+        "attack": 0,
+        "defense": 5,
+        "value": 20,
+        "hand": "off hand"
+      },
+      "chestplate": {
+        "name": "chestplate",
+        "health": 10,
+        "defense": 8,
+        "attack": 0,
+        "value": 20,
+        "hand": "chest"
+      },
+      "lighthelm": {
+        "name": "lighthelm",
+        "health": 5,
+        "defense": 5,
+        "attack": 0,
+        "value": 20,
+        "hand": "off hand"
+      }
+    }
+  },
+  "consumables": {
+    "healthpotion": {
+      "name": "healthpotion",
+      "enhancer": 10,
+      "attribute": "health",
+      "value": 5
+    },
+    "manapotion": {
+      "name": "manapotion",
+      "enhancer": 10,
+      "attribute": "intellect",
+      "value": 5
+    },
+    "speedpotion": {
+      "name": "speedpotion",
+      "enhancer": 10,
+      "attribute": "speed",
+      "value": 5
+    },
+    "strengthpotion": {
+      "name": "strengthpotion",
+      "enhancer": 10,
+      "attribute": "strength",
+      "value": 5
+    }
+  },
+  "utility": ["escaperope", "treasurechestkey"],
+  "rewards": ["wolf claw"],
+  "shop inventory": {
+    "armorylist": ["sword", "shield", "battleaxe", "bow", "staff"],
+    "magiclist": ["healthpotion", "manapotion", "speedpotion", "strengthpotion"]
+  },
+  "npcs": {
+    "quest": {
+      "war chief": {
+        "health": 10,
+        "strength": 10,
+        "defense": 10,
+        "bezos": 50,
+        "intel": 10,
+        "speed": 5,
+        "dialog": "greetings hero! thank you for your help, our forces are stretched thin defending Lucino town \n Stop by the shops to gear up for your adventure. Head to the evil forest to start on your way to stopping Gandolf.",
+        "quest": "kill Gandolf"
+      }
+    },
+    "shop": {
+      "blacksmith": {
+        "name": "blacksmith",
+        "health": 5,
+        "strength": 5,
+        "defense": 5,
+        "bezos": 1500,
+        "intel": 5,
+        "speed": 1,
+        "dialog": "Welcome to my shop"
+      },
+      "shop keeper": {
+        "name": "shop keeper",
+        "health": 5,
+        "strength": 5,
+        "defense": 5,
+        "bezos": 2000,
+        "intel": 5,
+        "speed": 1,
+        "dialog": "Welcome to my shop"
+      },
+      "inn keeper": {
+        "name": "inn keeper",
+        "health": 5,
+        "strength": 5,
+        "defense": 5,
+        "bezos": 1000,
+        "intel": 5,
+        "speed": 1,
+        "dialog": "Welcome to my inn"
+      },
+      "hank": {
+        "name": "hank",
+        "health": 10,
+        "strength": 10,
+        "defense": 10,
+        "bezos": 10,
+        "intel": 10,
+        "speed": 34,
+        "dialog": "Welcome to the armory"
+      },
+      "hans": {
+        "name": "hans",
+        "health": 10,
+        "strength": 10,
+        "defense": 10,
+        "bezos": 10,
+        "intel": 10,
+        "speed": 34,
+        "dialog": "Welcome to the magic shop"
+      }
+    }
+  },
+  "enemies": {
+    "goblin": {
+      "name": "goblin",
+      "health": 50,
+      "defense": 30,
+      "strength": 25,
+      "speed": 40,
+      "intel": 0,
+      "bezos": 10,
+      "xp": 30,
+      "reward": "drop something"
+    },
+    "wolf": {
+      "name": "wolf",
+      "health": 30,
+      "defense": 60,
+      "strength": 30,
+      "speed": 40,
+      "intel": 20,
+      "bezos": 10,
+      "xp": 30,
+      "reward": "wolf claw"
+    },
+    "troll": {
+      "name": "troll",
+      "health": 60,
+      "defense": 45,
+      "strength": 60,
+      "speed": 15,
+      "intel": 0,
+      "bezos": 35,
+      "xp": 40,
+      "reward": "drop something"
+    },
+    "undead": {
+      "name": "undead",
+      "health": 50,
+      "defense": 35,
+      "strength": 35,
+      "speed": 35,
+      "intel": 0,
+      "bezos": 10,
+      "xp": 20,
+      "reward": "drop something"
+    },
+    "andre the giant": {
+      "name": "andre the giant",
+      "health": 100,
+      "defense": 100,
+      "strength": 150,
+      "speed": 35,
+      "intel": 0,
+      "bezos": 100,
+      "xp": 150
+    },
+    "haku": {
+      "name": "haku",
+      "health": 125,
+      "defense": 100,
+      "strength": 80,
+      "speed": 150,
+      "intel": 60,
+      "bezos": 100,
+      "xp": 150
+    },
+    "gandolf the black": {
+      "name": "gandolf the black",
+      "health": 300,
+      "defense": 150,
+      "strength": 150,
+      "speed": 150,
+      "intel": 150,
+      "bezos": 10000,
+      "xp": 1000
+    }
+  },
+  "commands": {
+    "shopcommand": [
+      "shop",
+      "view items",
+      "leave",
+      "view_stats"
+    ],
+    "talkcommand": [
+      "leave",
+      "talk"
+    ],
+    "townhallcommand": [
+      "view_characters",
+      "leave",
+      "view items",
+      "view_stats"
+    ],
+    "worldcommand": [
+      "view",
+      "venture",
+      "view items",
+      "view_stats"
+    ],
+    "battlecommand": [
+      "view",
+      "venture",
+      "view items",
+      "view_stats",
+      "attack",
+      "item"
+    ]
+  },
+  "locations": {
+    "home" : {
+      "type": "safe",
+      "description": "You are in the outskirts of the city in your home - farmland surrounds you - and a new journey is calling out to you",
+      "neighbors": ["lucino town"],
+      "imagepath" : "data/images/home (1).jpeg",
+      "map": "data/mapImages/Home Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "lucino town" : {
+      "type": "safe",
+      "description": "the largest city in Eldina and one of the last strong holds preventing Gandolf from gaining complete control",
+      "neighbors": ["lucino shops", "home"],
+      "imagepath": "data/images/lucino town (1).jpeg",
+      "map": "data/mapImages/Lucino Town Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "lucino shops" : {
+      "type": "safe",
+      "description": "You are in a market place with a variety of shops. You can see the armory, inn, and magic shop. ",
+      "neighbors": ["armory", "magic", "front gate", "lucino town", "pawnshop"],
+      "imagepath": "data/images/lucino shops (1).jpeg",
+      "map": "data/mapImages/Lucino Shops Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "pawnshop" : {
+      "type": "safe",
+      "description": "You have arrived at a pawnshop where you can sell your items",
+      "neighbors": ["lucino shops"],
+      "imagepath" : "data/images/lucino shops (1).jpeg",
+      "map": "data/mapImages/Pawn Shop Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "armory" : {
+      "type": "shop",
+      "description": "You are in a shop with magnificent weapons on the wall and all over the place. Swords and shield, and battleaxes all for sale",
+      "neighbors": ["lucino shops", "training grounds"],
+      "imagepath": "data/images/armory.jpeg",
+      "map": "data/mapImages/Armory Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ],
+      "npc": {
+        "name": "hank",
+        "type": "shop",
+        "items": "armorylist"
+      }
+    },
+    "magic" : {
+      "type": "shop",
+      "description": "Welcome traveler, are you ready to train for you next mission or head to the Lucino shops?",
+      "neighbors": ["lucino shops", "training grounds"],
+      "imagepath": "data/images/Magic Shop.png",
+      "map": "data/mapImages/Magic Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ],
+      "npc": {
+        "name": "hans",
+        "type": "shop",
+        "items": "magiclist"
+      }
+    },
+    "front gate" : {
+      "type": "safe",
+      "description": "The main entrance to Lucino town. It looks strong and sturdy, but you can see the marks left by a recent attack",
+      "neighbors": ["lucino shops", "open world"],
+      "imagepath": "data/images/Front Gate.jpeg",
+      "map": "data/mapImages/Front Gate Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "open world" : {
+      "type": "danger",
+      "description": "A vast open area, you see a sign that point to the evil forest, badlands, fire mountain and castle Eldina",
+      "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
+      "imagepath": "data/images/openWorld.jpeg",
+      "map": "data/mapImages/Open World Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "evil forest" : {
+      "type": "danger",
+      "description": "A forest full of brown trees. there is a odd smell in the air. There are two trial, one leading deeper into the forest and the second to the giant's lair",
+      "neighbors": ["open world", "inner evil forest", "evil forest lair"],
+      "imagepath": "data/images/Evil Forest.jpeg",
+      "map": "data/mapImages/Evil Forest Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "inner evil forest" : {
+      "type": "battle",
+      "description": "The path takes you deeper into the forest and it starts to get darker. There is is another path that takes you to what looks like a lair of some type. You can hear a sinister sound you turn and prepare for battle",
+      "neighbors": ["evil forest", "evil forest lair"],
+      "imagepath": "data/images/Inner Evil Forest.jpeg",
+      "map": "data/mapImages/Inner Evil Forest-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "evil forest lair" : {
+      "type": "danger",
+      "description": "The forest seems to have open up and the tree seem to no longer block the little light in the sky. You can see the two trails that lead here, you can see the remains of the giant's victims scattered on the ground. Suddenly you hear a loud thud followed by another, they seem to be getting get closer",
+      "neighbors": ["evil forest", "inner evil forest"],
+      "imagepath": "data/images/Evil Forest Lair.jpeg",
+      "map": "data/mapImages/Inner Evil Forst Lair Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "badlands" : {
+      "type": "danger",
+      "description": "You find yourself if a desolate land. You can tell that it was once full of life, but that life has been drained by the dark powers of Gandolf. There is sign pointing to fang hill and Elki town",
+      "neighbors": ["open world", "elki town", "fang hill"],
+      "imagepath": "data/images/Badlands.jpeg",
+      "map": "data/mapImages/Bad Lands Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "elki town" : {
+      "type": "safe",
+      "description": "A small town that sits within the badlands. The people seem to be on edge",
+      "neighbors": ["badlands", "fang hill"],
+      "imagepath": "data/images/Elki Town.jpeg",
+      "map": "data/mapImages/Elki Town Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "fang hill" : {
+      "type": "battle",
+      "description": "A hill covered area known to be home of wolves. You should be careful as they can attack from anywhere",
+      "neighbors": ["badlands", "elki town"],
+      "imagepath": "data/images/fang hill (1).jpeg",
+      "map": "data/mapImages/Fang Hill Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "fire mountain" : {
+      "type": "danger",
+      "description": "You have come to the area of Fire Mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. It is know to the be the home of deadly dragon you can see the path that takes you to the base of the mountain",
+      "neighbors": ["badlands", "Elki town", "base","cave"],
+      "imagepath": "data/images/Fire Mountain.jpeg",
+      "map": "data/mapImages/Fire Mountain Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "base" : {
+      "type": "battle",
+      "description": "You have made it to the the base of the mountain. Above you can see a cave that is home to the dragon, there seems to be a something moving towards you that doesn't want you to reach the cave",
+      "neighbors": ["fire mountain", "cave"],
+      "imagepath": "data/images/Base.jpeg",
+      "map": "data/mapImages/Base Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "cave" : {
+      "type": "battle",
+      "description": "You have climbed the mountain face and reached a cave. You enter and the smell of sulfur hangs in the air. It seems to get warmer as you mover further in steeping over the charred skeletons. Suddenly there is a bright light and you hear a roar.",
+      "neighbors": ["fire mountain", "base"],
+      "imagepath": "data/images/Cave.jpeg",
+      "map": "data/mapImages/Cave Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "castle eldina" : {
+      "type": "danger",
+      "description": "The great castle Eldian, once the home to King Lumas. You can see what the dark influence of Gandolf had done",
+      "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
+      "imagepath": "data/images/Castle.jpeg",
+      "map": "data/mapImages/Castle Eldina Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "training grounds" : {
+      "type": "safe",
+      "description": "This is the area one ran buy the war chief to train the soldiers of Eldiean. Now you can find some black market merchants that can sell you some useful items.",
+      "neighbors": ["armory", "magic", "castle eldina","dungeon","throne room"],
+      "imagepath": "data/images/Castle.jpeg",
+      "map": "data/mapImages/Training Grounds Map.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "dungeon" : {
+      "type": "battle",
+      "description": "You find yourself in the castle dungeon. Those once held as prisoners have been changed into monsters",
+      "neighbors": ["training grounds", "castle eldina","throne room"],
+      "imagepath": "data/images/Dungeon.jpeg",
+      "map": "data/mapImages/Dungeon Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    },
+    "throne room" : {
+      "type": "battle",
+      "description": "You have entered the throne room. you can see Gandolf sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
+      "neighbors": ["castle eldina", "dungeon","training grounds"],
+      "imagepath": "data/images/Throne Room.jpeg",
+      "map": "data/mapImages/Throne Room Map-1.png",
+      "commands": [
+        "view items",
+        "view stats",
+        "attack",
+        "equip itemName",
+        "remove itemName",
+        "map"
+      ]
+    }
+  }
+}

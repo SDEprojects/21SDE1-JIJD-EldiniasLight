@@ -11,7 +11,6 @@
 .mtj.tmp/
 
 # Package Files #
-
 *.war
 *.nar
 *.ear
@@ -19,6 +18,11 @@
 *.tar.gz
 *.rar
 
+# PlantUML Files
+*.plantuml
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 src/.DS_Store
+out/artifacts/EldiniasLight_jar/EldiniasLight.jar
+out/artifacts/EldiniasLight_jar/EldiniasLight.jar

@@ -1,8 +1,8 @@
 package com.fourforfour.eldanialight.characters;
 
-public class Boss extends Character  {
-
-    public Boss(String name, double health, int defense, int strength, int speed,int intel, int bezos ,int xp){
+public class Boss extends Character implements BattleActions {
+    // this class uses the character fields
+    public Boss(String name, int health, int defense, int strength, int speed, int intel, int bezos, int xp) {
         this.setName(name);
         this.setHealth(health);
         this.setDefense(defense);
@@ -13,24 +13,22 @@ public class Boss extends Character  {
         this.setXp(xp);
     }
 
-//    @Override
-//    public int attack() {
-//
-//        return 0;
-//    }
-//
-//    @Override
-//    public void run() {
-//
-//    }
-//
-//    @Override
-//    public void defend() {
-//
-//    }
-//
-//    @Override
-//    public void use() {
-//
-//    }
+    // assuming they tried to implement from BattleActions
+    @Override
+    public void attack(Character character) {
+    }
+
+    @Override
+    public boolean run(Character character) {
+        return false;
+    }
+
+    @Override
+    public int defend() {
+        return 0;
+    }
+
+    @Override
+    public void use() {
+    }
 }//EOC
