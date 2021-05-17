@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UI extends JFrame {
+public class UI extends JFrame{
 
     //FIELDS
     private SwingController controller;
@@ -23,9 +23,13 @@ public class UI extends JFrame {
     private JLabel titleLabel;
     private JTextArea playerMessageLbl;
     private JButton submitCommandBtn;
+    Credits credits;
+
 
     public UI(SwingController controller) {
         this.controller = controller;
+        this.add(credits);
+
 
         //SETTING UP FRAME
         setLocation(100,100);
@@ -33,6 +37,7 @@ public class UI extends JFrame {
         setResizable(false);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         //Setting up Title label
         titleLabel = new JLabel("Eldinias Light");
@@ -59,7 +64,7 @@ public class UI extends JFrame {
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
-        displayArea.setText("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyroneious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
+        displayArea.setText("The once peaceful land of Eldina has recently been taken over by the evil warlock Tyronious the Black who has cast a darkness upon the land. You are the one chosen to defeat Tyroneious and his Army to restore Eldina back to its peaceful ways.");
         displayArea.setBackground(Color.orange);
         displayArea.setFont(new Font("Book Antiqua", Font.PLAIN, 15));//sets font of the text
         add(displayArea);
