@@ -26,9 +26,9 @@ public class Game implements Serializable, GameInterface {
     public static String imagePath;
 
 
-    // A LOT THINGS BEING DONE IN THIS CLASS JUST TO QUICKLY TEST - WILL SEPARATE SOON
-    // NEED cTO CREATE AN INPUT PARSER LATER
-    // CREATE ANOTHER CLASS TO SEPARATE DISPLAY STUFF
+    /**
+     * This initializes the game with a dataparser, sets the home location, description, and image
+     */
     Game() {
         dataParser = new DataParser();
         currentCity = "home";
@@ -40,10 +40,15 @@ public class Game implements Serializable, GameInterface {
 
     }
 
+    /**
+     * This method is how we interact with the GUI and send data back
+     * @param input is the users input grabbed from the UI
+     * @return what is return is a string back to the UI, and the getters will replace information within the gui automatically
+     */
     @Override
     public String submitPlayerString(String input) {
         String result;
-        String command = input.toLowerCase(Locale.ROOT);
+        String command = input.toLowerCase(Locale.ROOT).trim();
 
         if(gameOver){
             return "gameOver";
@@ -57,26 +62,26 @@ public class Game implements Serializable, GameInterface {
             return processSaveCommand();
         }
 
-        if(command.equals("map")){
-            setImagePath(dataParser.getLocationMap(currentCity));
-            return "Here is Map of the location.";
-        }
+
 
         if (!playerTypeSaved) {
             if (dataParser.isPlayerClass(command)) {
                 player = dataParser.createPlayerClass(command);
                 playerTypeSaved = true;
-                return result = "What is your name?";
+                return "What is your name?";
+            } else{
+                return "That is not a correct input.\n What type of Player are you?\n MAGE or KNIGHT or ARCHER";
             }
-            else
-                return result = "That is not a correct input.\n What type of Player are you?\n MAGE or KNIGHT or ARCHER";
         }
 
         if (!nameSaved) {
+            if(command.isEmpty()){
+                return "please enter your name";
+            }
             player.setName(command);
             nameSaved = true;
             changeCity(currentCity);
-            return result = "Welcome, "  + input + "! Please go speak with the Warchief at the town hall.";
+            return "Welcome, "  + input + "! Your quest has began young warrior. Go to the town, explore all the shops, and upgrade your equipment and set out to go gain experience in hopes of defeating Tyronious the Black";
         }
 
         if(currentCity.equalsIgnoreCase("armory")){
@@ -152,6 +157,15 @@ public class Game implements Serializable, GameInterface {
             }
         }
 
+        if(command.equals("map")){
+            setImagePath(dataParser.getLocationMap(currentCity));
+            return "Here is Map of the location.";
+        }
+
+        if(command.equals("quit")){
+            return "gameOver";
+        }
+
         if(command.equals("view stats")){
             return player.viewStats();
         }
@@ -159,6 +173,13 @@ public class Game implements Serializable, GameInterface {
         if(command.equals("view items")){
             return player.viewInventory();
         }
+
+        if(command.contains("unequip")){
+            return removeEquippedItems(command);
+        } else if(command.contains("equip")){
+          return equipItems(command);
+        }
+
 
         if (command.isEmpty()) {
             result = "I don't understand \"" + input + "\"";
@@ -170,6 +191,63 @@ public class Game implements Serializable, GameInterface {
         return result;
     }
 
+    private String removeEquippedItems(String command) {
+        String[] inputArr = command.split(" ");
+        String item = inputArr[1];
+        if(dataParser.isWeapon(item) && player.equibbedItems().contains(item)){
+            player.setHealth(player.getHealth() - dataParser.getWeaponHealthStats(item));
+            player.setStrength(player.getStrength() - dataParser.getWeaponAttackStats(item));
+            player.setDefense(player.getDefense() - dataParser.getWeaponDefenseStats(item));
+            player.equippedItems.remove(item);
+
+            return "You have unequipped your " + item;
+
+        }else if(dataParser.isArmor(item) && player.equibbedItems().contains(item)) {
+            player.setHealth(player.getHealth() - dataParser.getArmorHealthStat(item));
+            player.setStrength(player.getStrength() - dataParser.getArmorAttackStat(item));
+            player.setDefense(player.getDefense() - dataParser.getArmorDefenseStat(item));
+            player.equippedItems.remove(item);
+
+            return "You have unequipped your " + item;
+
+        }else{
+            return "That item is unequippable";
+        }
+    }
+
+    /**
+     *
+     * @param command users input
+     * @return a string whether item was equipped
+     * handle players equipped items and unequip, while also adding item buffs to user stats
+     */
+    private String equipItems(String command) {
+        String[] inputArr = command.split(" ");
+        String item = inputArr[1];
+        if(dataParser.isWeapon(item) && player.items.containsKey(item) && !player.equibbedItems().contains(item)){
+            player.addEquippedItem(item);
+            player.setHealth(player.getHealth() + dataParser.getWeaponHealthStats(item));
+            player.setStrength(player.getStrength() + dataParser.getWeaponAttackStats(item));
+            player.setDefense(player.getDefense() + dataParser.getWeaponDefenseStats(item));
+            return "You have equipped your " + item;
+
+        }else if(dataParser.isArmor(item) && player.items.containsKey(item) && !player.equibbedItems().contains(item)) {
+            player.addEquippedItem(item);
+            player.setHealth(player.getHealth() + dataParser.getArmorHealthStat(item));
+            player.setStrength(player.getStrength() + dataParser.getArmorAttackStat(item));
+            player.setDefense(player.getDefense() + dataParser.getArmorDefenseStat(item));
+            return "You have equipped your " + item;
+
+        }else{
+            return "That item is unequippable";
+        }
+    }
+
+    /**
+     * This method uses Java Serializable to save the game state
+     * using a hashmap, different parts of the Game are saved and then Serialized
+     * @return a string whether or not game was successfully save
+     */
     private String processSaveCommand() {
         String result;
         gameLoaded = false;
@@ -192,7 +270,6 @@ public class Game implements Serializable, GameInterface {
             result = "game saved";
         } catch (FileNotFoundException e) {
             result = "Failed to load the game files:";
-            System.out.println(e.getMessage());
         } catch (IOException e) {
             result = "Failed to load the game files:";
             e.printStackTrace();
@@ -201,6 +278,11 @@ public class Game implements Serializable, GameInterface {
         return result;
     }
 
+    /**
+     * This method deserializes the game state that was saved
+     * and reinitializes the game with that data
+     * @return a string whether the data was successfully load or not
+     */
     private String processloadCommand(){
         String result;
 
@@ -233,7 +315,11 @@ public class Game implements Serializable, GameInterface {
         return result;
     }
 
-
+    /**
+     * Helped method that allows us to change the current city
+     * while also updating the description and location image
+     * @param location is the next city that the user will be moved to
+     */
     public static void changeCity(String location){
         currentCity = location;
         setCurrentLocationDescription(dataParser.getLocationDescription(location));
@@ -247,13 +333,17 @@ public class Game implements Serializable, GameInterface {
             return dataParser.getMagicList();
     }
 
+    /**
+     * This method handles how our user can traverse through the different locations
+     * @param command is the users input
+     * @return a string whether the user was able to go to the new location or not
+     */
     public String processVentureCommand(String command) {
         setPreviousCity(currentCity);
         setCurrentCity(command);
         setLocationCommands(dataParser.getLocationCommands(currentCity));
         setCurrentLocationDescription(dataParser.getLocationDescription(currentCity));
         setImagePath(dataParser.getLocationImage(currentCity));
-        System.out.println(dataParser.getLocationImage(currentCity));
         return "You have entered " + command;
     }
 
@@ -319,6 +409,7 @@ public class Game implements Serializable, GameInterface {
 
         String result = "Location: " + getCurrentLocationDescription() +
               "\n \nAllowed Commands "+ getLocationCommands() +
+              "\n" + player.equibbedItems() +
               "\n \nPossible Destinations ->" + dataParser.getLocationNeighbors(currentCity) +
               "\nType destination name to move";
         if(currentCity.equalsIgnoreCase("armory")){

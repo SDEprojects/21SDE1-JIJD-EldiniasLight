@@ -36,8 +36,11 @@ class DataParser{
     private static final String COMMANDS_NODE = "commands";
     private static final String SHOP_NPC_NODE = "npc";
     private static final String IMAGE_PATH_NODE = "imagepath";
-    private static final String MAP_PATH_NODE = "mappath";
+    private static final String MAP_PATH_NODE = "map";
     private static final String ITEM_VALUE_NODE = "value";
+    private static final String ATTACK_STAT_NODE = "attack";
+    private static final String DEFENSE_STAT_NODE = "defense";
+    private static final String HEALTH_STAT_NODE = "health";
 
     // FIELDS
     private static ObjectMapper mapper;
@@ -220,6 +223,26 @@ class DataParser{
             throw new IllegalArgumentException("Please input a valid weapon");
     }
 
+    public int getWeaponAttackStats(String weapon) {
+        if (isWeapon(weapon))
+            return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon).path(ATTACK_STAT_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid weapon");
+    }
+
+    public int getWeaponHealthStats(String weapon) {
+        if (isWeapon(weapon))
+            return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon).path(HEALTH_STAT_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid weapon");
+    }
+    public int getWeaponDefenseStats(String weapon) {
+        if (isWeapon(weapon))
+            return gameData.path(WEAR_ITEM_NODE).path(WEAPONS_NODE).path(weapon).path(DEFENSE_STAT_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid weapon");
+    }
+
     /**
      * getArmor()
      *  returns a List of available Armor
@@ -254,6 +277,25 @@ class DataParser{
     public int getArmorValue(String armor) {
         if (isArmor(armor))
             return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(ITEM_VALUE_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid armor");
+    }
+
+    public int getArmorHealthStat(String armor) {
+        if (isArmor(armor))
+            return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(HEALTH_STAT_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid armor");
+    }
+    public int getArmorAttackStat(String armor) {
+        if (isArmor(armor))
+            return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(ATTACK_STAT_NODE).asInt();
+        else
+            throw new IllegalArgumentException("Please input a valid armor");
+    }
+    public int getArmorDefenseStat(String armor) {
+        if (isArmor(armor))
+            return gameData.path(WEAR_ITEM_NODE).path(ARMOR_NODE).path(armor).path(DEFENSE_STAT_NODE).asInt();
         else
             throw new IllegalArgumentException("Please input a valid armor");
     }
