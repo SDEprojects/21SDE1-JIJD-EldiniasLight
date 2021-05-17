@@ -126,8 +126,8 @@
         "bezos": 50,
         "intel": 10,
         "speed": 5,
-        "dialog": "greetings hero! thank you for your help, our forces are stretched thin defending Lucino town \n Stop by the shops to gear up for your adventure. Head to the evil forest to start on your way to stopping Tyronious.",
-        "quest": "kill Tyronious"
+        "dialog": "greetings hero! thank you for your help, our forces are stretched thin defending Lucino town \n Stop by the shops to gear up for your adventure. Head to the evil forest to start on your way to stopping Gandolf.",
+        "quest": "kill Gandolf"
       }
     },
     "shop": {
@@ -248,8 +248,8 @@
       "bezos": 100,
       "xp": 150
     },
-    "tyronious the black": {
-      "name": "tyronious the black",
+    "gandolf the black": {
+      "name": "gandolf the black",
       "health": 300,
       "defense": 150,
       "strength": 150,
@@ -305,7 +305,7 @@
     },
     "lucino town" : {
       "type": "safe",
-      "description": "the largest city in Eldina and one of the last strong holds preventing Tyronious from gaining complete control",
+      "description": "the largest city in Eldina and one of the last strong holds preventing Gandolf from gaining complete control",
       "neighbors": ["lucino shops", "home"],
       "imagepath": "data/images/lucino town (1).jpeg",
       "map": "data/mapImages/Lucino Town Map.png",
@@ -439,7 +439,7 @@
     },
     "badlands" : {
       "type": "danger",
-      "description": "You find yourself if a desolate land. You can tell that it was once full of life, but that life has been drained by the dark powers of Tyronious. There is sign pointing to fang hill and Elki town",
+      "description": "You find yourself if a desolate land. You can tell that it was once full of life, but that life has been drained by the dark powers of Gandolf. There is sign pointing to fang hill and Elki town",
       "neighbors": ["open world", "elki town", "fang hill"],
       "imagepath": "data/images/Badlands.jpeg",
       "map": "data/mapImages/Bad Lands Map.pdf",
@@ -511,7 +511,7 @@
     },
     "castle eldina" : {
       "type": "danger",
-      "description": "The great castle Eldian, once the home to King Lumas. You can see what the dark influence of Tyronious had done",
+      "description": "The great castle Eldian, once the home to King Lumas. You can see what the dark influence of Gandolf had done",
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "imagepath": "data/images/Castle.jpeg",
       "map": "data/mapImages/Castle Eldina Map.pdf",
@@ -546,7 +546,7 @@
     },
     "throne room" : {
       "type": "battle",
-      "description": "You have entered the throne room. you can see Tyronious sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
+      "description": "You have entered the throne room. you can see Gandolf sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "imagepath": "data/images/Throne Room.jpeg",
       "map": "data/mapImages/Throne Room Map.pdf",

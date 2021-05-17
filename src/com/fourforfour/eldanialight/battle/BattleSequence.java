@@ -63,7 +63,7 @@ public class BattleSequence implements java.io.Serializable{
 
     // Battle win situation and add awardItem
     public String win() {
-        if(this.enemy.getName().equals("tyronious the black")){
+        if(this.enemy.getName().equals("gandolf the black")){
             Game.gameOver = true;
         }else{
             Game.player.setXp((Game.player.getXp()) + this.enemy.getXp());
