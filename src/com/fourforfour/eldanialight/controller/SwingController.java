@@ -10,11 +10,12 @@ public class SwingController {
         this.gi = gi;
     }
 
+    //this helps us to automatically grab the games current cities description
     public String getDescription() {
         return gi.getDescriptionText();
     }
 
-    // GUI TEST FUNCTIONS
+    // This method takes users input from the GUI and sends to the Game engine
     public String processInput(String input) {
         return gi.submitPlayerString(input);
     }

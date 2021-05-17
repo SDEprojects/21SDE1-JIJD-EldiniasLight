@@ -18,8 +18,7 @@ public class Character implements java.io.Serializable {
 
     //List for the player's items, quest items and equipment
     public HashMap<String, Integer> items = new HashMap<>();
-    public List<String> questItems = new ArrayList<>();
-    transient Scanner scanner = new Scanner(System.in);
+    public List<String> equippedItems = new ArrayList<>();
 
     //CONSTRUCTOR
     //no args
@@ -107,6 +106,10 @@ public class Character implements java.io.Serializable {
         items.put(itemName, value);
     }
 
+    public void addEquippedItem(String itemName) {
+        equippedItems.add(itemName);
+    }
+
     public int getLevel() {
         return level;
     }
@@ -143,6 +146,15 @@ public class Character implements java.io.Serializable {
 
         return "\nItems you can sell from your inventory -->\n" + item;
     }
+
+    public String equibbedItems() {
+        if (equippedItems.size() == 0) {
+            return "";
+        }else{
+            return "\nYour equipped Items -->\n" + equippedItems;
+        }
+    }
+
 
     public int getMaxHealth() {
         return maxHealth;

@@ -37,18 +37,24 @@
       "sword": {
         "name": "sword",
         "attack": 5,
+        "health": 0,
+        "defense": 0,
         "value": 20,
         "hand": "main hand"
       },
       "battleaxe": {
         "name": "battleaxe",
         "attack": 10,
+        "health": 0,
+        "defense": 0,
         "value": 20,
         "hand": "main hand"
       },
       "bow": {
         "name": "bow",
         "attack": 10,
+        "health": 0,
+        "defense": 0,
         "value": 20,
         "hand": "main hand"
       },
@@ -65,6 +71,7 @@
       "shield": {
         "name": "shield",
         "health": 5,
+        "attack": 0,
         "defense": 5,
         "value": 20,
         "hand": "off hand"
@@ -73,6 +80,7 @@
         "name": "chestplate",
         "health": 10,
         "defense": 8,
+        "attack": 0,
         "value": 20,
         "hand": "chest"
       },
@@ -80,6 +88,7 @@
         "name": "lighthelm",
         "health": 5,
         "defense": 5,
+        "attack": 0,
         "value": 20,
         "hand": "off hand"
       }
@@ -300,7 +309,10 @@
       "map": "data/mapImages/Home Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "lucino town" : {
@@ -311,18 +323,24 @@
       "map": "data/mapImages/Lucino Town Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "lucino shops" : {
       "type": "safe",
       "description": "You are in a market place with a variety of shops. You can see the armory, inn, and magic shop. ",
-      "neighbors": ["armory", "magic", "inn", "front gate", "lucino town", "pawnshop"],
-      "imagepath": "data/images/Goblin.jpeg",
+      "neighbors": ["armory", "magic", "front gate", "lucino town", "pawnshop"],
+      "imagepath": "data/images/lucino shops (1).jpeg",
       "map": "data/mapImages/Lucino Shops Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "pawnshop" : {
@@ -333,7 +351,10 @@
       "map": "data/mapImages/Pawn Shop Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "armory" : {
@@ -341,26 +362,19 @@
       "description": "You are in a shop with magnificent weapons on the wall and all over the place. Swords and shield, and battleaxes all for sale",
       "neighbors": ["lucino shops", "training grounds"],
       "imagepath": "data/images/armory.jpeg",
-      "map": "data/mapImages/Armory Map.pdf",
+      "map": "data/mapImages/Armory Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ],
       "npc": {
         "name": "hank",
         "type": "shop",
         "items": "armorylist"
       }
-    },
-    "lucino town hall" : {
-      "type": "safe",
-      "description": "Welcome to the Lucino town hall! ",
-      "neighbors": ["lucino town"],
-      "imagepath": "data/images/Lucino Town Hall.png",
-      "commands": [
-        "view items",
-        "view stats"
-      ]
     },
     "magic" : {
       "type": "shop",
@@ -370,7 +384,10 @@
       "map": "data/mapImages/Magic Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ],
       "npc": {
         "name": "hans",
@@ -386,18 +403,24 @@
       "map": "data/mapImages/Front Gate Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "open world" : {
       "type": "danger",
       "description": "A vast open area, you see a sign that point to the evil forest, badlands, fire mountain and castle Eldina",
-      "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle Eldina"],
+      "neighbors": ["front gate", "badlands", "evil forest", "fire mountain", "castle eldina"],
       "imagepath": "data/images/openWorld.jpeg",
-      "map": "data/mapImages/Open World Map.pdf",
+      "map": "data/mapImages/Open World Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "evil forest" : {
@@ -405,10 +428,13 @@
       "description": "A forest full of brown trees. there is a odd smell in the air. There are two trial, one leading deeper into the forest and the second to the giant's lair",
       "neighbors": ["open world", "inner evil forest", "evil forest lair"],
       "imagepath": "data/images/Evil Forest.jpeg",
-      "map": "data/mapImages/Evil Forest Map.pdf",
+      "map": "data/mapImages/Evil Forest Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "inner evil forest" : {
@@ -416,25 +442,29 @@
       "description": "The path takes you deeper into the forest and it starts to get darker. There is is another path that takes you to what looks like a lair of some type. You can hear a sinister sound you turn and prepare for battle",
       "neighbors": ["evil forest", "evil forest lair"],
       "imagepath": "data/images/Inner Evil Forest.jpeg",
-      "map": "data/mapImages/Inner Evil Forest.pdf",
+      "map": "data/mapImages/Inner Evil Forest-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "evil forest lair" : {
       "type": "danger",
       "description": "The forest seems to have open up and the tree seem to no longer block the little light in the sky. You can see the two trails that lead here, you can see the remains of the giant's victims scattered on the ground. Suddenly you hear a loud thud followed by another, they seem to be getting get closer",
       "neighbors": ["evil forest", "inner evil forest"],
-      "imagepath": "Evil Forest Lair.jpeg",
-      "map": "data/mapImages/Inner Evil Forst Lair Map.pdf",
+      "imagepath": "data/images/Evil Forest Lair.jpeg",
+      "map": "data/mapImages/Inner Evil Forst Lair Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "badlands" : {
@@ -442,10 +472,13 @@
       "description": "You find yourself if a desolate land. You can tell that it was once full of life, but that life has been drained by the dark powers of Tyronious. There is sign pointing to fang hill and Elki town",
       "neighbors": ["open world", "elki town", "fang hill"],
       "imagepath": "data/images/Badlands.jpeg",
-      "map": "data/mapImages/Bad Lands Map.pdf",
+      "map": "data/mapImages/Bad Lands Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "elki town" : {
@@ -453,10 +486,13 @@
       "description": "A small town that sits within the badlands. The people seem to be on edge",
       "neighbors": ["badlands", "fang hill"],
       "imagepath": "data/images/Elki Town.jpeg",
-      "map": "data/mapImages/Elki Town Map.pdf",
+      "map": "data/mapImages/Elki Town Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "fang hill" : {
@@ -464,12 +500,14 @@
       "description": "A hill covered area known to be home of wolves. You should be careful as they can attack from anywhere",
       "neighbors": ["badlands", "elki town"],
       "imagepath": "data/images/fang hill (1).jpeg",
-      "map": "data/mapImages/Fang Hill Map.pdf",
+      "map": "data/mapImages/Fang Hill Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "fire mountain" : {
@@ -477,10 +515,13 @@
       "description": "You have come to the area of Fire Mountain the highest area of all the land. you can see the red glow from the lava within and the large smoke cloud it makes. It is know to the be the home of deadly dragon you can see the path that takes you to the base of the mountain",
       "neighbors": ["badlands", "Elki town", "base","cave"],
       "imagepath": "data/images/Fire Mountain.jpeg",
-      "map": "data/mapImages/Fire Mountain Map.pdf",
+      "map": "data/mapImages/Fire Mountain Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "base" : {
@@ -488,12 +529,14 @@
       "description": "You have made it to the the base of the mountain. Above you can see a cave that is home to the dragon, there seems to be a something moving towards you that doesn't want you to reach the cave",
       "neighbors": ["fire mountain", "cave"],
       "imagepath": "data/images/Base.jpeg",
-      "map": "",
+      "map": "data/mapImages/Base Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "cave" : {
@@ -501,12 +544,14 @@
       "description": "You have climbed the mountain face and reached a cave. You enter and the smell of sulfur hangs in the air. It seems to get warmer as you mover further in steeping over the charred skeletons. Suddenly there is a bright light and you hear a roar.",
       "neighbors": ["fire mountain", "base"],
       "imagepath": "data/images/Cave.jpeg",
-      "map": "data/mapImages/Cave Map.pdf",
+      "map": "data/mapImages/Cave Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "castle eldina" : {
@@ -514,10 +559,13 @@
       "description": "The great castle Eldian, once the home to King Lumas. You can see what the dark influence of Tyronious had done",
       "neighbors": ["open world", "training grounds", "dungeon", "throne room"],
       "imagepath": "data/images/Castle.jpeg",
-      "map": "data/mapImages/Castle Eldina Map.pdf",
+      "map": "data/mapImages/Castle Eldina Map-1.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "training grounds" : {
@@ -528,7 +576,10 @@
       "map": "data/mapImages/Training Grounds Map.png",
       "commands": [
         "view items",
-        "view stats"
+        "view stats",
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "dungeon" : {
@@ -536,12 +587,14 @@
       "description": "You find yourself in the castle dungeon. Those once held as prisoners have been changed into monsters",
       "neighbors": ["training grounds", "castle eldina","throne room"],
       "imagepath": "data/images/Dungeon.jpeg",
-      "map": "data/mapImages/Dungeon Map.pdf",
+      "map": "data/mapImages/Dungeon Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     },
     "throne room" : {
@@ -549,12 +602,14 @@
       "description": "You have entered the throne room. you can see Tyronious sitting with a sinister grin upon his face. You can feel his evil intent as you prepare yourself for battle!",
       "neighbors": ["castle eldina", "dungeon","training grounds"],
       "imagepath": "data/images/Throne Room.jpeg",
-      "map": "data/mapImages/Throne Room Map.pdf",
+      "map": "data/mapImages/Throne Room Map-1.png",
       "commands": [
         "view items",
         "view stats",
         "attack",
-        "item"
+        "equip itemName",
+        "remove itemName",
+        "map"
       ]
     }
   }

@@ -57,7 +57,6 @@ import java.awt.event.ActionListener;
         @Override
         public void actionPerformed(ActionEvent e){
 
-            System.out.println(textY);
             textY--;
             if(textY < -400){
                 creditTimer.stop();

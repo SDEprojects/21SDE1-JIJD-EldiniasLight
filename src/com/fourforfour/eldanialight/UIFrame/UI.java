@@ -15,7 +15,7 @@ public class UI extends JFrame{
     //FIELDS
     private SwingController controller;
     private final int FRAME_X_SIZE = 600;
-    private final int FRAME_Y_SIZE = 900;
+    private final int FRAME_Y_SIZE = 920;
     private JTextArea displayArea;
     private JTextField playerInputTF;
     private JLabel saveGameMsgLbl;
@@ -23,14 +23,9 @@ public class UI extends JFrame{
     private JLabel titleLabel;
     private JTextArea playerMessageLbl;
     private JButton submitCommandBtn;
-    Credits credits;
-
 
     public UI(SwingController controller) {
         this.controller = controller;
-        this.add(credits);
-
-
         //SETTING UP FRAME
         setLocation(100,100);
         setSize(FRAME_X_SIZE,FRAME_Y_SIZE);
@@ -60,7 +55,7 @@ public class UI extends JFrame{
 
         //Setting up main display area that contains the messages
         displayArea = new JTextArea(25,40);
-        displayArea.setBounds(15,315,570,250);
+        displayArea.setBounds(15,315,570,300);
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
@@ -71,7 +66,7 @@ public class UI extends JFrame{
 
         //Setting up the text area to show the commands available
         playerMessageLbl = new JTextArea(15,40);
-        playerMessageLbl.setBounds(15,570,570,120);
+        playerMessageLbl.setBounds(15,625,570,165);
         playerMessageLbl.setEditable(false);
         playerMessageLbl.append("Welcome Champion and thank you for coming to aid of Eldinia!!");
         playerMessageLbl.append("\nTell us about this brave soul who has come to defeat Tyronious the Black.\n");
@@ -83,7 +78,7 @@ public class UI extends JFrame{
         add(playerMessageLbl);
 
         saveGameMsgLbl = new JLabel("use save/load commands to save/load game", SwingConstants.CENTER);
-        saveGameMsgLbl.setBounds(70,715,430,30);
+        saveGameMsgLbl.setBounds(70,790,430,30);
         JLabel label = new JLabel("I'm bold");
         Font font = new Font("Courier", Font.BOLD,12);
         saveGameMsgLbl.setFont(font);
@@ -93,7 +88,7 @@ public class UI extends JFrame{
 
         //Setting up player's text input area
         playerInputTF = new JTextField();
-        playerInputTF.setBounds(70,695,430,30);
+        playerInputTF.setBounds(70,815,430,30);
         playerInputTF.addActionListener(new HandleSubmitButtonPressEnter());
         playerInputTF.setBackground(Color.BLACK);
         playerInputTF.setForeground(Color.ORANGE);
@@ -106,7 +101,7 @@ public class UI extends JFrame{
 
         //Submit button
         submitCommandBtn = new JButton();
-        submitCommandBtn.setBounds(250,740,75,25);
+        submitCommandBtn.setBounds(250,845,75,25);
         submitCommandBtn.setText("Submit");
         submitCommandBtn.addActionListener(new HandleSubmitButtonWhenClicked());
         add(submitCommandBtn);
@@ -114,8 +109,16 @@ public class UI extends JFrame{
     }
 
     private void processSubmitInput(){
+
         String inputText = playerInputTF.getText().toLowerCase();
         String result = controller.processInput(inputText);
+
+        if(result.equals("gameOver")){
+            this.setVisible(false);
+            Credits credits = new Credits();
+            credits.setVisible(true);
+        }
+
         playerMessageLbl.setText(result);
         String displayData = controller.getDescription();
         displayArea.setText(displayData);

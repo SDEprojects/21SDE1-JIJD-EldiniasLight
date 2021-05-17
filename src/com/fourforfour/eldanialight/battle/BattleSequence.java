@@ -23,7 +23,6 @@ public class BattleSequence implements java.io.Serializable{
 
 
     // set the character health to max and perform action according to the player's input: attack, use item, run(), fight()
-
     // player wins a battle if enemy health < 1 and loses when player's health is < 1
     public String attack() {
         String result;
@@ -53,7 +52,8 @@ public class BattleSequence implements java.io.Serializable{
 
     // print stats
     public String printCurrentStats() {
-        return "Your Current total health is :" + Game.player.getHealth() +
+        return " You are currently fighting " + this.enemy.getName() +
+                "\nYour Current total health is :" + Game.player.getHealth() +
                 "\n" + "Your current total attacking power is :" + (Game.player.getStrength() + enemy.getSpeed()) +
                 "\n" + this.enemy.getName() + "'s current total health is " + this.enemy.getHealth() +
                 "\n" + this.enemy.getName() + "'s current total attacking power is :" + (this.enemy.getStrength() + this.enemy.getSpeed()) +
@@ -61,30 +61,28 @@ public class BattleSequence implements java.io.Serializable{
                 "\n" + "If you attack the enemy will attack back.";
     }
 
-    // Battle win situation and add awardItem
+    //When the player kills the enemy this method adds to the players stats, and takes them back to the previous location
     public String win() {
         if(this.enemy.getName().equals("tyronious the black")){
             Game.gameOver = true;
         }else{
             Game.player.setXp((Game.player.getXp()) + this.enemy.getXp());
             Game.player.setBezos((Game.player.getBezos()) + this.enemy.getBezos());
-            Game.player.questItems.add(this.enemy.rewardItem);
             Game.changeCity(Game.previousCity);
             stillFighting = false;
             return "You have defeated " + this.enemy.getName() +
                     "\nYou have earned " + Game.player.getXp() + "XP and " + Game.player.getBezos() + " Bezos" +
-                    "\nYou received a " + this.enemy.rewardItem +
                     "\n" + Game.player.checkLevelUp();
         }
         return null;
     }
 
-    // battle lose situation and set currentArea to Lucino Town
+    // This is called when the player dies and sets the currentArea to Lucino Town
     public String lose() {
         Game.player.setHealth(Game.player.getMaxHealth());
         Game.changeCity("lucino town");
         stillFighting = false;
         return "You have been killed by " + this.enemy.getName() +
-        "\n You will respawned at lucino town";
+        "\n You have respawned at lucino town";
     }
 }
